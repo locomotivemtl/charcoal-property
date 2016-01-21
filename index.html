@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Charcoal-property by locomotivemtl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Charcoal-property</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/locomotivemtl/charcoal-property" class="btn">View on GitHub</a>
+      <a href="https://github.com/locomotivemtl/charcoal-property/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/locomotivemtl/charcoal-property/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="charcoal-property" class="anchor" href="#charcoal-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Charcoal Property</h1>
+
+<p>Properties define objects (metadata).</p>
+
+<h1>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install</h1>
+
+<p>The preferred (and only suppported) way of installing <em>charcoal-property</em> is with <strong>composer</strong>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ composer require locomotivemtl/charcoal-property</pre></div>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li><a href="http:///php.net"><code>PHP 5.5+</code></a></li>
+</ul>
+
+<h1>
+<a id="property-options" class="anchor" href="#property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Property options</h1>
+
+<p>The basic property interface requires the following methods:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>val</strong></td>
+<td align="center"></td>
+<td><em>mixed</em></td>
+<td>The actual property's data value.</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td align="center"></td>
+<td><em>TranslationString</em></td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>l10n</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td>If true, then the data should be stored in a l10n-aware structure (be translatable).s</td>
+</tr>
+<tr>
+<td><strong>hidden</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>multiple</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td>Multiple values can be held and stored, if true.</td>
+</tr>
+<tr>
+<td><strong>required</strong></td>
+<td align="center">✓</td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>unique</strong></td>
+<td align="center">✓</td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>allow_null</strong></td>
+<td align="center">✓</td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>storable</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>active</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h3>
+<a id="data-retrieval" class="anchor" href="#data-retrieval" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data retrieval</h3>
+
+<p>The <em>raw</em> data held in a property can be accessed with <code>set_val()</code> and <code>val()</code>.
+To get a string-safe, displaybale value, use <code>display_val()</code>. To get the storage-ready format, use <code>storage_val()</code>.</p>
+
+<blockquote>
+<p>⚠ Even for string properties <code>val()</code> is not sure to return string values (a property can be multiple, or l10n, for example) so use <code>display_val()</code> when working with displayable stirng is crucial.</p>
+</blockquote>
+
+<h2>
+<a id="default-validation" class="anchor" href="#default-validation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default validation</h2>
+
+<p>Validation is provided with a <code>Validator</code> object, from charcoal-core.</p>
+
+<ul>
+<li><code>required</code></li>
+<li><code>unique</code></li>
+<li><code>allow_null</code></li>
+</ul>
+
+<h2>
+<a id="source-and-storage-methods" class="anchor" href="#source-and-storage-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Source and storage methods</h2>
+
+<p>Properties need 3 method to integrate with a SQL source:</p>
+
+<ul>
+<li>
+<code>sql_extra()</code> <em>string</em> Raw SQL string that will be appended to</li>
+<li>
+<code>sql_type()</code> <em>string</em> The SQL column type (ex: <code>VARCHAR(16)</code>)</li>
+<li>
+<code>sql_pdo_type()</code> <em>integer</em> The PDO column type (ex: <code>PDO::PARAM_STR</code>)</li>
+</ul>
+
+<blockquote>
+<p><g-emoji alias="point_right" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png">👉</g-emoji> Those methods are <em>abstract</em> and therefore must be implemented in actual properties.</p>
+</blockquote>
+
+<h1>
+<a id="types-of-properties" class="anchor" href="#types-of-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Types of properties</h1>
+
+<ul>
+<li><a href="#boolean-property">Boolean</a></li>
+<li><del>Color</del></li>
+<li>
+<del>Date</del>
+
+<ul>
+<li><a href="#datetime-property">Datetime</a></li>
+<li><del>Day</del></li>
+<li><del>Month</del></li>
+<li><del>Time</del></li>
+<li><del>Year</del></li>
+</ul>
+</li>
+<li>
+<a href="#file-property">File</a>
+
+<ul>
+<li><a href="#file-audio-property">Audio</a></li>
+<li><a href="#image-property">Image</a></li>
+<li><del>Video</del></li>
+</ul>
+</li>
+<li><a href="#lang-property">Lang</a></li>
+<li>
+<a href="#number-property">Number</a>
+
+<ul>
+<li><del>Float</del></li>
+<li><del>Integer</del></li>
+</ul>
+</li>
+<li><a href="#object-property">Object</a></li>
+<li>Id</li>
+<li>
+<a href="#string-property">String</a>
+
+<ul>
+<li><a href="#html-string-property">Html</a></li>
+<li><a href="#password-string-property">Password</a></li>
+<li><a href="#phone-string-property">Phone</a></li>
+<li><a href="#text-string-propery">Text</a></li>
+</ul>
+</li>
+<li>
+<del>Structure</del>
+
+<ul>
+<li><a href="#map-structure-property">MapStructure</a></li>
+</ul>
+</li>
+</ul>
+
+<p>Retrieve</p>
+
+<h2>
+<a id="boolean-property" class="anchor" href="#boolean-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Boolean Property</h2>
+
+<p>The boolean property is one of the simplest possible: it simply holds boolean (<code>true</code> / <code>false</code>) values.</p>
+
+<h3>
+<a id="boolean-property-options" class="anchor" href="#boolean-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Boolean Property options</h3>
+
+<p>The boolean property adds the following concepts to the <a href="#basic-property-options">basic property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>true_label</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>max</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td align="center"></td>
+<td><em>string</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<blockquote>
+<p>⚠ Boolean properties can not be multiple. (<code>multiple()</code> will always return false). Calling <code>set_multiple(true)</code> will throw an exception</p>
+</blockquote>
+
+<h2>
+<a id="datetime-property" class="anchor" href="#datetime-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Datetime Property</h2>
+
+<p>The datetime property store a date (and time) value.</p>
+
+<h3>
+<a id="datetime-property-options" class="anchor" href="#datetime-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Datetime Property options</h3>
+
+<p>The datetime property adds the following concepts to the <a href="#basic-property-options">basic property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>min</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>max</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>...</td>
+</tr>
+<tr>
+<td><strong>format</strong></td>
+<td align="center"></td>
+<td><em>string</em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<blockquote>
+<p>⚠ Datetime properties can not be multiple. (<code>multiple()</code> will always return false). Calling <code>set_multiple(true)</code> will throw an exception</p>
+</blockquote>
+
+<h2>
+<a id="file-property" class="anchor" href="#file-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File Property</h2>
+
+<p>File property holds an uploadable file.</p>
+
+<h3>
+<a id="values" class="anchor" href="#values" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Values</h3>
+
+<p>Note that only a <em>relative</em><sup>1</sup> file path should be stored in the database.</p>
+
+<p><sup>1</sup> Relative to project's <code>ROOT</code> + the property's <code>upload_path</code>.</p>
+
+<h3>
+<a id="file-property-options" class="anchor" href="#file-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>File Property options</h3>
+
+<p>The file property adds the following concepts to the <a href="#basic-property-options">basic property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>upload_path</strong></td>
+<td align="center"></td>
+<td><em>string</em></td>
+<td>The folder, relative to <code>ROOT</code>, where the file will be uploaded to.</td>
+</tr>
+<tr>
+<td><strong>overwrite</strong></td>
+<td align="center"></td>
+<td><em>bool</em></td>
+<td>If true, when a target file already exists it will be overwrited. If false, a new unique name will be generated (with a suffix).</td>
+</tr>
+<tr>
+<td><strong>accepted_mimeypes</strong></td>
+<td align="center">✓</td>
+<td><em>string[]</em></td>
+<td>List of accepted mimetypes. Empty / null to accept all types.</td>
+</tr>
+<tr>
+<td><strong>max_filesize</strong></td>
+<td align="center">✓</td>
+<td><em>integer</em></td>
+<td>Maximum alowed file size, in bytes.</td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h3>
+<a id="additional-file-methods" class="anchor" href="#additional-file-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Additional file methods</h3>
+
+<ul>
+<li>
+<code>mimetype()</code> and <code>set_mimetype()</code>
+</li>
+<li>
+<code>filesize()</code> and <code>set_filesize()</code>
+</li>
+<li><code>data_upload()</code></li>
+<li><code>file_upload()</code></li>
+</ul>
+
+<h3>
+<a id="specialized-file-properties" class="anchor" href="#specialized-file-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specialized File properties</h3>
+
+<ul>
+<li><a href="#audio-file-property"><code>AudioProperty</code></a></li>
+<li><a href="#image-file-property"><code>PasswordProperty</code></a></li>
+<li><a href="#phone-string-property"><code>PhoneProperty</code></a></li>
+<li><del>VideoProperty</del></li>
+</ul>
+
+<h2>
+<a id="audio-file-property" class="anchor" href="#audio-file-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Audio File Property</h2>
+
+<p>Audio property are specialized <a href="#file-property">file property</a> thay may only contain audio data.</p>
+
+<h3>
+<a id="accepted-mimetypes" class="anchor" href="#accepted-mimetypes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accepted mimetypes</h3>
+
+<p>The <code>AudioProperty</code> extends <code>FileProperty</code> therefore provides "accepted mimetypes".</p>
+
+<p>Default accepted mimetypes are:</p>
+
+<ul>
+<li><code>audio/mp3</code></li>
+<li><code>audio/mpeg</code></li>
+<li><code>audio/wav</code></li>
+<li>
+<code>audio/x-wav</code>.</li>
+</ul>
+
+<h3>
+<a id="audio-file-property-options" class="anchor" href="#audio-file-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Audio file Property options</h3>
+
+<p>The audio property adds the following concepts to the <a href="#file-property-options">file property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>min_length</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>Minimum audio length, in seconds.</td>
+</tr>
+<tr>
+<td><strong>max_length</strong></td>
+<td align="center">✓</td>
+<td><em>DateTime</em></td>
+<td>Maximum audio length, in seconds.</td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h2>
+<a id="image-file-property" class="anchor" href="#image-file-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Image File Property</h2>
+
+<p>Image property are specialized <a href="#file-property">file property</a> thay may only contain image data.</p>
+
+<h3>
+<a id="accepted-mimetypes-1" class="anchor" href="#accepted-mimetypes-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Accepted mimetypes</h3>
+
+<p>The <code>ImageProperty</code> extends <code>FileProperty</code> therefore provides "accepted mimetypes".</p>
+
+<p>Default accepted mimetypes are:</p>
+
+<ul>
+<li><code>image/gif</code></li>
+<li><code>image/jpg</code></li>
+<li><code>image/jpeg</code></li>
+<li><code>image/pjpeg</code></li>
+<li><code>image/png</code></li>
+<li><code>image/svg+xml</code></li>
+</ul>
+
+<h3>
+<a id="image-file-property-options" class="anchor" href="#image-file-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Image file Property options</h3>
+
+<p>The audio property adds the following concepts to the <a href="#file-property-options">file property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>effects</strong></td>
+<td align="center">✓</td>
+<td><em>array</em></td>
+<td>Array of <code>charcoal-image</code> effects options.</td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h2>
+<a id="lang-property" class="anchor" href="#lang-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lang Property</h2>
+
+<p>Language properties hold a language value.</p>
+
+<h2>
+<a id="number-property" class="anchor" href="#number-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Number Property</h2>
+
+<p>Number properties hold any kind of numeric data.</p>
+
+<h2>
+<a id="object-property" class="anchor" href="#object-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Object Property</h2>
+
+<p>Object properties hold a reference to an external object of a certain type.</p>
+
+<h3>
+<a id="values-1" class="anchor" href="#values-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Values</h3>
+
+<p>The target's <code>identifer</code> (determined by its <em>obj-type</em>'s <code>key</code>, which is typically "id") is the only thing held in the value / stored in the database. When displayed (with <code>display_val()</code>), a string representation of the object should be rendered.</p>
+
+<h3>
+<a id="object-property-options" class="anchor" href="#object-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Object Property options</h3>
+
+<p>The object property adds the following concepts to the <a href="#basic-property-options">basic property options</a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>obj-type</strong></td>
+<td align="center">✓</td>
+<td><em>string</em></td>
+<td>The target object's type. In a string format that can be fetched with a <code>ModelFactory</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h2>
+<a id="string-property" class="anchor" href="#string-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String Property</h2>
+
+<h3>
+<a id="string-property-options" class="anchor" href="#string-property-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String Property options</h3>
+
+<p>The string property adds the following concepts to the basic property options:</p>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th align="center">(V)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>max_length</strong></td>
+<td align="center">✓</td>
+<td><em>integer</em></td>
+<td>Maximum allowed length, in (<em>multibytes</em>) characters.</td>
+</tr>
+<tr>
+<td><strong>min_length</strong></td>
+<td align="center">✓</td>
+<td><em>integer</em></td>
+<td>Minimum allowed length, in (<em>multibytes</em>) characters.</td>
+</tr>
+<tr>
+<td><strong>regexp</strong></td>
+<td align="center">✓</td>
+<td><em>string</em></td>
+<td>A validation regular expression that must be matched exactly.</td>
+</tr>
+<tr>
+<td><strong>allow_empty</strong></td>
+<td align="center">✓</td>
+<td><em>bool</em></td>
+<td>If empty strings are allowed.</td>
+</tr>
+</tbody>
+</table>
+
+<p>(V) indicates options used in validation</p>
+
+<h3>
+<a id="string-default-data" class="anchor" href="#string-default-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>String default data</h3>
+
+<p>By default, the <code>string</code> property is targetted at small string (a maximum length) of <code>255</code> characters</p>
+
+<h3>
+<a id="specialized-string-properties" class="anchor" href="#specialized-string-properties" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Specialized String properties</h3>
+
+<ul>
+<li><a href="#html-string-property"><code>HtmlProperty</code></a></li>
+<li><a href="#password-string-property"><code>PasswordProperty</code></a></li>
+<li><a href="#phone-string-property"><code>PhoneProperty</code></a></li>
+<li><a href="#text-string-property"><code>TextProperty</code></a></li>
+</ul>
+
+<h2>
+<a id="html-string-property" class="anchor" href="#html-string-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Html String Property</h2>
+
+<p>HTML properties are specialized <a href="#string-property">string property</a> that may only contain HTML strings (instead of plain string).</p>
+
+<h2>
+<a id="password-string-property" class="anchor" href="#password-string-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Password String Property</h2>
+
+<p>Password properties are specialized <a href="#string-property">string property</a> that holds (encrypted) password data.</p>
+
+<p>Encryption is performed with PHP's <code>password_hash</code> function.</p>
+
+<h2>
+<a id="phone-string-property" class="anchor" href="#phone-string-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phone String Property</h2>
+
+<p>Phone properties are specialized <a href="#string-property">string property</a> that holds a phone number.</p>
+
+<p>Right now, only "north-american" phone number styles are supported.</p>
+
+<h2>
+<a id="text-string-property" class="anchor" href="#text-string-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Text String Property</h2>
+
+<p>Text properties are specialized <a href="#string-property">string property</a> thay typically holds longer text strings.</p>
+
+<h2>
+<a id="map-structure-property" class="anchor" href="#map-structure-property" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Map Structure Property</h2>
+
+<p>Map structure properties hold complex map structure data, which can be points (markers), lines and / or polygons.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/locomotivemtl/charcoal-property">Charcoal-property</a> is maintained by <a href="https://github.com/locomotivemtl">locomotivemtl</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
