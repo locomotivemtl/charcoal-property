@@ -197,7 +197,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.UrlProperty.html#7-27" title="Go to source code">Charcoal/Property/UrlProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.UrlProperty.html#7-55" title="Go to source code">Charcoal/Property/UrlProperty.php</a>
 		<br>
 	</div>
 
@@ -217,7 +217,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.Property.UrlProperty.html#20-26" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.UrlProperty.html#48-54" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -402,6 +402,87 @@ Charcoal\Config\AbstractEntity
 
 
 
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="DIEGO_PERINI_PATTERN" id="DIEGO_PERINI_PATTERN">
+
+		<td class="attributes"><code><code><a href="class-Charcoal.Property.StringProperty.html#DEFAULT_REGEXP">Charcoal\Property\StringProperty::<b>DEFAULT_REGEXP</b></a></code></code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Charcoal.Property.UrlProperty.html#12-44" title="Go to source code"><b>DIEGO_PERINI_PATTERN</b></a>
+			</code>
+
+			<div class="description short">
+				<p>Regular Expression for validating a URL.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Regular Expression for validating a URL.</p>
+
+					<h4>Link</h4>
+					<div class="list">
+							<a href="https://mathiasbynens.be/demo/url-regex">In search for the perfect regular expression</a><br>
+							<a href="https://gist.github.com/729294">Using Diego Perini&#039;s version</a><br>
+					</div>
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#DIEGO_PERINI_PATTERN" class="anchor">#</a>
+				<code><span class="php-quote">'_^
+    (?:(?&lt;scheme&gt;https?|ftp)://)
+    (?:
+        (?&lt;user&gt;\S+)
+        (?::(?&lt;pass&gt;\S*))?
+    @)?
+    (?&lt;host&gt;
+        (?!(?:10|127)(?:\.\d{1,3}){3})
+        (?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})
+        (?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})
+        (?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])
+        (?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}
+        (?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))
+    |
+        (?:(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)
+        (?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)*
+        (?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,}))
+        \.?
+    )
+    (?&lt;port&gt;:\d{2,5})?
+    (?:(?=\/?)
+        (?&lt;path&gt;\/[^\?\#\s[:cntrl:]]*)?
+        (?:\?(?&lt;query&gt;[^\#\s[:cntrl:]]*))?
+        (?:\#(?&lt;fragment&gt;[^\s[:cntrl:]]*))?
+    )?
+$_iuSx'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="DEFAULT_URL_PATTERN" id="DEFAULT_URL_PATTERN">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Charcoal.Property.UrlProperty.html#46" title="Go to source code"><b>DEFAULT_URL_PATTERN</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#DEFAULT_URL_PATTERN" class="anchor">#</a>
+				<code><code><a href="class-Charcoal.Property.UrlProperty.html#DIEGO_PERINI_PATTERN">Charcoal\Property\UrlProperty::<b>DIEGO_PERINI_PATTERN</b></a></code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 	<table class="summary inherited">
 	<caption>Constants inherited from <a href="class-Charcoal.Property.StringProperty.html#constants">Charcoal\Property\StringProperty</a></caption>
