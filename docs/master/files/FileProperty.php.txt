@@ -2,15 +2,17 @@
 
 namespace Charcoal\Property;
 
-// Dependencies from `PHP`
 use \Exception;
 use \InvalidArgumentException;
 
-// Dependencies from `PHP` extensions
+// Dependencies from PHP extensions
 use \finfo;
 use \PDO;
 
-// Intra-Module `charcoal-property` dependencies
+// Dependency from Pimple
+use \Pimple\Container;
+
+// Intra-Module `charcoal-property` dependency
 use \Charcoal\Property\AbstractProperty;
 
 /**
@@ -18,48 +20,66 @@ use \Charcoal\Property\AbstractProperty;
  */
 class FileProperty extends AbstractProperty
 {
-
     /**
-     * Public access flag, wether the file should be accessible from web root or not.
-     * @var boolean $publicAccess
+     * Whether uploaded files should be accessible from the web root.
+     *
+     * @var boolean
      */
     private $publicAccess = false;
 
     /**
-     * The upload path is a {{patern}}.
-     * @var string $UploadPath
+     * The relative path to the storage directory.
+     *
+     * @var string
      */
     private $uploadPath = 'uploads/';
 
     /**
-     * @var boolean $overwrite
+     * The base path for the Charcoal installation.
+     *
+     * @var string
+     */
+    private $basePath;
+
+    /**
+     * The path to the public / web directory.
+     *
+     * @var string
+     */
+    private $publicPath;
+
+    /**
+     * Whether existing destinations should be overwritten.
+     *
+     * @var boolean
      */
     private $overwrite = false;
 
     /**
-     * @var string[] $acceptedMimetypes
+     * Collection of accepted MIME types.
+     *
+     * @var string[]
      */
     private $acceptedMimetypes = [];
 
     /**
-     * Maximum allowed file size, in bytes.
-     * If null or 0, then no limit.
-     * Default to 128M
-     * @var integer $maxFilesize
-     */
-    private $maxFilesize = 134220000;
-
-    /**
      * Current file mimetype
      *
-     * @var string $mimetype
+     * @var string
      */
     private $mimetype;
 
     /**
+     * Maximum allowed file size, in bytes.
+     *
+     * @var integer
+     */
+    private $maxFilesize;
+
+    /**
      * Current file size, in bytes.
      *
-     * @var integer $Filesize
+     * @var integer
      */
     private $filesize;
 
@@ -72,41 +92,33 @@ class FileProperty extends AbstractProperty
     }
 
     /**
-     * @return string
+     * Inject dependencies from a DI Container.
+     *
+     * @param  Container $container A dependencies container instance.
+     * @return void
      */
-    protected function basePath()
+    public function setDependencies(Container $container)
     {
-        if (class_exists('\Charcoal\App\App')) {
-            $basePath = \Charcoal\App\App::instance()->config()->get('base_path');
-        } else {
-            $basePath = '';
-        }
-        $basePath = rtrim($basePath, '/').'/';
-        if ($this->publicAccess()) {
-            $basePath .= $this->publicPath();
-        }
-        return $basePath;
+        $this->basePath   = $container['config']['base_path'];
+        $this->publicPath = $container['config']['public_path'];
     }
 
     /**
-     * @return string
-     */
-    protected function publicPath()
-    {
-        return 'www/';
-    }
-
-    /**
-     * @param boolean $public The public access flag.
-     * @return FileProperty Chainable
+     * Set whether uploaded files should be publicly available.
+     *
+     * @param boolean $public Whether uploaded files should be accessible (TRUE) or not (FALSE) from the web root.
+     * @return self
      */
     public function setPublicAccess($public)
     {
         $this->publicAccess = !!$public;
+
         return $this;
     }
 
     /**
+     * Determine if uploaded files should be publicly available.
+     *
      * @return boolean
      */
     public function publicAccess()
@@ -115,23 +127,45 @@ class FileProperty extends AbstractProperty
     }
 
     /**
-     * @param string $uploadPath The upload path, relative to project's root.
-     * @throws InvalidArgumentException If the upload path is not a string.
-     * @return FileProperty Chainable
+     * Retrieve the path to the storage directory.
+     *
+     * @return string
      */
-    public function setUploadPath($uploadPath)
+    protected function basePath()
     {
-        if (!is_string($uploadPath)) {
+        if ($this->publicAccess()) {
+            return $this->publicPath;
+        } else {
+            return $this->basePath;
+        }
+    }
+
+    /**
+     * Set the destination (directory) where uploaded files are stored.
+     *
+     * The path must be relative to the {@see self::basePath()},
+     *
+     * @param string $path The destination directory, relative to project's root.
+     * @throws InvalidArgumentException If the path is not a string.
+     * @return self
+     */
+    public function setUploadPath($path)
+    {
+        if (!is_string($path)) {
             throw new InvalidArgumentException(
                 'Upload path must be a string'
             );
         }
+
         // Sanitize upload path (force trailing slash)
-        $this->uploadPath = rtrim($uploadPath, '/').'/';
+        $this->uploadPath = rtrim($path, '/').'/';
+
         return $this;
     }
 
     /**
+     * Retrieve the destination for the uploaded file(s).
+     *
      * @return string
      */
     public function uploadPath()
@@ -140,21 +174,26 @@ class FileProperty extends AbstractProperty
     }
 
     /**
-     * @param boolean $overwrite The overwrite flag.
-     * @return FileProperty Chainable
+     * Set whether existing destinations should be overwritten.
+     *
+     * @param boolean $overwrite Whether existing destinations should be overwritten (TRUE) or not (FALSE).
+     * @return self
      */
     public function setOverwrite($overwrite)
     {
         $this->overwrite = !!$overwrite;
+
         return $this;
     }
 
     /**
+     * Determine if existing destinations should be overwritten.
+     *
      * @return boolean
      */
     public function overwrite()
     {
-        return !!$this->overwrite;
+        return $this->overwrite;
     }
 
     /**
@@ -173,30 +212,6 @@ class FileProperty extends AbstractProperty
     public function acceptedMimetypes()
     {
         return $this->acceptedMimetypes;
-    }
-
-    /**
-     * @param integer $size The maximum file size allowed, in bytes.
-     * @throws InvalidArgumentException If the size argument is not an integer.
-     * @return FileProperty Chainable
-     */
-    public function setMaxFilesize($size)
-    {
-        if (!is_int($size)) {
-            throw new InvalidArgumentException(
-                'Max filesize must be an integer, in bytes.'
-            );
-        }
-        $this->maxFilesize = $size;
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function maxFilesize()
-    {
-        return $this->maxFilesize;
     }
 
     /**
@@ -230,6 +245,90 @@ class FileProperty extends AbstractProperty
             $this->mimetype = $info->file($val);
         }
         return $this->mimetype;
+    }
+
+    /**
+     * Converts a php.ini notation for size to an integer.
+     *
+     * @param  mixed $size A php.ini notation for size.
+     * @throws InvalidArgumentException If the given parameter is invalid.
+     * @return integer Returns the size in bytes.
+     */
+    protected function parseIniSize($size)
+    {
+        if (is_numeric($size)) {
+            return $size;
+        }
+
+        if (!is_string($size)) {
+            throw new InvalidArgumentException(
+                'Size must be an integer (in bytes, e.g.: 1024) or a string (e.g.: 1M).'
+            );
+        }
+
+        $quant = 'bkmgtpezy';
+        $unit  = preg_replace('/[^'.$quant.']/i', '', $size);
+        $size  = preg_replace('/[^0-9\.]/', '', $size);
+
+        if ($unit) {
+            $size = ($size * pow(1024, stripos($quant, $unit[0])));
+        }
+
+        return round($size);
+    }
+
+    /**
+     * Set the maximium size accepted for an uploaded files.
+     *
+     * @param string|integer $size The maximum file size allowed, in bytes.
+     * @throws InvalidArgumentException If the size argument is not an integer.
+     * @return FileProperty Chainable
+     */
+    public function setMaxFilesize($size)
+    {
+        $this->maxFilesize = $this->parseIniSize($size);
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the maximum size accepted for uploaded files.
+     *
+     * If null or 0, then no limit. Defaults to 128 MB.
+     *
+     * @return integer
+     */
+    public function maxFilesize()
+    {
+        if (!isset($this->maxFilesize)) {
+            return $this->maxFilesizeAllowedByPhp();
+        }
+
+        return $this->maxFilesize;
+    }
+
+    /**
+     * Retrieve the maximum size (in bytes) allowed for an uploaded file
+     * as configured in {@link http://php.net/manual/en/ini.php `php.ini`}.
+     *
+     * @param string|null $iniDirective If $iniDirective is provided, then it is filled with
+     *     the name of the PHP INI directive corresponding to the maximum size allowed.
+     * @return integer
+     */
+    public function maxFilesizeAllowedByPhp(&$iniDirective = null)
+    {
+        $post_max_size       = $this->parseIniSize(ini_get('post_max_size'));
+        $upload_max_filesize = $this->parseIniSize(ini_get('upload_max_filesize'));
+
+        if ($post_max_size < $upload_max_filesize) {
+            $iniDirective = 'post_max_size';
+
+            return $post_max_size;
+        } else {
+            $iniDirective = 'upload_max_filesize';
+
+            return $upload_max_filesize;
+        }
     }
 
     /**
@@ -565,14 +664,7 @@ class FileProperty extends AbstractProperty
             if ($this->overwrite() === true) {
                 return $target;
             } else {
-                // Can not overwrite. Must rename file. (@todo)
-                $info = pathinfo($filename);
-
-                $filename = $info['filename'].'-'.uniqid();
-                if (isset($info['extension']) && $info['extension']) {
-                    $filename .= '.'.$info['extension'];
-                }
-                $target = $dir.$filename;
+                $target = $dir.$this->generateUniqueFilename($filename);
             }
         }
 
@@ -594,6 +686,7 @@ class FileProperty extends AbstractProperty
         if (file_exists($file)) {
             return true;
         }
+
         if ($case_insensitive === false) {
             return false;
         }
@@ -618,7 +711,7 @@ class FileProperty extends AbstractProperty
     {
         // Remove blacklisted caharacters
         $blacklist = ['/', '\\', '\0', '*', ':', '?', '"', '<', '>', '|', '#', '&', '!', '`', ' '];
-        $filename = str_replace($blacklist, '_', $filename);
+        $filename  = str_replace($blacklist, '_', $filename);
 
         // Avoid hidden file
         $filename = ltrim($filename, '.');
@@ -627,11 +720,13 @@ class FileProperty extends AbstractProperty
     }
 
     /**
+     * Generate a new filename from the property.
+     *
      * @return string
      */
     public function generateFilename()
     {
-        $filename = $this->label().' '.date('Y-m-d H-i-s');
+        $filename  = $this->label().' '.date('Y-m-d H-i-s');
         $extension = $this->generateExtension();
 
         if ($extension) {
@@ -642,6 +737,28 @@ class FileProperty extends AbstractProperty
     }
 
     /**
+     * Generate a unique filename.
+     *
+     * @param string $filename The filename to alter.
+     * @return string
+     * @todo Improve this feature Can not overwrite. Must rename file.
+     */
+    public function generateUniqueFilename($filename)
+    {
+        $info = pathinfo($filename);
+
+        $filename = $info['filename'].'-'.uniqid();
+
+        if (isset($info['extension']) && $info['extension']) {
+            $filename .= '.'.$info['extension'];
+        }
+
+        return $filename;
+    }
+
+    /**
+     * Generate the file extension from the property's value.
+     *
      * @return string
      */
     public function generateExtension()
