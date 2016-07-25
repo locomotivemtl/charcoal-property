@@ -683,7 +683,7 @@
 </span><span id="566" class="l"><a href="#566">566: </a>                    <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
 </span><span id="567" class="l"><a href="#567">567: </a>                }
 </span><span id="568" class="l"><a href="#568">568: </a>            };
-</span><span id="569" class="l"><a href="#569">569: </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">preg_replace_callback</span>(<span class="php-quote">'~{{(.*?)}}~i'</span>, <span class="php-var">$cb</span>, <span class="php-var">$pattern</span>);
+</span><span id="569" class="l"><a href="#569">569: </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">preg_replace_callback</span>(<span class="php-quote">'~\{\{\s*(.*?)\s*\}\}~i'</span>, <span class="php-var">$cb</span>, <span class="php-var">$pattern</span>);
 </span><span id="570" class="l"><a href="#570">570: </a>        }
 </span><span id="571" class="l"><a href="#571">571: </a>    }
 </span><span id="572" class="l"><a href="#572">572: </a>
