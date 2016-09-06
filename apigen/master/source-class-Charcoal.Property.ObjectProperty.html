@@ -648,117 +648,118 @@
 </span><span id="531" class="l"><a href="#531">531: </a>            }
 </span><span id="532" class="l"><a href="#532">532: </a>        }
 </span><span id="533" class="l"><a href="#533">533: </a>
-</span><span id="534" class="l"><a href="#534">534: </a>        <span class="php-var">$choice</span> = [
-</span><span id="535" class="l"><a href="#535">535: </a>            <span class="php-quote">'value'</span> =&gt; <span class="php-var">$obj</span>-&gt;id(),
-</span><span id="536" class="l"><a href="#536">536: </a>            <span class="php-quote">'label'</span> =&gt; <span class="php-var">$this</span>-&gt;objPattern(<span class="php-var">$obj</span>),
-</span><span id="537" class="l"><a href="#537">537: </a>            <span class="php-quote">'title'</span> =&gt; <span class="php-var">$this</span>-&gt;objPattern(<span class="php-var">$obj</span>)
-</span><span id="538" class="l"><a href="#538">538: </a>        ];
-</span><span id="539" class="l"><a href="#539">539: </a>
-</span><span id="540" class="l"><a href="#540">540: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_callable</span>([ <span class="php-var">$obj</span>, <span class="php-quote">'icon'</span> ])) {
-</span><span id="541" class="l"><a href="#541">541: </a>            <span class="php-var">$choice</span>[<span class="php-quote">'icon'</span>] = <span class="php-var">$obj</span>-&gt;icon();
-</span><span id="542" class="l"><a href="#542">542: </a>        }
-</span><span id="543" class="l"><a href="#543">543: </a>
-</span><span id="544" class="l"><a href="#544">544: </a>        <span class="php-keyword1">return</span> <span class="php-var">$choice</span>;
-</span><span id="545" class="l"><a href="#545">545: </a>    }
-</span><span id="546" class="l"><a href="#546">546: </a>
-</span><span id="547" class="l"><a href="#547">547: </a>    <span class="php-comment">/**
-</span></span><span id="548" class="l"><a href="#548">548: </a><span class="php-comment">     * Render the choice from the object.
-</span></span><span id="549" class="l"><a href="#549">549: </a><span class="php-comment">     *
-</span></span><span id="550" class="l"><a href="#550">550: </a><span class="php-comment">     * @param ModelInterface|ViewableInterface $obj The object or view to render as a label.
-</span></span><span id="551" class="l"><a href="#551">551: </a><span class="php-comment">     * @return string
-</span></span><span id="552" class="l"><a href="#552">552: </a><span class="php-comment">     */</span>
-</span><span id="553" class="l"><a href="#553">553: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> objPattern(<span class="php-var">$obj</span>)
-</span><span id="554" class="l"><a href="#554">554: </a>    {
-</span><span id="555" class="l"><a href="#555">555: </a>        <span class="php-var">$pattern</span> = (string)<span class="php-var">$this</span>-&gt;<span class="php-keyword2">pattern</span>();
-</span><span id="556" class="l"><a href="#556">556: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span> <span class="php-keyword1">instanceof</span> ViewableInterface &amp;&amp; <span class="php-var">$obj</span>-&gt;view() !== <span class="php-keyword1">null</span>) {
-</span><span id="557" class="l"><a href="#557">557: </a>            <span class="php-keyword1">return</span> <span class="php-var">$obj</span>-&gt;render(<span class="php-var">$pattern</span>);
-</span><span id="558" class="l"><a href="#558">558: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="559" class="l"><a href="#559">559: </a>            <span class="php-var">$cb</span> = <span class="php-keyword1">function</span> (<span class="php-var">$matches</span>) <span class="php-keyword1">use</span> (<span class="php-var">$obj</span>) {
-</span><span id="560" class="l"><a href="#560">560: </a>                <span class="php-var">$method</span> = <span class="php-keyword2">trim</span>(<span class="php-var">$matches</span>[<span class="php-num">1</span>]);
-</span><span id="561" class="l"><a href="#561">561: </a>                <span class="php-keyword1">if</span> (<span class="php-keyword2">method_exists</span>(<span class="php-var">$obj</span>, <span class="php-var">$method</span>)) {
-</span><span id="562" class="l"><a href="#562">562: </a>                    <span class="php-keyword1">return</span> <span class="php-keyword2">call_user_func</span>([<span class="php-var">$obj</span>, <span class="php-var">$method</span>]);
-</span><span id="563" class="l"><a href="#563">563: </a>                } <span class="php-keyword1">elseif</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$obj</span>[<span class="php-var">$method</span>])) {
-</span><span id="564" class="l"><a href="#564">564: </a>                    <span class="php-keyword1">return</span> <span class="php-var">$obj</span>[<span class="php-var">$method</span>];
-</span><span id="565" class="l"><a href="#565">565: </a>                } <span class="php-keyword1">else</span> {
-</span><span id="566" class="l"><a href="#566">566: </a>                    <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="567" class="l"><a href="#567">567: </a>                }
-</span><span id="568" class="l"><a href="#568">568: </a>            };
-</span><span id="569" class="l"><a href="#569">569: </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">preg_replace_callback</span>(<span class="php-quote">'~\{\{\s*(.*?)\s*\}\}~i'</span>, <span class="php-var">$cb</span>, <span class="php-var">$pattern</span>);
-</span><span id="570" class="l"><a href="#570">570: </a>        }
-</span><span id="571" class="l"><a href="#571">571: </a>    }
-</span><span id="572" class="l"><a href="#572">572: </a>
-</span><span id="573" class="l"><a href="#573">573: </a>    <span class="php-comment">/**
-</span></span><span id="574" class="l"><a href="#574">574: </a><span class="php-comment">     * Retrieve an object by its ID.
-</span></span><span id="575" class="l"><a href="#575">575: </a><span class="php-comment">     *
-</span></span><span id="576" class="l"><a href="#576">576: </a><span class="php-comment">     * Loads the object from the cache store or from the storage source.
-</span></span><span id="577" class="l"><a href="#577">577: </a><span class="php-comment">     *
-</span></span><span id="578" class="l"><a href="#578">578: </a><span class="php-comment">     * @param mixed $id Object id.
-</span></span><span id="579" class="l"><a href="#579">579: </a><span class="php-comment">     * @return ModelInterface
-</span></span><span id="580" class="l"><a href="#580">580: </a><span class="php-comment">     */</span>
-</span><span id="581" class="l"><a href="#581">581: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObject(<span class="php-var">$id</span>)
-</span><span id="582" class="l"><a href="#582">582: </a>    {
-</span><span id="583" class="l"><a href="#583">583: </a>        <span class="php-var">$cached</span> = <span class="php-var">$this</span>-&gt;loadObjectFromCache(<span class="php-var">$id</span>);
-</span><span id="584" class="l"><a href="#584">584: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$cached</span> !== <span class="php-keyword1">null</span>) {
-</span><span id="585" class="l"><a href="#585">585: </a>            <span class="php-keyword1">return</span> <span class="php-var">$cached</span>;
-</span><span id="586" class="l"><a href="#586">586: </a>        }
-</span><span id="587" class="l"><a href="#587">587: </a>
-</span><span id="588" class="l"><a href="#588">588: </a>        <span class="php-var">$obj</span> = <span class="php-var">$this</span>-&gt;loadObjectFromSource(<span class="php-var">$id</span>);
-</span><span id="589" class="l"><a href="#589">589: </a>
-</span><span id="590" class="l"><a href="#590">590: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span> !== <span class="php-keyword1">null</span>) {
-</span><span id="591" class="l"><a href="#591">591: </a>            <span class="php-var">$this</span>-&gt;addObjectToCache(<span class="php-var">$obj</span>);
-</span><span id="592" class="l"><a href="#592">592: </a>        }
-</span><span id="593" class="l"><a href="#593">593: </a>
-</span><span id="594" class="l"><a href="#594">594: </a>        <span class="php-keyword1">return</span> <span class="php-var">$obj</span>;
-</span><span id="595" class="l"><a href="#595">595: </a>    }
-</span><span id="596" class="l"><a href="#596">596: </a>
-</span><span id="597" class="l"><a href="#597">597: </a>    <span class="php-comment">/**
-</span></span><span id="598" class="l"><a href="#598">598: </a><span class="php-comment">     * Retrieve an object from the storage source by its ID.
-</span></span><span id="599" class="l"><a href="#599">599: </a><span class="php-comment">     *
-</span></span><span id="600" class="l"><a href="#600">600: </a><span class="php-comment">     * @param mixed $id The object id.
-</span></span><span id="601" class="l"><a href="#601">601: </a><span class="php-comment">     * @return null|ModelInterface
-</span></span><span id="602" class="l"><a href="#602">602: </a><span class="php-comment">     */</span>
-</span><span id="603" class="l"><a href="#603">603: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObjectFromSource(<span class="php-var">$id</span>)
-</span><span id="604" class="l"><a href="#604">604: </a>    {
-</span><span id="605" class="l"><a href="#605">605: </a>        <span class="php-var">$obj</span> = <span class="php-var">$this</span>-&gt;modelFactory()-&gt;create(<span class="php-var">$this</span>-&gt;objType());
-</span><span id="606" class="l"><a href="#606">606: </a>        <span class="php-var">$obj</span>-&gt;load(<span class="php-var">$id</span>);
-</span><span id="607" class="l"><a href="#607">607: </a>
-</span><span id="608" class="l"><a href="#608">608: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span>-&gt;id()) {
-</span><span id="609" class="l"><a href="#609">609: </a>            <span class="php-keyword1">return</span> <span class="php-var">$obj</span>;
-</span><span id="610" class="l"><a href="#610">610: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="611" class="l"><a href="#611">611: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
-</span><span id="612" class="l"><a href="#612">612: </a>        }
-</span><span id="613" class="l"><a href="#613">613: </a>    }
-</span><span id="614" class="l"><a href="#614">614: </a>
-</span><span id="615" class="l"><a href="#615">615: </a>    <span class="php-comment">/**
-</span></span><span id="616" class="l"><a href="#616">616: </a><span class="php-comment">     * Retrieve an object from the cache store by its ID.
-</span></span><span id="617" class="l"><a href="#617">617: </a><span class="php-comment">     *
-</span></span><span id="618" class="l"><a href="#618">618: </a><span class="php-comment">     * @param mixed $id The object id.
-</span></span><span id="619" class="l"><a href="#619">619: </a><span class="php-comment">     * @return null|ModelInterface
-</span></span><span id="620" class="l"><a href="#620">620: </a><span class="php-comment">     */</span>
-</span><span id="621" class="l"><a href="#621">621: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObjectFromCache(<span class="php-var">$id</span>)
-</span><span id="622" class="l"><a href="#622">622: </a>    {
-</span><span id="623" class="l"><a href="#623">623: </a>        <span class="php-var">$objType</span> = <span class="php-var">$this</span>-&gt;objType();
-</span><span id="624" class="l"><a href="#624">624: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$objType</span>][<span class="php-var">$id</span>])) {
-</span><span id="625" class="l"><a href="#625">625: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$objType</span>][<span class="php-var">$id</span>];
-</span><span id="626" class="l"><a href="#626">626: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="627" class="l"><a href="#627">627: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
-</span><span id="628" class="l"><a href="#628">628: </a>        }
-</span><span id="629" class="l"><a href="#629">629: </a>    }
-</span><span id="630" class="l"><a href="#630">630: </a>
-</span><span id="631" class="l"><a href="#631">631: </a>    <span class="php-comment">/**
-</span></span><span id="632" class="l"><a href="#632">632: </a><span class="php-comment">     * Add an object to the cache store.
-</span></span><span id="633" class="l"><a href="#633">633: </a><span class="php-comment">     *
-</span></span><span id="634" class="l"><a href="#634">634: </a><span class="php-comment">     * @param ModelInterface $obj The object to store.
-</span></span><span id="635" class="l"><a href="#635">635: </a><span class="php-comment">     * @return ObjectProperty Chainable
-</span></span><span id="636" class="l"><a href="#636">636: </a><span class="php-comment">     */</span>
-</span><span id="637" class="l"><a href="#637">637: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> addObjectToCache(ModelInterface <span class="php-var">$obj</span>)
-</span><span id="638" class="l"><a href="#638">638: </a>    {
-</span><span id="639" class="l"><a href="#639">639: </a>        <span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$this</span>-&gt;objType()][<span class="php-var">$obj</span>-&gt;id()] = <span class="php-var">$obj</span>;
-</span><span id="640" class="l"><a href="#640">640: </a>
-</span><span id="641" class="l"><a href="#641">641: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="642" class="l"><a href="#642">642: </a>    }
-</span><span id="643" class="l"><a href="#643">643: </a>}
-</span><span id="644" class="l"><a href="#644">644: </a></span></code></pre>
+</span><span id="534" class="l"><a href="#534">534: </a>        <span class="php-var">$label</span>  = <span class="php-var">$this</span>-&gt;objPattern(<span class="php-var">$obj</span>);
+</span><span id="535" class="l"><a href="#535">535: </a>        <span class="php-var">$choice</span> = [
+</span><span id="536" class="l"><a href="#536">536: </a>            <span class="php-quote">'value'</span> =&gt; <span class="php-var">$obj</span>-&gt;id(),
+</span><span id="537" class="l"><a href="#537">537: </a>            <span class="php-quote">'label'</span> =&gt; <span class="php-var">$label</span>,
+</span><span id="538" class="l"><a href="#538">538: </a>            <span class="php-quote">'title'</span> =&gt; <span class="php-var">$label</span>
+</span><span id="539" class="l"><a href="#539">539: </a>        ];
+</span><span id="540" class="l"><a href="#540">540: </a>
+</span><span id="541" class="l"><a href="#541">541: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_callable</span>([ <span class="php-var">$obj</span>, <span class="php-quote">'icon'</span> ])) {
+</span><span id="542" class="l"><a href="#542">542: </a>            <span class="php-var">$choice</span>[<span class="php-quote">'icon'</span>] = <span class="php-var">$obj</span>-&gt;icon();
+</span><span id="543" class="l"><a href="#543">543: </a>        }
+</span><span id="544" class="l"><a href="#544">544: </a>
+</span><span id="545" class="l"><a href="#545">545: </a>        <span class="php-keyword1">return</span> <span class="php-var">$choice</span>;
+</span><span id="546" class="l"><a href="#546">546: </a>    }
+</span><span id="547" class="l"><a href="#547">547: </a>
+</span><span id="548" class="l"><a href="#548">548: </a>    <span class="php-comment">/**
+</span></span><span id="549" class="l"><a href="#549">549: </a><span class="php-comment">     * Render the choice from the object.
+</span></span><span id="550" class="l"><a href="#550">550: </a><span class="php-comment">     *
+</span></span><span id="551" class="l"><a href="#551">551: </a><span class="php-comment">     * @param ModelInterface|ViewableInterface $obj The object or view to render as a label.
+</span></span><span id="552" class="l"><a href="#552">552: </a><span class="php-comment">     * @return string
+</span></span><span id="553" class="l"><a href="#553">553: </a><span class="php-comment">     */</span>
+</span><span id="554" class="l"><a href="#554">554: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> objPattern(<span class="php-var">$obj</span>)
+</span><span id="555" class="l"><a href="#555">555: </a>    {
+</span><span id="556" class="l"><a href="#556">556: </a>        <span class="php-var">$pattern</span> = (string)<span class="php-var">$this</span>-&gt;<span class="php-keyword2">pattern</span>();
+</span><span id="557" class="l"><a href="#557">557: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span> <span class="php-keyword1">instanceof</span> ViewableInterface &amp;&amp; <span class="php-var">$obj</span>-&gt;view() !== <span class="php-keyword1">null</span>) {
+</span><span id="558" class="l"><a href="#558">558: </a>            <span class="php-keyword1">return</span> <span class="php-var">$obj</span>-&gt;render(<span class="php-var">$pattern</span>);
+</span><span id="559" class="l"><a href="#559">559: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="560" class="l"><a href="#560">560: </a>            <span class="php-var">$cb</span> = <span class="php-keyword1">function</span> (<span class="php-var">$matches</span>) <span class="php-keyword1">use</span> (<span class="php-var">$obj</span>) {
+</span><span id="561" class="l"><a href="#561">561: </a>                <span class="php-var">$method</span> = <span class="php-keyword2">trim</span>(<span class="php-var">$matches</span>[<span class="php-num">1</span>]);
+</span><span id="562" class="l"><a href="#562">562: </a>                <span class="php-keyword1">if</span> (<span class="php-keyword2">method_exists</span>(<span class="php-var">$obj</span>, <span class="php-var">$method</span>)) {
+</span><span id="563" class="l"><a href="#563">563: </a>                    <span class="php-keyword1">return</span> <span class="php-keyword2">call_user_func</span>([<span class="php-var">$obj</span>, <span class="php-var">$method</span>]);
+</span><span id="564" class="l"><a href="#564">564: </a>                } <span class="php-keyword1">elseif</span> (<span class="php-keyword1">isset</span>(<span class="php-var">$obj</span>[<span class="php-var">$method</span>])) {
+</span><span id="565" class="l"><a href="#565">565: </a>                    <span class="php-keyword1">return</span> <span class="php-var">$obj</span>[<span class="php-var">$method</span>];
+</span><span id="566" class="l"><a href="#566">566: </a>                } <span class="php-keyword1">else</span> {
+</span><span id="567" class="l"><a href="#567">567: </a>                    <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="568" class="l"><a href="#568">568: </a>                }
+</span><span id="569" class="l"><a href="#569">569: </a>            };
+</span><span id="570" class="l"><a href="#570">570: </a>            <span class="php-keyword1">return</span> <span class="php-keyword2">preg_replace_callback</span>(<span class="php-quote">'~\{\{\s*(.*?)\s*\}\}~i'</span>, <span class="php-var">$cb</span>, <span class="php-var">$pattern</span>);
+</span><span id="571" class="l"><a href="#571">571: </a>        }
+</span><span id="572" class="l"><a href="#572">572: </a>    }
+</span><span id="573" class="l"><a href="#573">573: </a>
+</span><span id="574" class="l"><a href="#574">574: </a>    <span class="php-comment">/**
+</span></span><span id="575" class="l"><a href="#575">575: </a><span class="php-comment">     * Retrieve an object by its ID.
+</span></span><span id="576" class="l"><a href="#576">576: </a><span class="php-comment">     *
+</span></span><span id="577" class="l"><a href="#577">577: </a><span class="php-comment">     * Loads the object from the cache store or from the storage source.
+</span></span><span id="578" class="l"><a href="#578">578: </a><span class="php-comment">     *
+</span></span><span id="579" class="l"><a href="#579">579: </a><span class="php-comment">     * @param mixed $id Object id.
+</span></span><span id="580" class="l"><a href="#580">580: </a><span class="php-comment">     * @return ModelInterface
+</span></span><span id="581" class="l"><a href="#581">581: </a><span class="php-comment">     */</span>
+</span><span id="582" class="l"><a href="#582">582: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObject(<span class="php-var">$id</span>)
+</span><span id="583" class="l"><a href="#583">583: </a>    {
+</span><span id="584" class="l"><a href="#584">584: </a>        <span class="php-var">$cached</span> = <span class="php-var">$this</span>-&gt;loadObjectFromCache(<span class="php-var">$id</span>);
+</span><span id="585" class="l"><a href="#585">585: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$cached</span> !== <span class="php-keyword1">null</span>) {
+</span><span id="586" class="l"><a href="#586">586: </a>            <span class="php-keyword1">return</span> <span class="php-var">$cached</span>;
+</span><span id="587" class="l"><a href="#587">587: </a>        }
+</span><span id="588" class="l"><a href="#588">588: </a>
+</span><span id="589" class="l"><a href="#589">589: </a>        <span class="php-var">$obj</span> = <span class="php-var">$this</span>-&gt;loadObjectFromSource(<span class="php-var">$id</span>);
+</span><span id="590" class="l"><a href="#590">590: </a>
+</span><span id="591" class="l"><a href="#591">591: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span> !== <span class="php-keyword1">null</span>) {
+</span><span id="592" class="l"><a href="#592">592: </a>            <span class="php-var">$this</span>-&gt;addObjectToCache(<span class="php-var">$obj</span>);
+</span><span id="593" class="l"><a href="#593">593: </a>        }
+</span><span id="594" class="l"><a href="#594">594: </a>
+</span><span id="595" class="l"><a href="#595">595: </a>        <span class="php-keyword1">return</span> <span class="php-var">$obj</span>;
+</span><span id="596" class="l"><a href="#596">596: </a>    }
+</span><span id="597" class="l"><a href="#597">597: </a>
+</span><span id="598" class="l"><a href="#598">598: </a>    <span class="php-comment">/**
+</span></span><span id="599" class="l"><a href="#599">599: </a><span class="php-comment">     * Retrieve an object from the storage source by its ID.
+</span></span><span id="600" class="l"><a href="#600">600: </a><span class="php-comment">     *
+</span></span><span id="601" class="l"><a href="#601">601: </a><span class="php-comment">     * @param mixed $id The object id.
+</span></span><span id="602" class="l"><a href="#602">602: </a><span class="php-comment">     * @return null|ModelInterface
+</span></span><span id="603" class="l"><a href="#603">603: </a><span class="php-comment">     */</span>
+</span><span id="604" class="l"><a href="#604">604: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObjectFromSource(<span class="php-var">$id</span>)
+</span><span id="605" class="l"><a href="#605">605: </a>    {
+</span><span id="606" class="l"><a href="#606">606: </a>        <span class="php-var">$obj</span> = <span class="php-var">$this</span>-&gt;modelFactory()-&gt;create(<span class="php-var">$this</span>-&gt;objType());
+</span><span id="607" class="l"><a href="#607">607: </a>        <span class="php-var">$obj</span>-&gt;load(<span class="php-var">$id</span>);
+</span><span id="608" class="l"><a href="#608">608: </a>
+</span><span id="609" class="l"><a href="#609">609: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$obj</span>-&gt;id()) {
+</span><span id="610" class="l"><a href="#610">610: </a>            <span class="php-keyword1">return</span> <span class="php-var">$obj</span>;
+</span><span id="611" class="l"><a href="#611">611: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="612" class="l"><a href="#612">612: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="613" class="l"><a href="#613">613: </a>        }
+</span><span id="614" class="l"><a href="#614">614: </a>    }
+</span><span id="615" class="l"><a href="#615">615: </a>
+</span><span id="616" class="l"><a href="#616">616: </a>    <span class="php-comment">/**
+</span></span><span id="617" class="l"><a href="#617">617: </a><span class="php-comment">     * Retrieve an object from the cache store by its ID.
+</span></span><span id="618" class="l"><a href="#618">618: </a><span class="php-comment">     *
+</span></span><span id="619" class="l"><a href="#619">619: </a><span class="php-comment">     * @param mixed $id The object id.
+</span></span><span id="620" class="l"><a href="#620">620: </a><span class="php-comment">     * @return null|ModelInterface
+</span></span><span id="621" class="l"><a href="#621">621: </a><span class="php-comment">     */</span>
+</span><span id="622" class="l"><a href="#622">622: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> loadObjectFromCache(<span class="php-var">$id</span>)
+</span><span id="623" class="l"><a href="#623">623: </a>    {
+</span><span id="624" class="l"><a href="#624">624: </a>        <span class="php-var">$objType</span> = <span class="php-var">$this</span>-&gt;objType();
+</span><span id="625" class="l"><a href="#625">625: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(<span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$objType</span>][<span class="php-var">$id</span>])) {
+</span><span id="626" class="l"><a href="#626">626: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$objType</span>][<span class="php-var">$id</span>];
+</span><span id="627" class="l"><a href="#627">627: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="628" class="l"><a href="#628">628: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="629" class="l"><a href="#629">629: </a>        }
+</span><span id="630" class="l"><a href="#630">630: </a>    }
+</span><span id="631" class="l"><a href="#631">631: </a>
+</span><span id="632" class="l"><a href="#632">632: </a>    <span class="php-comment">/**
+</span></span><span id="633" class="l"><a href="#633">633: </a><span class="php-comment">     * Add an object to the cache store.
+</span></span><span id="634" class="l"><a href="#634">634: </a><span class="php-comment">     *
+</span></span><span id="635" class="l"><a href="#635">635: </a><span class="php-comment">     * @param ModelInterface $obj The object to store.
+</span></span><span id="636" class="l"><a href="#636">636: </a><span class="php-comment">     * @return ObjectProperty Chainable
+</span></span><span id="637" class="l"><a href="#637">637: </a><span class="php-comment">     */</span>
+</span><span id="638" class="l"><a href="#638">638: </a>    <span class="php-keyword1">private</span> <span class="php-keyword1">function</span> addObjectToCache(ModelInterface <span class="php-var">$obj</span>)
+</span><span id="639" class="l"><a href="#639">639: </a>    {
+</span><span id="640" class="l"><a href="#640">640: </a>        <span class="php-keyword1">static</span>::<span class="php-var">$objectCache</span>[<span class="php-var">$this</span>-&gt;objType()][<span class="php-var">$obj</span>-&gt;id()] = <span class="php-var">$obj</span>;
+</span><span id="641" class="l"><a href="#641">641: </a>
+</span><span id="642" class="l"><a href="#642">642: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="643" class="l"><a href="#643">643: </a>    }
+</span><span id="644" class="l"><a href="#644">644: </a>}
+</span><span id="645" class="l"><a href="#645">645: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
