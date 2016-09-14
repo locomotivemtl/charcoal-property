@@ -119,7 +119,7 @@
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">8</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">7</span>
                                 </a>
                             </li>
                             <li>
@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-349923112"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-606329506"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-349923112" class="accordion-body collapse in">
+            <div id="namespace-606329506" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1058005900"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-563804556"></a>
                                 <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
             </div>
-            <div id="namespace-1058005900" class="accordion-body collapse ">
+            <div id="namespace-563804556" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1473640854"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1147945162"></a>
                                 <a href="../namespaces/Charcoal.Property.html" style="margin-left: 30px; padding-left: 0">Property</a>
             </div>
-            <div id="namespace-1473640854" class="accordion-body collapse ">
+            <div id="namespace-1147945162" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -1177,7 +1177,7 @@
             <article class="method">
                 <h3 class="public ">parseVal()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">parseVal(mixed  <span class="argument">$val = null</span>) : mixed</pre>
+                <pre class="signature" style="margin-right: 54px;">parseVal(mixed  <span class="argument">$val</span>) : mixed</pre>
                 <p><em>Parse the given value.</em></p>
                 <p>Note: the method returns the current value intact. Other properties can use this method to parse their values,
 such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal">\Charcoal\Property\ObjectProperty::parseVal()</a> who could parse objects into object IDs.</p>
@@ -1217,7 +1217,7 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
             <article class="method">
                 <h3 class="public ">inputVal()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">inputVal(mixed  <span class="argument">$val = null</span>, array  <span class="argument">$options = array()</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">inputVal(mixed  <span class="argument">$val</span>, array  <span class="argument">$options = array()</span>) : string</pre>
                 <p><em></em></p>
                 
 
@@ -1260,7 +1260,7 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
             <article class="method">
                 <h3 class="public ">displayVal()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">displayVal(mixed  <span class="argument">$val = null</span>, array  <span class="argument">$options = array()</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">displayVal(mixed  <span class="argument">$val</span>, array  <span class="argument">$options = array()</span>) : string</pre>
                 <p><em></em></p>
                 
 
@@ -2612,6 +2612,11 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
                 
 
                 
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>If no property factory has been previously set.</p></dd>
+                                                                    </dl>
                 
                                     <h4>Returns</h4>
                     \Charcoal\Factory\FactoryInterface
@@ -2637,18 +2642,10 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
             <article class="method">
                 <h3 class="public ">properties()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">properties(array|null  <span class="argument">$filters = null</span>) : array&lt;mixed,\Charcoal\Property\PropertyInterface&gt;</pre>
+                <pre class="signature" style="margin-right: 54px;">properties() : array&lt;mixed,\Charcoal\Property\PropertyInterface&gt;</pre>
                 <p><em>Return an array of `PropertyInterface`</em></p>
                 
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
-                                <td>array|null</td>
-                                <td>$filters </td>
-                                <td><p>Unused.</p></td>
-                            </tr>
-                                            </table>
                 
                 
                                     <h4>Returns</h4>
@@ -2876,7 +2873,7 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
             <article class="method">
                 <h3 class="public ">storageVal()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">storageVal(mixed  <span class="argument">$val = null</span>) : mixed</pre>
+                <pre class="signature" style="margin-right: 54px;">storageVal(mixed  <span class="argument">$val</span>) : mixed</pre>
                 <p><em>Get the property&#039;s value in a format suitable for storage.</em></p>
                 
 
@@ -3188,7 +3185,7 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on September 14th, 2016 at 01:44.
+                    on September 14th, 2016 at 13:20.
                 </section>
             </section>
         </section>
