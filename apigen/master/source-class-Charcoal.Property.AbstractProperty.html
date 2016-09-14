@@ -840,7 +840,7 @@
 </span><span id="723" class="l"><a href="#723">723: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> createMetadata(<span class="php-keyword1">array</span> <span class="php-var">$data</span> = <span class="php-keyword1">null</span>)
 </span><span id="724" class="l"><a href="#724">724: </a>    {
 </span><span id="725" class="l"><a href="#725">725: </a>        <span class="php-var">$metadata</span> = <span class="php-keyword1">new</span> PropertyMetadata();
-</span><span id="726" class="l"><a href="#726">726: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$data</span> !== <span class="php-keyword1">null</span>) {
+</span><span id="726" class="l"><a href="#726">726: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$data</span>)) {
 </span><span id="727" class="l"><a href="#727">727: </a>            <span class="php-var">$metadata</span>-&gt;setData(<span class="php-var">$data</span>);
 </span><span id="728" class="l"><a href="#728">728: </a>        }
 </span><span id="729" class="l"><a href="#729">729: </a>        <span class="php-keyword1">return</span> <span class="php-var">$metadata</span>;
