@@ -21,6 +21,9 @@ class DateTimeProperty extends AbstractProperty
 {
     const DEFAULT_MIN = null;
     const DEFAULT_MAX = null;
+    /**
+     * @todo [mcaskill: 2016-03-04] DEFAULT_FORMAT should be renamed to SQL_DATETIME
+     */
     const DEFAULT_FORMAT = 'Y-m-d H:i:s';
 
     /**
@@ -97,9 +100,13 @@ class DateTimeProperty extends AbstractProperty
      * @throws Exception If the date/time is invalid.
      * @return string|null
      */
-    public function inputVal($val)
+    public function inputVal($val = null)
     {
-        $val = $this->dateTimeVal($val);
+        if ($val === null) {
+            $val = $this->val();
+        } else {
+            $val = $this->dateTimeVal($val);
+        }
 
         if ($val instanceof DateTimeInterface) {
             return $this->val->format('Y-m-d H:i:s');
@@ -117,12 +124,16 @@ class DateTimeProperty extends AbstractProperty
      * @throws Exception If the date/time is invalid.
      * @return string|null
      */
-    public function storageVal($val)
+    public function storageVal($val = null)
     {
-        $val = $this->dateTimeVal($val);
+        if ($val === null) {
+            $val = $this->val();
+        } else {
+            $val = $this->dateTimeVal($val);
+        }
 
         if ($val instanceof DateTimeInterface) {
-            return $val->format('Y-m-d H:i:s');
+            return $this->val->format('Y-m-d H:i:s');
         } else {
             if ($this->allowNull()) {
                 return null;
@@ -141,9 +152,13 @@ class DateTimeProperty extends AbstractProperty
      * @todo   Adapt for l10n
      * @return string|null
      */
-    public function displayVal($val)
+    public function displayVal($val = null)
     {
-        $val = $this->dateTimeVal($val);
+        if ($val === null) {
+            $val = $this->val();
+        } else {
+            $val = $this->dateTimeVal($val);
+        }
 
         if ($val === null) {
             return '';

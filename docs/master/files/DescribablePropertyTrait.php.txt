@@ -4,10 +4,12 @@ namespace Charcoal\Property;
 
 use \Exception;
 use \InvalidArgumentException;
-use \RuntimeException;
 
 // Module `charcoal-factory` dependencies
 use \Charcoal\Factory\FactoryInterface;
+
+// Local namespace dependency
+use \Charcoal\Property\PropertyFactory;
 
 /**
  * Default implementation, as trait, of the {@see DescribablePropertyInterface}.
@@ -24,7 +26,7 @@ trait DescribablePropertyTrait
     /**
      * @var array $properties
      */
-    protected $properties = [];
+    protected $properties;
 
     /**
      * @param FactoryInterface $factory The property factory, used to create metadata properties.
@@ -40,15 +42,15 @@ trait DescribablePropertyTrait
     /**
      * Safe PropertyFactory getter. Create the factory if it does not exist.
      *
-     * @throws RuntimeException If no property factory has been previously set.
      * @return FactoryInterface
      */
     public function propertyFactory()
     {
         if ($this->propertyFactory === null) {
-            throw new RuntimeException(
-                'Model does not have a property factory.'
+            $this->logger->warning(
+                sprintf('Creating a property factory for describable %s', get_class($this))
             );
+            $this->propertyFactory = new PropertyFactory();
         }
 
         return $this->propertyFactory;
@@ -57,13 +59,13 @@ trait DescribablePropertyTrait
     /**
      * Return an array of `PropertyInterface`
      *
+     * @param array|null $filters Unused.
      * @return PropertyInterface[] Generator.
      */
-    public function properties()
+    public function properties(array $filters = null)
     {
-        // Hack: ensure metadata is loaded.
         $this->metadata();
-
+        // Hack!
         $props = array_keys($this->metadata()->properties());
 
         if (empty($props)) {
@@ -71,7 +73,10 @@ trait DescribablePropertyTrait
         }
 
         foreach ($props as $propertyIdent) {
-            yield $propertyIdent => $this->property($propertyIdent);
+            $property = $this->property($propertyIdent);
+            $filtered = (int)$property->isFiltered($filters);
+            // Get the property object of this definition
+            yield $propertyIdent => $property;
         }
     }
 
@@ -92,12 +97,6 @@ trait DescribablePropertyTrait
         }
 
         $metadata = $this->metadata();
-        $propertyObject = $metadata->propertyObject($propertyIdent);
-        if ($propertyObject !== null) {
-            return $propertyObject;
-        }
-
-
         $props = $metadata->properties();
 
         if (empty($props)) {
@@ -126,12 +125,11 @@ trait DescribablePropertyTrait
         $property->setIdent($propertyIdent);
         $property->setData($propertyMetadata);
 
-        // $propertyValue = $this->propertyValue($propertyIdent);
-        // if ($propertyValue !== null) {
-        //     $property->setVal($propertyValue);
-        // }
+        $property_value = $this->propertyValue($propertyIdent);
+        if ($property_value !== null) {
+            $property->setVal($property_value);
+        }
 
-        $metadata->setPropertyObject($propertyIdent, $property);
         return $property;
     }
 
@@ -180,5 +178,24 @@ trait DescribablePropertyTrait
      * @return mixed
      */
     abstract protected function propertyValue($propertyIdent);
+
+    /**
+     * @todo Implement property filters.
+     * @param array $filters The filters to apply.
+     * @return boolean False if the object doesn't match any filter, true otherwise.
+     */
+    public function isFiltered(array $filters = null)
+    {
+        if ($filters === null) {
+            return false;
+        }
+
+        foreach ($filters as $filterIdent => $filterData) {
+            unset($filterIdent);
+            unset($filterData);
+        }
+
+        return false;
+    }
 }
 
