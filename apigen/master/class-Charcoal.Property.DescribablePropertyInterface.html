@@ -167,7 +167,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#5-34" title="Go to source code">Charcoal/Property/DescribablePropertyInterface.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#8-43" title="Go to source code">Charcoal/Property/DescribablePropertyInterface.php</a>
 		<br>
 	</div>
 
@@ -187,7 +187,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_properties">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#12-17" title="Go to source code">properties</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#15-20" title="Go to source code">properties</a>( )</code>
 
 		<div class="description short">
 			<p>Get the list of properties, as array of <code>PropertyInterface</code></p>
@@ -221,7 +221,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_property">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#19-25" title="Go to source code">property</a>( <span>string <var>$propertyIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#22-28" title="Go to source code">property</a>( <span>string <var>$propertyIdent</var></span> )</code>
 
 		<div class="description short">
 			<p>Get a single property</p>
@@ -260,7 +260,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_p">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#27-33" title="Go to source code">p</a>( <span>mixed <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#30-36" title="Go to source code">p</a>( <span>mixed <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Alias of <code>property()</code> or <code>properties()</code>, depending if argument is set or not.</p>
@@ -279,6 +279,45 @@
 				<h4>Returns</h4>
 				<div class="list">
 					array|<code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code>|null
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isFiltered" id="_isFiltered">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isFiltered">#</a>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#38-42" title="Go to source code">isFiltered</a>( <span>array <var>$filters</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filters</var></dt>
+					<dd>The filters to apply.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>False if the object doesn't match any filter, true otherwise.
 				</div>
 
 
