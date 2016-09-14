@@ -723,7 +723,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     protected function createMetadata(array $data = null)
     {
         $metadata = new PropertyMetadata();
-        if ($data !== null) {
+        if (is_array($data)) {
             $metadata->setData($data);
         }
         return $metadata;
