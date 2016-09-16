@@ -121,10 +121,17 @@
 
 	<div class="description">
 	<p>Defines a model having attributes that allow the formatting of its data.</p>
-
-<p>Complements DescribableInterface.</p>
 	</div>
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>Charcoal\Property\DescribablePropertyInterface</span></b>			
+			 implements 
+<span>Charcoal\Model\DescribableInterface</span>
+			
+			
+		</dd>
+	</dl>
 
 
 
@@ -167,7 +174,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#5-34" title="Go to source code">Charcoal/Property/DescribablePropertyInterface.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#7-35" title="Go to source code">Charcoal/Property/DescribablePropertyInterface.php</a>
 		<br>
 	</div>
 
@@ -190,11 +197,11 @@
 		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#12-17" title="Go to source code">properties</a>( )</code>
 
 		<div class="description short">
-			<p>Get the list of properties, as array of <code>PropertyInterface</code></p>
+			<p>Retrieve the model's properties as a collection of <code>PropertyInterface</code> objects.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Get the list of properties, as array of <code>PropertyInterface</code></p>
+			<p>Retrieve the model's properties as a collection of <code>PropertyInterface</code> objects.</p>
 
 
 
@@ -224,17 +231,17 @@
 		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#19-25" title="Go to source code">property</a>( <span>string <var>$propertyIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Get a single property</p>
+			<p>Retrieve an instance of <code>PropertyInterface</code> for the given property.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Get a single property</p>
+			<p>Retrieve an instance of <code>PropertyInterface</code> for the given property.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$propertyIdent</var></dt>
-					<dd>The ident of the property to get.</dd>
+					<dd>The property identifier to return.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -260,14 +267,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_p">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#27-33" title="Go to source code">p</a>( <span>mixed <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyInterface.html#27-34" title="Go to source code">p</a>( <span>mixed <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			<p>Alias of <code>property()</code> or <code>properties()</code>, depending if argument is set or not.</p>
+			<p>Alias of <a href="self::property()">self::property()</a> and <a href="self::properties()">self::properties()</a>,
+depending if argument is set or not.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Alias of <code>property()</code> or <code>properties()</code>, depending if argument is set or not.</p>
+			<p>Alias of <a href="self::property()">self::property()</a> and <a href="self::properties()">self::properties()</a>,
+depending if argument is set or not.</p>
 
 
 				<h4>Parameters</h4>
