@@ -167,7 +167,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#11-194" title="Go to source code">Charcoal/Property/DescribablePropertyTrait.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#14-223" title="Go to source code">Charcoal/Property/DescribablePropertyTrait.php</a>
 		<br>
 	</div>
 
@@ -187,7 +187,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPropertyFactory">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#25-37" title="Go to source code">setPropertyFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#28-40" title="Go to source code">setPropertyFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
 
 		<div class="description short">
 			<p>Set a property factory.</p>
@@ -226,7 +226,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_propertyFactory">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#39-56" title="Go to source code">propertyFactory</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#42-59" title="Go to source code">propertyFactory</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the property factory.</p>
@@ -264,14 +264,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_properties">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#58-77" title="Go to source code">properties</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#61-80" title="Go to source code">properties</a>( )</code>
 
 		<div class="description short">
-			<p>Retrieve the model's properties as a collection of <code>PropertyInterface</code> objects.</p>
+			<p>Retrieve the model's properties as a collection of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> objects.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieve the model's properties as a collection of <code>PropertyInterface</code> objects.</p>
+			<p>Retrieve the model's properties as a collection of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> objects.</p>
 
 
 
@@ -298,14 +298,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_property">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#79-142" title="Go to source code">property</a>( <span>string <var>$propertyIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#82-111" title="Go to source code">property</a>( <span>string <var>$propertyIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Retrieve an instance of <code>PropertyInterface</code> for the given property.</p>
+			<p>Retrieve an instance of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> for the given property.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Retrieve an instance of <code>PropertyInterface</code> for the given property.</p>
+			<p>Retrieve an instance of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> for the given property.</p>
 
 
 				<h4>Parameters</h4>
@@ -316,7 +316,54 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code><br>The \Charcoal\Model\Property if found, null otherwise
+					<code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code><br>The <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> if found, null otherwise
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the $propertyIdent is not a string.
+				</div>
+
+				<h4>Uses</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.DescribablePropertyTrait.html#_createProperty">Charcoal\Property\DescribablePropertyTrait::createProperty()</a></code><br>Called if the property has not been instantiated.<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createProperty" id="_createProperty">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createProperty">#</a>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#113-159" title="Go to source code">createProperty</a>( <span>string <var>$propertyIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Create an instance of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> for the given property.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create an instance of <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> for the given property.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$propertyIdent</var></dt>
+					<dd>The property identifier to return.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code><br>The <code><a href="class-Charcoal.Property.PropertyInterface.html">Charcoal\Property\PropertyInterface</a></code> if found, null otherwise
 				</div>
 
 				<h4>Throws</h4>
@@ -324,6 +371,51 @@
 					InvalidArgumentException<br>If the $propertyIdent is not a string.<br>
 					RuntimeException<br>If the requested property is invalid.
 				</div>
+
+				<h4>Used by</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.DescribablePropertyTrait.html#_property">Charcoal\Property\DescribablePropertyTrait::property()</a></code><br>Called if the property has not been instantiated.<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="filterPropertyMetadata" id="_filterPropertyMetadata">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_filterPropertyMetadata">#</a>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#161-171" title="Go to source code">filterPropertyMetadata</a>( <span>mixed <var>$propertyMetadata</var></span>, <span>string <var>$propertyIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Filter the given metadata.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Filter the given metadata.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$propertyMetadata</var></dt>
+					<dd>The property data from the described object.</dd>
+					<dt><var>$propertyIdent</var></dt>
+					<dd>The property identifier to return.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br>Return the filtered $propertyMetadata.
+				</div>
+
 
 
 
@@ -342,7 +434,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_p">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#144-164" title="Go to source code">p</a>( <span>string <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#173-193" title="Go to source code">p</a>( <span>string <var>$propertyIdent</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Alias of <a href="DescribablePropertyInterface::property()">DescribablePropertyInterface::property()</a>
@@ -392,7 +484,7 @@ depending if argument is set or not.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasProperty">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#166-185" title="Go to source code">hasProperty</a>( <span>string <var>$propertyIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#195-214" title="Go to source code">hasProperty</a>( <span>string <var>$propertyIdent</var></span> )</code>
 
 		<div class="description short">
 			<p>Determine if the model has the given property.</p>
@@ -435,7 +527,7 @@ depending if argument is set or not.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_propertyValue">#</a>
-		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#187-193" title="Go to source code">propertyValue</a>( <span>string <var>$propertyIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#216-222" title="Go to source code">propertyValue</a>( <span>string <var>$propertyIdent</var></span> )</code>
 
 		<div class="description short">
 			<p>Retrieve the value of the given property.</p>
@@ -484,7 +576,7 @@ depending if argument is set or not.</p>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#18-23" title="Go to source code"><var>$propertyFactory</var></a>
+				<a href="source-class-Charcoal.Property.DescribablePropertyTrait.html#21-26" title="Go to source code"><var>$propertyFactory</var></a>
 
 			<div class="description short">
 				<p>Store the factory instance for the current class.</p>
