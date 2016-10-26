@@ -167,7 +167,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * @throws Exception If the collection loader was not previously set.
      * @return CollectionLoader
      */
-    public function collectionLoader()
+    protected function collectionLoader()
     {
         if (!isset($this->collectionLoader)) {
             throw new Exception(
