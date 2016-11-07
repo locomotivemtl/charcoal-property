@@ -187,7 +187,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-770" title="Go to source code">Charcoal/Property/FileProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-765" title="Go to source code">Charcoal/Property/FileProperty.php</a>
 		<br>
 	</div>
 
@@ -1136,7 +1136,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-561" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-556" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1146,6 +1146,11 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 			
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>value, at time of saving.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -1154,6 +1159,8 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_save">Charcoal\Property\AbstractProperty::save()</a></code></div>
 
 		</div>
 		</div></td>
@@ -1170,7 +1177,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_dataUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#563-597" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#558-592" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
 
 		<div class="description short">
 			<p>Upload to filesystem, from data: content.</p>
@@ -1213,7 +1220,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#599-635" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#594-630" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1256,7 +1263,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_uploadTarget">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#637-674" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#632-669" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1299,7 +1306,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileExists">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#676-704" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$case_insensitive</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#671-699" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$case_insensitive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			<p>This function checks if a file exist, by default in a case-insensitive manner.</p>
@@ -1343,7 +1350,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sanitizeFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#706-722" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#701-717" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Sanitize a filename by removing characters from a blacklist and escaping dot.</p>
@@ -1382,7 +1389,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#724-739" title="Go to source code">generateFilename</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#719-734" title="Go to source code">generateFilename</a>( )</code>
 
 		<div class="description short">
 			<p>Generate a new filename from the property.</p>
@@ -1416,7 +1423,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateUniqueFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#741-759" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#736-754" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Generate a unique filename.</p>
@@ -1455,7 +1462,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateExtension">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#761-769" title="Go to source code">generateExtension</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#756-764" title="Go to source code">generateExtension</a>( )</code>
 
 		<div class="description short">
 			<p>Generate the file extension from the property's value.</p>
