@@ -202,7 +202,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.AbstractProperty.html#36-807" title="Go to source code">Charcoal/Property/AbstractProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.AbstractProperty.html#36-820" title="Go to source code">Charcoal/Property/AbstractProperty.php</a>
 		<br>
 	</div>
 
@@ -519,7 +519,7 @@ Charcoal\Config\AbstractEntity
 	<tr data-order="parseVal" id="_parseVal">
 
 		<td class="attributes"><code>
-			 public 
+			final public 
 
 			mixed
 			
@@ -528,7 +528,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseVal">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#257-293" title="Go to source code">parseVal</a>( <span>mixed <var>$val</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#257-297" title="Go to source code">parseVal</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			<p>Parse the given value.</p>
@@ -540,7 +540,7 @@ Charcoal\Config\AbstractEntity
 <blockquote>
   <p>Note: the base method (defined here) returns the current value intact.
   Other properties can reimplement this method to parse their values,
-  such as <code><a href="class-Charcoal.Property.ObjectProperty.html#_parseVal">Charcoal\Property\ObjectProperty::parseVal()</a></code> who could parse objects into object IDs.</p>
+  such as <code><a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">Charcoal\Property\AbstractProperty::parseVal()</a></code> who could parse objects into object IDs.</p>
 </blockquote>
 
 
@@ -565,6 +565,45 @@ Charcoal\Config\AbstractEntity
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="parseOne" id="_parseOne">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseOne">#</a>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#299-306" title="Go to source code">parseOne</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>A single value to parse.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br>The parsed value.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="inputVal" id="_inputVal">
 
 		<td class="attributes"><code>
@@ -577,7 +616,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_inputVal">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#295-331" title="Go to source code">inputVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#308-344" title="Go to source code">inputVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			
@@ -620,7 +659,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_displayVal">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#333-357" title="Go to source code">displayVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#346-370" title="Go to source code">displayVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			
@@ -663,7 +702,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setLabel">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#359-372" title="Go to source code">setLabel</a>( <span>mixed <var>$label</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#372-385" title="Go to source code">setLabel</a>( <span>mixed <var>$label</var></span> )</code>
 
 		<div class="description short">
 			
@@ -704,7 +743,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_label">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#374-384" title="Go to source code">label</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#387-397" title="Go to source code">label</a>( )</code>
 
 		<div class="description short">
 			
@@ -740,7 +779,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setL10n">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#386-394" title="Go to source code">setL10n</a>( <span>boolean <var>$l10n</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#399-407" title="Go to source code">setL10n</a>( <span>boolean <var>$l10n</var></span> )</code>
 
 		<div class="description short">
 			
@@ -781,7 +820,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_l10n">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#396-404" title="Go to source code">l10n</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#409-417" title="Go to source code">l10n</a>( )</code>
 
 		<div class="description short">
 			<p>The l10n flag sets the property as being translatable, meaning the data is held for multple languages.</p>
@@ -817,7 +856,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setHidden">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#406-414" title="Go to source code">setHidden</a>( <span>boolean <var>$hidden</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#419-427" title="Go to source code">setHidden</a>( <span>boolean <var>$hidden</var></span> )</code>
 
 		<div class="description short">
 			
@@ -858,7 +897,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hidden">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#416-422" title="Go to source code">hidden</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#429-435" title="Go to source code">hidden</a>( )</code>
 
 		<div class="description short">
 			
@@ -894,7 +933,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMultiple">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#424-432" title="Go to source code">setMultiple</a>( <span>boolean <var>$multiple</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#437-445" title="Go to source code">setMultiple</a>( <span>boolean <var>$multiple</var></span> )</code>
 
 		<div class="description short">
 			
@@ -935,7 +974,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_multiple">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#434-446" title="Go to source code">multiple</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#447-459" title="Go to source code">multiple</a>( )</code>
 
 		<div class="description short">
 			<p>The multiple flags sets the property as being "repeatable", or allow to represent an array of multiple values.</p>
@@ -978,7 +1017,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMultipleOptions">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#448-465" title="Go to source code">setMultipleOptions</a>( <span>array <var>$multipleOptions</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#461-478" title="Go to source code">setMultipleOptions</a>( <span>array <var>$multipleOptions</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the multiple options / configuration, when property is <code>multiple</code>.</p>
@@ -1027,7 +1066,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_multipleOptions">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#467-479" title="Go to source code">multipleOptions</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#480-492" title="Go to source code">multipleOptions</a>( )</code>
 
 		<div class="description short">
 			<p>The options defining the property behavior when the multiple flag is set to true.</p>
@@ -1067,7 +1106,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_defaultMultipleOptions">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#481-491" title="Go to source code">defaultMultipleOptions</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#494-504" title="Go to source code">defaultMultipleOptions</a>( )</code>
 
 		<div class="description short">
 			
@@ -1101,7 +1140,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_multipleSeparator">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#493-500" title="Go to source code">multipleSeparator</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#506-513" title="Go to source code">multipleSeparator</a>( )</code>
 
 		<div class="description short">
 			
@@ -1135,7 +1174,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setAllowNull">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#502-510" title="Go to source code">setAllowNull</a>( <span>boolean <var>$allow</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#515-523" title="Go to source code">setAllowNull</a>( <span>boolean <var>$allow</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1174,7 +1213,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_allowNull">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#512-523" title="Go to source code">allowNull</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#525-536" title="Go to source code">allowNull</a>( )</code>
 
 		<div class="description short">
 			<p>The allow null flag sets the property as being able to be of a "null" value.</p>
@@ -1214,7 +1253,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setRequired">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#525-533" title="Go to source code">setRequired</a>( <span>boolean <var>$required</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#538-546" title="Go to source code">setRequired</a>( <span>boolean <var>$required</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1255,7 +1294,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_required">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#535-546" title="Go to source code">required</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#548-559" title="Go to source code">required</a>( )</code>
 
 		<div class="description short">
 			<p>Required flag sets the property as being required, meaning not allowed to be null / empty.</p>
@@ -1297,7 +1336,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUnique">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#548-556" title="Go to source code">setUnique</a>( <span>boolean <var>$unique</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#561-569" title="Go to source code">setUnique</a>( <span>boolean <var>$unique</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1338,7 +1377,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_unique">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#558-564" title="Go to source code">unique</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#571-577" title="Go to source code">unique</a>( )</code>
 
 		<div class="description short">
 			
@@ -1374,7 +1413,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setActive">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#566-574" title="Go to source code">setActive</a>( <span>boolean <var>$active</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#579-587" title="Go to source code">setActive</a>( <span>boolean <var>$active</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1415,7 +1454,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_active">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#576-582" title="Go to source code">active</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#589-595" title="Go to source code">active</a>( )</code>
 
 		<div class="description short">
 			
@@ -1451,7 +1490,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setStorable">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#584-592" title="Go to source code">setStorable</a>( <span>boolean <var>$storable</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#597-605" title="Go to source code">setStorable</a>( <span>boolean <var>$storable</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1492,7 +1531,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_storable">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#594-600" title="Go to source code">storable</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#607-613" title="Go to source code">storable</a>( )</code>
 
 		<div class="description short">
 			
@@ -1528,7 +1567,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDescription">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#602-615" title="Go to source code">setDescription</a>( <span>mixed <var>$description</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#615-628" title="Go to source code">setDescription</a>( <span>mixed <var>$description</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1567,7 +1606,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_description">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#617-623" title="Go to source code">description</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#630-636" title="Go to source code">description</a>( )</code>
 
 		<div class="description short">
 			
@@ -1601,7 +1640,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setNotes">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#625-638" title="Go to source code">setNotes</a>( <span>mixed <var>$notes</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#638-651" title="Go to source code">setNotes</a>( <span>mixed <var>$notes</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1640,7 +1679,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_notes">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#640-646" title="Go to source code">notes</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#653-659" title="Go to source code">notes</a>( )</code>
 
 		<div class="description short">
 			
@@ -1674,7 +1713,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validationMethods">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#648-667" title="Go to source code">validationMethods</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#661-680" title="Go to source code">validationMethods</a>( )</code>
 
 		<div class="description short">
 			<p>The property's default validation methods/</p>
@@ -1720,7 +1759,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateRequired">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#669-680" title="Go to source code">validateRequired</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#682-693" title="Go to source code">validateRequired</a>( )</code>
 
 		<div class="description short">
 			
@@ -1754,7 +1793,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateUnique">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#682-693" title="Go to source code">validateUnique</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#695-706" title="Go to source code">validateUnique</a>( )</code>
 
 		<div class="description short">
 			
@@ -1788,7 +1827,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateAllowNull">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#695-705" title="Go to source code">validateAllowNull</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#708-718" title="Go to source code">validateAllowNull</a>( )</code>
 
 		<div class="description short">
 			
@@ -1822,7 +1861,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createMetadata">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#707-718" title="Go to source code">createMetadata</a>( <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#720-731" title="Go to source code">createMetadata</a>( <span>array <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1861,7 +1900,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createValidator">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#720-729" title="Go to source code">createValidator</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#733-742" title="Go to source code">createValidator</a>( )</code>
 
 		<div class="description short">
 			<p>ValidatableTrait > createValidator(). Create a Validator object</p>
@@ -1895,7 +1934,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#731-739" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#744-752" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1936,7 +1975,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDisplayType">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#741-749" title="Go to source code">setDisplayType</a>( <span>string <var>$type</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#754-762" title="Go to source code">setDisplayType</a>( <span>string <var>$type</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1975,7 +2014,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_displayType">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#751-768" title="Go to source code">displayType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#764-781" title="Go to source code">displayType</a>( )</code>
 
 		<div class="description short">
 			
@@ -2009,7 +2048,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_viewOptions">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#770-794" title="Go to source code">viewOptions</a>( <span>string <var>$ident</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#783-807" title="Go to source code">viewOptions</a>( <span>string <var>$ident</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>View options.</p>
@@ -2048,7 +2087,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setViewOptions">#</a>
-		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#796-806" title="Go to source code">setViewOptions</a>( <span>array <var>$viewOpts</var> = []</span> )</code>
+		<code><a href="source-class-Charcoal.Property.AbstractProperty.html#809-819" title="Go to source code">setViewOptions</a>( <span>array <var>$viewOpts</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Set view options for both display and input</p>
