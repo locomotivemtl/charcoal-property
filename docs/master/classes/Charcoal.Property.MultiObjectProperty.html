@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">299</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">300</span>
                                 </a>
                             </li>
                             <li>
@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-912179255"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-431804215"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-912179255" class="accordion-body collapse in">
+            <div id="namespace-431804215" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-956244517"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1759452447"></a>
                                 <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
             </div>
-            <div id="namespace-956244517" class="accordion-body collapse ">
+            <div id="namespace-1759452447" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1419732427"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1752291006"></a>
                                 <a href="../namespaces/Charcoal.Property.html" style="margin-left: 30px; padding-left: 0">Property</a>
             </div>
-            <div id="namespace-1419732427" class="accordion-body collapse ">
+            <div id="namespace-1752291006" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -265,6 +265,7 @@
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_setVal" class="">setVal()</a><br />
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_val" class="">val()</a><br />
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_parseVal" class="">parseVal()</a><br />
+                                                                    <a href="../classes/Charcoal.Property.AbstractProperty.html#method_parseOne" class="">parseOne()</a><br />
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_inputVal" class="">inputVal()</a><br />
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_displayVal" class="">displayVal()</a><br />
                                                                     <a href="../classes/Charcoal.Property.AbstractProperty.html#method_setLabel" class="">setLabel()</a><br />
@@ -1260,7 +1261,7 @@
                 <blockquote>
 <p>Note: the base method (defined here) returns the current value intact.
 Other properties can reimplement this method to parse their values,
-such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal">\Charcoal\Property\ObjectProperty::parseVal()</a> who could parse objects into object IDs.</p>
+such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects into object IDs.</p>
 </blockquote>
 
                                     <h4>Parameters</h4>
@@ -1281,6 +1282,46 @@ such as <a href="/classes/Charcoal.Property.ObjectProperty.html#method_parseVal"
                                     <h4>Returns</h4>
                     mixed
                                             &mdash; <p>Returns the parsed value.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                    <span class="label label-info">final</span>
+                                    <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Charcoal.Property.AbstractProperty.html"><div class="path-wrapper">\Charcoal\Property\AbstractProperty</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_parseOne" name="method_parseOne" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">parseOne()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">parseOne(mixed  <span class="argument">$val</span>) : mixed</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$val </td>
+                                <td><p>A single value to parse.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>The parsed value.</p>
                                     				
                             </article>
         </div>
@@ -3572,7 +3613,7 @@ Redefine this method as an abstract method.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on November 8th, 2016 at 21:03.
+                    on November 8th, 2016 at 21:25.
                 </section>
             </section>
         </section>
