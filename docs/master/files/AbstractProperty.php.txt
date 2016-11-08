@@ -61,7 +61,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     protected $val;
 
     /**
-     * @var TranslationString $label
+     * @var TranslationString|string|null $label
      */
     private $label;
 
@@ -119,14 +119,14 @@ abstract class AbstractProperty extends AbstractEntity implements
     private $active = true;
 
     /**
-     * @var TranslationString $description
+     * @var TranslationString|string|null $description
      */
-    private $description = '';
+    private $description;
 
     /**
-     * @var TranslationString $_notes
+     * @var TranslationString|string|null $_notes
      */
-    private $notes = '';
+    private $notes;
 
     /**
      * @var array $viewOptions
@@ -372,7 +372,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     }
 
     /**
-     * @return string
+     * @return TranslationString|string|null
      */
     public function label()
     {
@@ -615,7 +615,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     }
 
     /**
-     * @return TranslationString
+     * @return TranslationString|string|null
      */
     public function description()
     {
@@ -638,7 +638,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     }
 
     /**
-     * @return TranslationString
+     * @return TranslationString|string|null
      */
     public function notes()
     {
