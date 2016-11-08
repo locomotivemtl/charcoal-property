@@ -134,10 +134,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html"><span>Charcoal\Property\AbstractProperty</span></a>
 			
 			 implements 
-<span>JsonSerializable</span>, 
-			
-<span>Serializable</span>, 
-			
 				<a href="class-Charcoal.Property.PropertyInterface.html"><span>Charcoal\Property\PropertyInterface</span></a>, 
 			
 <span>Charcoal\Model\DescribableInterface</span>, 
@@ -191,7 +187,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-770" title="Go to source code">Charcoal/Property/FileProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-766" title="Go to source code">Charcoal/Property/FileProperty.php</a>
 		<br>
 	</div>
 
@@ -1140,7 +1136,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-561" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-557" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1150,6 +1146,11 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 			
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>The value, at time of saving.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -1158,6 +1159,8 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_save">Charcoal\Property\AbstractProperty::save()</a></code></div>
 
 		</div>
 		</div></td>
@@ -1174,7 +1177,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_dataUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#563-597" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#559-593" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
 
 		<div class="description short">
 			<p>Upload to filesystem, from data: content.</p>
@@ -1217,7 +1220,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#599-635" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#595-631" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1260,7 +1263,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_uploadTarget">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#637-674" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#633-670" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1303,7 +1306,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileExists">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#676-704" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$case_insensitive</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#672-700" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$case_insensitive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			<p>This function checks if a file exist, by default in a case-insensitive manner.</p>
@@ -1347,7 +1350,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sanitizeFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#706-722" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#702-718" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Sanitize a filename by removing characters from a blacklist and escaping dot.</p>
@@ -1386,7 +1389,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#724-739" title="Go to source code">generateFilename</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#720-735" title="Go to source code">generateFilename</a>( )</code>
 
 		<div class="description short">
 			<p>Generate a new filename from the property.</p>
@@ -1420,7 +1423,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateUniqueFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#741-759" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#737-755" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Generate a unique filename.</p>
@@ -1459,7 +1462,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateExtension">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#761-769" title="Go to source code">generateExtension</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#757-765" title="Go to source code">generateExtension</a>( )</code>
 
 		<div class="description short">
 			<p>Generate the file extension from the property's value.</p>
@@ -1500,7 +1503,6 @@ This method allows to have the same validation across different platforms / file
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_jsonSerialize">jsonSerialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_l10n">l10n()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multiple">multiple()</a>, 
@@ -1508,9 +1510,7 @@ This method allows to have the same validation across different platforms / file
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_propertyValue">propertyValue()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_serialize">serialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setActive">setActive()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setAllowNull">setAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setDescription">setDescription()</a>, 
@@ -1529,7 +1529,6 @@ This method allows to have the same validation across different platforms / file
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setViewOptions">setViewOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_storable">storable()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_unique">unique()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_unserialize">unserialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_val">val()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 

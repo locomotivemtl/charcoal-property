@@ -134,10 +134,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html"><span>Charcoal\Property\AbstractProperty</span></a>
 			
 			 implements 
-<span>JsonSerializable</span>, 
-			
-<span>Serializable</span>, 
-			
 				<a href="class-Charcoal.Property.PropertyInterface.html"><span>Charcoal\Property\PropertyInterface</span></a>, 
 			
 <span>Charcoal\Model\DescribableInterface</span>, 
@@ -186,7 +182,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.IdProperty.html#14-294" title="Go to source code">Charcoal/Property/IdProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.IdProperty.html#14-291" title="Go to source code">Charcoal/Property/IdProperty.php</a>
 		<br>
 	</div>
 
@@ -529,7 +525,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.IdProperty.html#170-188" title="Go to source code">save</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.IdProperty.html#170-185" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			<p>Prepare the value for save.</p>
@@ -541,6 +537,11 @@ Charcoal\Config\AbstractEntity
 <p>If no ID is set upon first save, then auto-generate it if necessary.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>The value, at time of saving.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -548,11 +549,9 @@ Charcoal\Config\AbstractEntity
 				</div>
 
 
-				<h4>See</h4>
-				<div class="list">
-						Charcoal_Object::save()<br>
-				</div>
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_save">Charcoal\Property\AbstractProperty::save()</a></code></div>
 
 		</div>
 		</div></td>
@@ -569,7 +568,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_autoGenerate">#</a>
-		<code><a href="source-class-Charcoal.Property.IdProperty.html#190-207" title="Go to source code">autoGenerate</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.IdProperty.html#187-204" title="Go to source code">autoGenerate</a>( )</code>
 
 		<div class="description short">
 			<p>Auto-generate a value upon first save.</p>
@@ -603,7 +602,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.IdProperty.html#238-253" title="Go to source code">sqlExtra</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.IdProperty.html#235-250" title="Go to source code">sqlExtra</a>( )</code>
 
 		<div class="description short">
 			<p>Get additional SQL field options.</p>
@@ -641,7 +640,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.IdProperty.html#255-276" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.IdProperty.html#252-273" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
 			<p>Get the SQL data type (Storage format).</p>
@@ -685,7 +684,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.IdProperty.html#278-293" title="Go to source code">sqlPdoType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.IdProperty.html#275-290" title="Go to source code">sqlPdoType</a>( )</code>
 
 		<div class="description short">
 			<p>Get the PDO data type.</p>
@@ -730,15 +729,12 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_jsonSerialize">jsonSerialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleOptions">multipleOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_propertyValue">propertyValue()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_serialize">serialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setActive">setActive()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setAllowNull">setAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setDependencies">setDependencies()</a>, 
@@ -756,7 +752,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setViewOptions">setViewOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_storable">storable()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_unique">unique()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_unserialize">unserialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_val">val()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 

@@ -134,10 +134,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html"><span>Charcoal\Property\AbstractProperty</span></a>
 			
 			 implements 
-<span>JsonSerializable</span>, 
-			
-<span>Serializable</span>, 
-			
 				<a href="class-Charcoal.Property.PropertyInterface.html"><span>Charcoal\Property\PropertyInterface</span></a>, 
 			
 <span>Charcoal\Model\DescribableInterface</span>, 
@@ -197,7 +193,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.TextProperty.html#8-39" title="Go to source code">Charcoal/Property/TextProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.TextProperty.html#8-41" title="Go to source code">Charcoal/Property/TextProperty.php</a>
 		<br>
 	</div>
 
@@ -217,7 +213,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.Property.TextProperty.html#14-20" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.TextProperty.html#13-19" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -253,14 +249,16 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_defaultMaxLength">#</a>
-		<code><a href="source-class-Charcoal.Property.TextProperty.html#22-28" title="Go to source code">defaultMaxLength</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.TextProperty.html#21-30" title="Go to source code">defaultMaxLength</a>( )</code>
 
 		<div class="description short">
-			
+			<p>String's default max length is overridden for the text property.
+(0 = no max length).</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>String's default max length is overridden for the text property.
+(0 = no max length).</p>
 
 
 
@@ -289,7 +287,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.TextProperty.html#30-38" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.TextProperty.html#32-40" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
 			<p>Get the SQL type (Storage format)</p>
@@ -325,7 +323,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.StringProperty.html#_maxLength">maxLength()</a>, 
 			<a href="class-Charcoal.Property.StringProperty.html#_minLength">minLength()</a>, 
 			<a href="class-Charcoal.Property.StringProperty.html#_regexp">regexp()</a>, 
-			<a href="class-Charcoal.Property.StringProperty.html#_save">save()</a>, 
 			<a href="class-Charcoal.Property.StringProperty.html#_setAllowEmpty">setAllowEmpty()</a>, 
 			<a href="class-Charcoal.Property.StringProperty.html#_setMaxLength">setMaxLength()</a>, 
 			<a href="class-Charcoal.Property.StringProperty.html#_setMinLength">setMinLength()</a>, 
@@ -357,7 +354,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_jsonSerialize">jsonSerialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_l10n">l10n()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multiple">multiple()</a>, 
@@ -365,9 +361,8 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_propertyValue">propertyValue()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_serialize">serialize()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_save">save()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setActive">setActive()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setAllowNull">setAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setDependencies">setDependencies()</a>, 
@@ -387,7 +382,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setViewOptions">setViewOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_storable">storable()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_unique">unique()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_unserialize">unserialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_val">val()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 

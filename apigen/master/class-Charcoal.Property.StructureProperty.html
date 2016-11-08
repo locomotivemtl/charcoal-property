@@ -136,10 +136,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html"><span>Charcoal\Property\AbstractProperty</span></a>
 			
 			 implements 
-<span>JsonSerializable</span>, 
-			
-<span>Serializable</span>, 
-			
 				<a href="class-Charcoal.Property.PropertyInterface.html"><span>Charcoal\Property\PropertyInterface</span></a>, 
 			
 <span>Charcoal\Model\DescribableInterface</span>, 
@@ -188,7 +184,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.StructureProperty.html#14-87" title="Go to source code">Charcoal/Property/StructureProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.StructureProperty.html#14-77" title="Go to source code">Charcoal/Property/StructureProperty.php</a>
 		<br>
 	</div>
 
@@ -230,7 +226,7 @@ Charcoal\Config\AbstractEntity
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setVal" id="_setVal">
+	<tr data-order="parseVal" id="_parseVal">
 
 		<td class="attributes"><code>
 			 public 
@@ -241,15 +237,15 @@ Charcoal\Config\AbstractEntity
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_setVal">#</a>
-		<code><a href="source-class-Charcoal.Property.StructureProperty.html#29-53" title="Go to source code">setVal</a>( <span>string|array <var>$val</var></span> )</code>
+		<a class="anchor" href="#_parseVal">#</a>
+		<code><a href="source-class-Charcoal.Property.StructureProperty.html#29-51" title="Go to source code">parseVal</a>( <span>string|array <var>$val</var></span> )</code>
 
 		<div class="description short">
-			<p>AbstractProperty > setVal(). Ensure <code>DateTime</code> object in val.</p>
+			<p>AbstractProperty > setVal(). Ensure val is an array</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>AbstractProperty > setVal(). Ensure <code>DateTime</code> object in val.</p>
+			<p>AbstractProperty > setVal(). Ensure val is an array</p>
 
 
 				<h4>Parameters</h4>
@@ -270,7 +266,7 @@ Charcoal\Config\AbstractEntity
 
 
 				<h4>Overrides</h4>
-				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_setVal">Charcoal\Property\AbstractProperty::setVal()</a></code></div>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">Charcoal\Property\AbstractProperty::parseVal()</a></code></div>
 
 		</div>
 		</div></td>
@@ -287,7 +283,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.StructureProperty.html#55-61" title="Go to source code">sqlExtra</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.StructureProperty.html#53-59" title="Go to source code">sqlExtra</a>( )</code>
 
 		<div class="description short">
 			
@@ -321,7 +317,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.StructureProperty.html#63-70" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.StructureProperty.html#61-68" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
 			<p>For a lack of better array support in mysql, data is stored as encoded JSON in a LONGTEXT.</p>
@@ -355,7 +351,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.StructureProperty.html#72-78" title="Go to source code">sqlPdoType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.StructureProperty.html#70-76" title="Go to source code">sqlPdoType</a>( )</code>
 
 		<div class="description short">
 			
@@ -369,40 +365,6 @@ Charcoal\Config\AbstractEntity
 				<h4>Returns</h4>
 				<div class="list">
 					integer
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="save" id="_save">
-
-		<td class="attributes"><code>
-			 public 
-
-			mixed
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.StructureProperty.html#80-86" title="Go to source code">save</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					mixed
 				</div>
 
 
@@ -430,17 +392,14 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_jsonSerialize">jsonSerialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_l10n">l10n()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multiple">multiple()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleOptions">multipleOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_propertyValue">propertyValue()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_serialize">serialize()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_save">save()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setActive">setActive()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setAllowNull">setAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setDependencies">setDependencies()</a>, 
@@ -456,10 +415,10 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setRequired">setRequired()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setStorable">setStorable()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setUnique">setUnique()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setVal">setVal()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setViewOptions">setViewOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_storable">storable()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_unique">unique()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_unserialize">unserialize()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_val">val()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 
