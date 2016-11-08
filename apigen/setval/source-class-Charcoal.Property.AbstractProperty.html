@@ -830,13 +830,13 @@
 </span><span id="713" class="l"><a href="#713">713: </a>    }
 </span><span id="714" class="l"><a href="#714">714: </a>
 </span><span id="715" class="l"><a href="#715">715: </a>    <span class="php-comment">/**
-</span></span><span id="716" class="l"><a href="#716">716: </a><span class="php-comment">     * @param mixed The value, at time of saving.
+</span></span><span id="716" class="l"><a href="#716">716: </a><span class="php-comment">     * @param mixed $val The value, at time of saving.
 </span></span><span id="717" class="l"><a href="#717">717: </a><span class="php-comment">     * @return mixed
 </span></span><span id="718" class="l"><a href="#718">718: </a><span class="php-comment">     */</span>
 </span><span id="719" class="l"><a href="#719">719: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> save(<span class="php-var">$val</span>)
 </span><span id="720" class="l"><a href="#720">720: </a>    {
 </span><span id="721" class="l"><a href="#721">721: </a>        <span class="php-comment">// By default, nothing to do</span>
-</span><span id="722" class="l"><a href="#722">722: </a>        <span class="php-keyword1">return</span> <span class="php-var">$val</span>;
+</span><span id="722" class="l"><a href="#722">722: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;parseVal(<span class="php-var">$val</span>);
 </span><span id="723" class="l"><a href="#723">723: </a>    }
 </span><span id="724" class="l"><a href="#724">724: </a>
 </span><span id="725" class="l"><a href="#725">725: </a>    <span class="php-comment">/**
