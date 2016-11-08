@@ -178,7 +178,7 @@
 </span><span id="61" class="l"><a href="#61"> 61: </a>    <span class="php-keyword1">protected</span> <span class="php-var">$val</span>;
 </span><span id="62" class="l"><a href="#62"> 62: </a>
 </span><span id="63" class="l"><a href="#63"> 63: </a>    <span class="php-comment">/**
-</span></span><span id="64" class="l"><a href="#64"> 64: </a><span class="php-comment">     * @var TranslationString $label
+</span></span><span id="64" class="l"><a href="#64"> 64: </a><span class="php-comment">     * @var TranslationString|string|null $label
 </span></span><span id="65" class="l"><a href="#65"> 65: </a><span class="php-comment">     */</span>
 </span><span id="66" class="l"><a href="#66"> 66: </a>    <span class="php-keyword1">private</span> <span class="php-var">$label</span>;
 </span><span id="67" class="l"><a href="#67"> 67: </a>
@@ -236,14 +236,14 @@
 </span><span id="119" class="l"><a href="#119">119: </a>    <span class="php-keyword1">private</span> <span class="php-var">$active</span> = <span class="php-keyword1">true</span>;
 </span><span id="120" class="l"><a href="#120">120: </a>
 </span><span id="121" class="l"><a href="#121">121: </a>    <span class="php-comment">/**
-</span></span><span id="122" class="l"><a href="#122">122: </a><span class="php-comment">     * @var TranslationString $description
+</span></span><span id="122" class="l"><a href="#122">122: </a><span class="php-comment">     * @var TranslationString|string|null $description
 </span></span><span id="123" class="l"><a href="#123">123: </a><span class="php-comment">     */</span>
-</span><span id="124" class="l"><a href="#124">124: </a>    <span class="php-keyword1">private</span> <span class="php-var">$description</span> = <span class="php-quote">''</span>;
+</span><span id="124" class="l"><a href="#124">124: </a>    <span class="php-keyword1">private</span> <span class="php-var">$description</span>;
 </span><span id="125" class="l"><a href="#125">125: </a>
 </span><span id="126" class="l"><a href="#126">126: </a>    <span class="php-comment">/**
-</span></span><span id="127" class="l"><a href="#127">127: </a><span class="php-comment">     * @var TranslationString $_notes
+</span></span><span id="127" class="l"><a href="#127">127: </a><span class="php-comment">     * @var TranslationString|string|null $_notes
 </span></span><span id="128" class="l"><a href="#128">128: </a><span class="php-comment">     */</span>
-</span><span id="129" class="l"><a href="#129">129: </a>    <span class="php-keyword1">private</span> <span class="php-var">$notes</span> = <span class="php-quote">''</span>;
+</span><span id="129" class="l"><a href="#129">129: </a>    <span class="php-keyword1">private</span> <span class="php-var">$notes</span>;
 </span><span id="130" class="l"><a href="#130">130: </a>
 </span><span id="131" class="l"><a href="#131">131: </a>    <span class="php-comment">/**
 </span></span><span id="132" class="l"><a href="#132">132: </a><span class="php-comment">     * @var array $viewOptions
@@ -489,7 +489,7 @@
 </span><span id="372" class="l"><a href="#372">372: </a>    }
 </span><span id="373" class="l"><a href="#373">373: </a>
 </span><span id="374" class="l"><a href="#374">374: </a>    <span class="php-comment">/**
-</span></span><span id="375" class="l"><a href="#375">375: </a><span class="php-comment">     * @return string
+</span></span><span id="375" class="l"><a href="#375">375: </a><span class="php-comment">     * @return TranslationString|string|null
 </span></span><span id="376" class="l"><a href="#376">376: </a><span class="php-comment">     */</span>
 </span><span id="377" class="l"><a href="#377">377: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> label()
 </span><span id="378" class="l"><a href="#378">378: </a>    {
@@ -732,7 +732,7 @@
 </span><span id="615" class="l"><a href="#615">615: </a>    }
 </span><span id="616" class="l"><a href="#616">616: </a>
 </span><span id="617" class="l"><a href="#617">617: </a>    <span class="php-comment">/**
-</span></span><span id="618" class="l"><a href="#618">618: </a><span class="php-comment">     * @return TranslationString
+</span></span><span id="618" class="l"><a href="#618">618: </a><span class="php-comment">     * @return TranslationString|string|null
 </span></span><span id="619" class="l"><a href="#619">619: </a><span class="php-comment">     */</span>
 </span><span id="620" class="l"><a href="#620">620: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> description()
 </span><span id="621" class="l"><a href="#621">621: </a>    {
@@ -755,7 +755,7 @@
 </span><span id="638" class="l"><a href="#638">638: </a>    }
 </span><span id="639" class="l"><a href="#639">639: </a>
 </span><span id="640" class="l"><a href="#640">640: </a>    <span class="php-comment">/**
-</span></span><span id="641" class="l"><a href="#641">641: </a><span class="php-comment">     * @return TranslationString
+</span></span><span id="641" class="l"><a href="#641">641: </a><span class="php-comment">     * @return TranslationString|string|null
 </span></span><span id="642" class="l"><a href="#642">642: </a><span class="php-comment">     */</span>
 </span><span id="643" class="l"><a href="#643">643: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> notes()
 </span><span id="644" class="l"><a href="#644">644: </a>    {
