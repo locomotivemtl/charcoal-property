@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Charcoal\Property\MapStructureProperty</title>
+	<title>Class Charcoal\Property\EmailProperty</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -44,7 +44,7 @@
 				<li><a href="class-Charcoal.Property.BooleanProperty.html">BooleanProperty</a></li>
 				<li><a href="class-Charcoal.Property.ColorProperty.html">ColorProperty</a></li>
 				<li><a href="class-Charcoal.Property.DateTimeProperty.html">DateTimeProperty</a></li>
-				<li><a href="class-Charcoal.Property.EmailProperty.html">EmailProperty</a></li>
+				<li class="active"><a href="class-Charcoal.Property.EmailProperty.html">EmailProperty</a></li>
 				<li><a href="class-Charcoal.Property.FileProperty.html">FileProperty</a></li>
 				<li><a href="class-Charcoal.Property.GenericProperty.html">GenericProperty</a></li>
 				<li><a href="class-Charcoal.Property.HtmlProperty.html">HtmlProperty</a></li>
@@ -52,7 +52,7 @@
 				<li><a href="class-Charcoal.Property.ImageProperty.html">ImageProperty</a></li>
 				<li><a href="class-Charcoal.Property.IpProperty.html">IpProperty</a></li>
 				<li><a href="class-Charcoal.Property.LangProperty.html">LangProperty</a></li>
-				<li class="active"><a href="class-Charcoal.Property.MapStructureProperty.html">MapStructureProperty</a></li>
+				<li><a href="class-Charcoal.Property.MapStructureProperty.html">MapStructureProperty</a></li>
 				<li><a href="class-Charcoal.Property.MultiObjectProperty.html">MultiObjectProperty</a></li>
 				<li><a href="class-Charcoal.Property.NumberProperty.html">NumberProperty</a></li>
 				<li><a href="class-Charcoal.Property.ObjectProperty.html">ObjectProperty</a></li>
@@ -117,11 +117,11 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class MapStructureProperty</h1>
+	<h1>Class EmailProperty</h1>
 
 
 	<div class="description">
-	<p>Map Structure Property.</p>
+	<p>Email Property. Email address.</p>
 	</div>
 
 	<dl class="tree">
@@ -164,7 +164,18 @@ Charcoal\Config\AbstractEntity
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by">
-<b><span>Charcoal\Property\MapStructureProperty</span></b>			
+			<a href="class-Charcoal.Property.StringProperty.html"><span>Charcoal\Property\StringProperty</span></a>
+			
+			 implements 
+				<a href="class-Charcoal.Property.SelectablePropertyInterface.html"><span>Charcoal\Property\SelectablePropertyInterface</span></a>
+			
+			 uses 
+					<a href="class-Charcoal.Property.SelectablePropertyTrait.html"><span>Charcoal\Property\SelectablePropertyTrait</span></a>
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\Property\EmailProperty</span></b>			
 			
 			
 		</dd>
@@ -183,7 +194,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.MapStructureProperty.html#11-49" title="Go to source code">Charcoal/Property/MapStructureProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.EmailProperty.html#8-51" title="Go to source code">Charcoal/Property/EmailProperty.php</a>
 		<br>
 	</div>
 
@@ -203,7 +214,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#17-23" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.EmailProperty.html#13-19" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -221,79 +232,13 @@ Charcoal\Config\AbstractEntity
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.StringProperty.html#_type">Charcoal\Property\StringProperty::type()</a></code></div>
 
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="sqlExtra" id="_sqlExtra">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#26-32" title="Go to source code">sqlExtra</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="sqlType" id="_sqlType">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#34-40" title="Go to source code">sqlType</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="sqlPdoType" id="_sqlPdoType">
+	<tr data-order="maxLength" id="_maxLength">
 
 		<td class="attributes"><code>
 			 public 
@@ -304,8 +249,44 @@ Charcoal\Config\AbstractEntity
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#42-48" title="Go to source code">sqlPdoType</a>( )</code>
+		<a class="anchor" href="#_maxLength">#</a>
+		<code><a href="source-class-Charcoal.Property.EmailProperty.html#21-29" title="Go to source code">maxLength</a>( )</code>
+
+		<div class="description short">
+			<p>Email's maximum length is defined in RFC-3696 (+ errata) as 254 characters.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Email's maximum length is defined in RFC-3696 (+ errata) as 254 characters.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.StringProperty.html#_maxLength">Charcoal\Property\StringProperty::maxLength()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validationMethods" id="_validationMethods">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validationMethods">#</a>
+		<code><a href="source-class-Charcoal.Property.EmailProperty.html#31-40" title="Go to source code">validationMethods</a>( )</code>
 
 		<div class="description short">
 			
@@ -318,7 +299,43 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Returns</h4>
 				<div class="list">
-					integer
+					array
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.StringProperty.html#_validationMethods">Charcoal\Property\StringProperty::validationMethods()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validateEmail" id="_validateEmail">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validateEmail">#</a>
+		<code><a href="source-class-Charcoal.Property.EmailProperty.html#42-50" title="Go to source code">validateEmail</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
 				</div>
 
 
@@ -329,6 +346,31 @@ Charcoal\Config\AbstractEntity
 	</tr>
 	</table>
 
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.StringProperty.html#methods">Charcoal\Property\StringProperty</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StringProperty.html#_allowEmpty">allowEmpty()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_defaultMaxLength">defaultMaxLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_displayVal">displayVal()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_length">length()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_minLength">minLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_regexp">regexp()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_setAllowEmpty">setAllowEmpty()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_setMaxLength">setMaxLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_setMinLength">setMinLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_setRegexp">setRegexp()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_sqlExtra">sqlExtra()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_sqlPdoType">sqlPdoType()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_sqlType">sqlType()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_valLabel">valLabel()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_validateAllowEmpty">validateAllowEmpty()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_validateMaxLength">validateMaxLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_validateMinLength">validateMinLength()</a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#_validateRegexp">validateRegexp()</a>
+		</code></td>
+	</tr>
+	</table>
 	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-Charcoal.Property.AbstractProperty.html#methods">Charcoal\Property\AbstractProperty</a></caption>
 	<tr>
@@ -342,7 +384,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_defaultMultipleOptions">defaultMultipleOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_description">description()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_displayType">displayType()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_displayVal">displayVal()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
@@ -379,17 +420,19 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_validateUnique">validateUnique()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_validationMethods">validationMethods()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_viewOptions">viewOptions()</a>
 		</code></td>
 	</tr>
 	</table>
 	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Charcoal.Property.StorablePropertyInterface.html#methods">Charcoal\Property\StorablePropertyInterface</a></caption>
+	<caption>Methods inherited from <a href="class-Charcoal.Property.SelectablePropertyInterface.html#methods">Charcoal\Property\SelectablePropertyInterface</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_fields">fields()</a>, 
-			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_storageVal">storageVal()</a>
+			<a href="class-Charcoal.Property.SelectablePropertyInterface.html#_addChoice">addChoice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choice">choice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choices">choices()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyInterface.html#_hasChoice">hasChoice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyInterface.html#_setChoices">setChoices()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -403,7 +446,28 @@ Charcoal\Config\AbstractEntity
 		</code></td>
 	</tr>
 	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.StorablePropertyInterface.html#methods">Charcoal\Property\StorablePropertyInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_fields">fields()</a>, 
+			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_storageVal">storageVal()</a>
+		</code></td>
+	</tr>
+	</table>
 
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Property.SelectablePropertyTrait.html#methods">Charcoal\Property\SelectablePropertyTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#_addChoice">addChoice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#_choice">choice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#_choices">choices()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#_hasChoice">hasChoice()</a>, 
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#_setChoices">setChoices()</a>
+		</code></td>
+	</tr>
+	</table>
 	<table class="summary used">
 	<caption>Methods used from <a href="class-Charcoal.Property.DescribablePropertyTrait.html#methods">Charcoal\Property\DescribablePropertyTrait</a></caption>
 	<tr>
@@ -435,6 +499,17 @@ Charcoal\Config\AbstractEntity
 
 
 
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Charcoal.Property.StringProperty.html#constants">Charcoal\Property\StringProperty</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StringProperty.html#DEFAULT_ALLOW_EMPTY"><b>DEFAULT_ALLOW_EMPTY</b></a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#DEFAULT_MAX_LENGTH"><b>DEFAULT_MAX_LENGTH</b></a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#DEFAULT_MIN_LENGTH"><b>DEFAULT_MIN_LENGTH</b></a>, 
+			<a href="class-Charcoal.Property.StringProperty.html#DEFAULT_REGEXP"><b>DEFAULT_REGEXP</b></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
@@ -456,6 +531,14 @@ Charcoal\Config\AbstractEntity
 	<tr>
 		<td><code>
 			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#$propertyFactory"><var>$propertyFactory</var></a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary used">
+	<caption>Properties used from <a href="class-Charcoal.Property.SelectablePropertyTrait.html#properties">Charcoal\Property\SelectablePropertyTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.SelectablePropertyTrait.html#$choices"><var>$choices</var></a>
 		</code></td>
 	</tr>
 	</table>
