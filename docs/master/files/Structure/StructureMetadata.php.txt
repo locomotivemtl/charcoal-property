@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Property;
+namespace Charcoal\Property\Structure;
 
 use \InvalidArgumentException;
 
@@ -10,21 +10,14 @@ use \Charcoal\Model\AbstractMetadata;
 /**
  *
  */
-class PropertyMetadata extends AbstractMetadata
+class StructureMetadata extends AbstractMetadata
 {
     /**
      * The metadata identifier.
      *
-     * @var string
+     * @var string|null
      */
     private $ident;
-
-    /**
-     * The actual config data.
-     *
-     * @var array
-     */
-    public $data;
 
     /**
      * Set the metadata identifier.
@@ -35,6 +28,11 @@ class PropertyMetadata extends AbstractMetadata
      */
     public function setIdent($ident)
     {
+        if ($ident === null) {
+            $this->ident = null;
+            return $this;
+        }
+
         if (!is_string($ident)) {
             throw new InvalidArgumentException(
                 sprintf(
@@ -53,7 +51,7 @@ class PropertyMetadata extends AbstractMetadata
     /**
      * Retrieve the metadata identifier.
      *
-     * @return string
+     * @return string|null
      */
     public function ident()
     {
