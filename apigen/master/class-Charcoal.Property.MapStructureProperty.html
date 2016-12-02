@@ -26,10 +26,16 @@
 						<ul>
 				<li class="active">
 					<a href="namespace-Charcoal.Property.html">
-						Property					</a>
+						Property<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.Property.Structure.html">
+						Structure					</a>
 
 						</li>
-							</ul></li>
+							</ul></li></ul></li>
 			</ul>
 		</div>
 
@@ -121,7 +127,7 @@
 
 
 	<div class="description">
-	<p>Map Structure Property.</p>
+	<p>Map Structure Property</p>
 	</div>
 
 	<dl class="tree">
@@ -164,6 +170,13 @@ Charcoal\Config\AbstractEntity
 		</dd>
 		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Charcoal.Property.StructureProperty.html"><span>Charcoal\Property\StructureProperty</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Charcoal\Property\MapStructureProperty</span></b>			
 			
 			
@@ -183,7 +196,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.MapStructureProperty.html#11-49" title="Go to source code">Charcoal/Property/MapStructureProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.MapStructureProperty.html#10-36" title="Go to source code">Charcoal/Property/MapStructureProperty.php</a>
 		<br>
 	</div>
 
@@ -203,14 +216,14 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#17-23" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#15-23" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the property's type identifier.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the property's type identifier.</p>
 
 
 
@@ -221,40 +234,8 @@ Charcoal\Config\AbstractEntity
 
 
 
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="sqlExtra" id="_sqlExtra">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#26-32" title="Go to source code">sqlExtra</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.StructureProperty.html#_type">Charcoal\Property\StructureProperty::type()</a></code></div>
 
 		</div>
 		</div></td>
@@ -271,14 +252,16 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#34-40" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#25-35" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the property's SQL data type (storage format).</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the property's SQL data type (storage format).</p>
+
+<p>For a lack of better array support in mysql, data is stored as encoded JSON in a LONGTEXT.</p>
 
 
 
@@ -289,40 +272,8 @@ Charcoal\Config\AbstractEntity
 
 
 
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="sqlPdoType" id="_sqlPdoType">
-
-		<td class="attributes"><code>
-			 public 
-
-			integer
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.MapStructureProperty.html#42-48" title="Go to source code">sqlPdoType</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					integer
-				</div>
-
-
-
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.StructureProperty.html#_sqlType">Charcoal\Property\StructureProperty::sqlType()</a></code></div>
 
 		</div>
 		</div></td>
@@ -330,10 +281,28 @@ Charcoal\Config\AbstractEntity
 	</table>
 
 	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.StructureProperty.html#methods">Charcoal\Property\StructureProperty</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StructureProperty.html#___construct">__construct()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_l10n">l10n()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_parseOne">parseOne()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_setL10n">setL10n()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_setStructureData">setStructureData()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_sqlExtra">sqlExtra()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_sqlPdoType">sqlPdoType()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_structureData">structureData()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_structureVal">structureVal()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_toArray">toArray()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_toJson">toJson()</a>, 
+			<a href="class-Charcoal.Property.StructureProperty.html#_toStructure">toStructure()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-Charcoal.Property.AbstractProperty.html#methods">Charcoal\Property\AbstractProperty</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-Charcoal.Property.AbstractProperty.html#___construct">__construct()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#___toString">__toString()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_active">active()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_allowNull">allowNull()</a>, 
@@ -346,13 +315,11 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_l10n">l10n()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multiple">multiple()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleOptions">multipleOptions()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_parseOne">parseOne()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_save">save()</a>, 
@@ -363,7 +330,6 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setDisplayType">setDisplayType()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setHidden">setHidden()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setIdent">setIdent()</a>, 
-			<a href="class-Charcoal.Property.AbstractProperty.html#_setL10n">setL10n()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setLabel">setLabel()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setMultiple">setMultiple()</a>, 
 			<a href="class-Charcoal.Property.AbstractProperty.html#_setMultipleOptions">setMultipleOptions()</a>, 
@@ -385,21 +351,21 @@ Charcoal\Config\AbstractEntity
 	</tr>
 	</table>
 	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Charcoal.Property.StorablePropertyInterface.html#methods">Charcoal\Property\StorablePropertyInterface</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_fields">fields()</a>, 
-			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_storageVal">storageVal()</a>
-		</code></td>
-	</tr>
-	</table>
-	<table class="summary inherited">
 	<caption>Methods inherited from <a href="class-Charcoal.Property.DescribablePropertyInterface.html#methods">Charcoal\Property\DescribablePropertyInterface</a></caption>
 	<tr>
 		<td><code>
 			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_p">p()</a>, 
 			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_properties">properties()</a>, 
 			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_property">property()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.StorablePropertyInterface.html#methods">Charcoal\Property\StorablePropertyInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_fields">fields()</a>, 
+			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_storageVal">storageVal()</a>
 		</code></td>
 	</tr>
 	</table>
