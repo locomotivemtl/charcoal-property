@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-416043629"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-82633987"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-416043629" class="accordion-body collapse in">
+            <div id="namespace-82633987" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2077495350"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-230521997"></a>
                                 <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
             </div>
-            <div id="namespace-2077495350" class="accordion-body collapse ">
+            <div id="namespace-230521997" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1983703228"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1982715304"></a>
                                 <a href="../namespaces/Charcoal.Property.html" style="margin-left: 30px; padding-left: 0">Property</a>
             </div>
-            <div id="namespace-1983703228" class="accordion-body collapse ">
+            <div id="namespace-1982715304" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-723020569"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1107065193"></a>
                                 <a href="../namespaces/Charcoal.Property.Structure.html" style="margin-left: 30px; padding-left: 0">Structure</a>
             </div>
-            <div id="namespace-723020569" class="accordion-body collapse ">
+            <div id="namespace-1107065193" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -3289,7 +3289,7 @@ depending if argument is set or not.</em></p>
             <article class="method">
                 <h3 class="public ">setStructureInterfaces()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">setStructureInterfaces(array  <span class="argument">$namespaces</span>) : \Charcoal\Property\StructureProperty</pre>
+                <pre class="signature" style="margin-right: 54px;">setStructureInterfaces(array  <span class="argument">$interfaces</span>) : \Charcoal\Property\StructureProperty</pre>
                 <p><em>Set the given metadata interfaces for the property to use as a structure.</em></p>
                 
 
@@ -3297,7 +3297,7 @@ depending if argument is set or not.</em></p>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>array</td>
-                                <td>$namespaces </td>
+                                <td>$interfaces </td>
                                 <td><p>One or more metadata interfaces to use.</p></td>
                             </tr>
                                             </table>
@@ -3325,7 +3325,7 @@ depending if argument is set or not.</em></p>
             <article class="method">
                 <h3 class="public ">addStructureInterfaces()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">addStructureInterfaces(array  <span class="argument">$namespaces</span>) : \Charcoal\Property\StructureProperty</pre>
+                <pre class="signature" style="margin-right: 54px;">addStructureInterfaces(array  <span class="argument">$interfaces</span>) : \Charcoal\Property\StructureProperty</pre>
                 <p><em>Add the given metadata interfaces for the property to use as a structure.</em></p>
                 
 
@@ -3333,7 +3333,7 @@ depending if argument is set or not.</em></p>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>array</td>
-                                <td>$namespaces </td>
+                                <td>$interfaces </td>
                                 <td><p>One or more metadata interfaces to use.</p></td>
                             </tr>
                                             </table>
@@ -3361,7 +3361,7 @@ depending if argument is set or not.</em></p>
             <article class="method">
                 <h3 class="public ">addStructureInterface()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">addStructureInterface(string  <span class="argument">$namespace</span>) : \Charcoal\Property\StructureProperty</pre>
+                <pre class="signature" style="margin-right: 54px;">addStructureInterface(string  <span class="argument">$interface</span>) : \Charcoal\Property\StructureProperty</pre>
                 <p><em>Add the given metadata interfaces for the property to use as a structure.</em></p>
                 
 
@@ -3369,11 +3369,16 @@ depending if argument is set or not.</em></p>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
-                                <td>$namespace </td>
+                                <td>$interface </td>
                                 <td><p>A metadata interface to use.</p></td>
                             </tr>
                                             </table>
                 
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd><p>If the interface is not a string.</p></dd>
+                                                                    </dl>
                 
                                     <h4>Returns</h4>
                     <a href="../classes/Charcoal.Property.StructureProperty.html">\Charcoal\Property\StructureProperty</a>
@@ -3760,7 +3765,7 @@ Redefine this method as an abstract method.</p>
             <article class="method">
                 <h3 class="protected ">parseStructureInterface()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">parseStructureInterface(string  <span class="argument">$namespace</span>) : string</pre>
+                <pre class="signature" style="margin-right: 54px;">parseStructureInterface(string  <span class="argument">$interface</span>) : string</pre>
                 <p><em>Parse a metadata identifier from given interface.</em></p>
                 <p>Change <code>\</code> and <code>.</code> to <code>/</code> and force lowercase</p>
 
@@ -3768,7 +3773,7 @@ Redefine this method as an abstract method.</p>
                     <table class="table table-condensed table-hover">
                                                     <tr>
                                 <td>string</td>
-                                <td>$namespace </td>
+                                <td>$interface </td>
                                 <td><p>A metadata interface to convert.</p></td>
                             </tr>
                                             </table>
@@ -4125,7 +4130,7 @@ Redefine this method as an abstract method.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on December 9th, 2016 at 22:25.
+                    on December 10th, 2016 at 22:28.
                 </section>
             </section>
         </section>
