@@ -18,10 +18,10 @@ interface SelectablePropertyInterface
     /**
      * Explicitely set the selectable choices (to the array map).
      *
-     * @param array $choices The array of choice structures.
+     * @param  array|string $choices Array of choice structures or a callable source of choices.
      * @return SelectablePropertyInterface Chainable.
      */
-    public function setChoices(array $choices);
+    public function setChoices($choices);
 
     /**
      * Add a choice to the available choices map.

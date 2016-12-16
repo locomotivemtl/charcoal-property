@@ -21,16 +21,18 @@ trait SelectablePropertyTrait
     /**
      * Explicitely set the selectable choices (to the array map).
      *
-     * @param array $choices The array of choice structures.
+     * @param  array|string $choices Array of choice structures or a callable source of choices.
      * @return SelectablePropertyInterface Chainable.
      */
-    public function setChoices(array $choices)
+    public function setChoices($choices)
     {
         $this->choices = [];
+
         foreach ($choices as $choiceIdent => $choice) {
             $c = (string)$choiceIdent;
             $this->addChoice($c, $choice);
         }
+
         return $this;
     }
 
