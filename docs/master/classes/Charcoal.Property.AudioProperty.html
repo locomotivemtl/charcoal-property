@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">292</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">289</span>
                                 </a>
                             </li>
                             <li>
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1289592393"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-295174550"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1289592393" class="accordion-body collapse in">
+            <div id="namespace-295174550" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-285571292"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-433319131"></a>
                                 <a href="../namespaces/Charcoal.html" style="margin-left: 30px; padding-left: 0">Charcoal</a>
             </div>
-            <div id="namespace-285571292" class="accordion-body collapse ">
+            <div id="namespace-433319131" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-876542093"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1352182214"></a>
                                 <a href="../namespaces/Charcoal.Property.html" style="margin-left: 30px; padding-left: 0">Property</a>
             </div>
-            <div id="namespace-876542093" class="accordion-body collapse ">
+            <div id="namespace-1352182214" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-7720564"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-578150062"></a>
                                 <a href="../namespaces/Charcoal.Property.Structure.html" style="margin-left: 30px; padding-left: 0">Structure</a>
             </div>
-            <div id="namespace-7720564" class="accordion-body collapse ">
+            <div id="namespace-578150062" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -3011,7 +3011,7 @@ such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects in
                 <h3 class="public ">setMultiple()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">setMultiple(boolean  <span class="argument">$multiple</span>) : \Charcoal\Property\PropertyInterface</pre>
-                <p><em></em></p>
+                <p><em>Set whether this property accepts multiple values or a single value.</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -3050,8 +3050,9 @@ such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects in
                 <h3 class="public ">multiple()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">multiple() : boolean</pre>
-                <p><em>The multiple flags sets the property as being &quot;repeatable&quot;, or allow to represent an array of multiple values.</em></p>
-                <h2>Notes</h2>
+                <p><em>Determine if this property accepts multiple values or a single value.</em></p>
+                <p>The multiple flag sets the property as being &quot;repeatable&quot;, or allow to represent an array of multiple values.</p>
+<h2>Notes</h2>
 <ul>
 <li>The multiple flag can be forced to false (or true) in implementing property class.</li>
 <li>How a multiple behaves also depend on <code>multipleOptions</code>.</li>
@@ -3127,10 +3128,18 @@ such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects in
             <article class="method">
                 <h3 class="public ">multipleOptions()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">multipleOptions() : array</pre>
+                <pre class="signature" style="margin-right: 54px;">multipleOptions(string|null  <span class="argument">$key = null</span>) : array</pre>
                 <p><em>The options defining the property behavior when the multiple flag is set to true.</em></p>
                 
 
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string|null</td>
+                                <td>$key </td>
+                                <td><p>Optional setting to retrieve from the options.</p></td>
+                            </tr>
+                                            </table>
                 
                 
                                     <h4>Returns</h4>
@@ -3160,7 +3169,7 @@ such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects in
                 <h3 class="public ">defaultMultipleOptions()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">defaultMultipleOptions() : array</pre>
-                <p><em></em></p>
+                <p><em>Retrieve the default settings for a multi-value property.</em></p>
                 
 
                 
@@ -3190,7 +3199,7 @@ such as \Charcoal\Property\ObjectProperty::parseVal() who could parse objects in
                 <h3 class="public ">multipleSeparator()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
                 <pre class="signature" style="margin-right: 54px;">multipleSeparator() : string</pre>
-                <p><em></em></p>
+                <p><em>Retrieve the value delimiter for a multi-value property.</em></p>
                 
 
                 
@@ -4845,7 +4854,7 @@ Redefine this method as an abstract method.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on December 14th, 2016 at 18:02.
+                    on December 16th, 2016 at 17:24.
                 </section>
             </section>
         </section>
