@@ -217,36 +217,61 @@ class FileProperty extends AbstractProperty
     }
 
     /**
-     * @param string $mimetype The file mimetype.
-     * @throws InvalidArgumentException If the mimetype argument is not a string.
+     * Set the MIME type.
+     *
+     * @param  string $type The file MIME type.
+     * @throws InvalidArgumentException If the MIME type argument is not a string.
      * @return FileProperty Chainable
      */
-    public function setMimetype($mimetype)
+    public function setMimetype($type)
     {
-        if (!is_string($mimetype)) {
+        if ($type === null || $type === false) {
+            $this->mimetype = null;
+            return $this;
+        }
+
+        if (!is_string($type)) {
             throw new InvalidArgumentException(
                 'Mimetype must be a string'
             );
         }
-        $this->mimetype = $mimetype;
+
+        $this->mimetype = $type;
+
         return $this;
     }
 
     /**
+     * Retrieve the MIME type.
+     *
      * @return string
      */
     public function mimetype()
     {
         if (!$this->mimetype) {
-            // Get mimetype from file
             $val = $this->val();
+
             if (!$val) {
                 return '';
             }
-            $info = new finfo(FILEINFO_MIME_TYPE);
-            $this->mimetype = $info->file($val);
+
+            $this->setMimetype($this->mimetypeFor($val));
         }
+
         return $this->mimetype;
+    }
+
+    /**
+     * Extract the MIME type from the given file.
+     *
+     * @uses   finfo
+     * @param  string $file The file to check.
+     * @return string|false Returns the given file's MIME type or FALSE if an error occurred.
+     */
+    public function mimetypeFor($file)
+    {
+        $info = new finfo(FILEINFO_MIME_TYPE);
+        return $info->file($file);
     }
 
     /**
@@ -319,17 +344,17 @@ class FileProperty extends AbstractProperty
      */
     public function maxFilesizeAllowedByPhp(&$iniDirective = null)
     {
-        $post_max_size       = $this->parseIniSize(ini_get('post_max_size'));
-        $upload_max_filesize = $this->parseIniSize(ini_get('upload_max_filesize'));
+        $postMaxSize       = $this->parseIniSize(ini_get('post_max_size'));
+        $uploadMaxFilesize = $this->parseIniSize(ini_get('upload_max_filesize'));
 
-        if ($post_max_size < $upload_max_filesize) {
+        if ($postMaxSize < $uploadMaxFilesize) {
             $iniDirective = 'post_max_size';
 
-            return $post_max_size;
+            return $postMaxSize;
         } else {
             $iniDirective = 'upload_max_filesize';
 
-            return $upload_max_filesize;
+            return $uploadMaxFilesize;
         }
     }
 
@@ -371,7 +396,7 @@ class FileProperty extends AbstractProperty
     public function validationMethods()
     {
         $parentMethods = parent::validationMethods();
-        return array_merge($parentMethods, ['accepted_mimetypes', 'max_filesize']);
+        return array_merge($parentMethods, [ 'accepted_mimetypes', 'max_filesize' ]);
     }
 
     /**
@@ -494,6 +519,7 @@ class FileProperty extends AbstractProperty
                         $data['error']      = $file['error'][$lang][$k];
                         $data['type']       = $file['type'][$lang][$k];
                         $data['size']       = $file['size'][$lang][$k];
+
                         $f[$lang][] = $this->fileUpload($data);
                     }
                 }
@@ -508,6 +534,7 @@ class FileProperty extends AbstractProperty
                     $data['error']      = $file['error'][$k];
                     $data['type']       = $file['type'][$k];
                     $data['size']       = $file['size'][$k];
+
                     $f[] = $this->fileUpload($data);
                 }
             } elseif (is_array($file['name']) && $this->l10n()) {
@@ -534,6 +561,7 @@ class FileProperty extends AbstractProperty
             } else {
                 $f = $this->fileUpload($file);
             }
+
             return $f;
         }
 
@@ -543,13 +571,13 @@ class FileProperty extends AbstractProperty
             $k = 0;
             $total = count($val);
             $f = [];
-            for (; $k<$total; $k++) {
-                if (preg_match('/^data:/', $val[$k])) {
-                    $f[] = $this->dataUpload($val[$k]);
-                    return $f;
+            foreach ($val as $v) {
+                if ($this->isDataUri($v)) {
+                    $f[] = $this->dataUpload($v);
                 }
             }
-        } elseif (preg_match('/^data:/', $val)) {
+            return $f;
+        } elseif ($this->isDataUri($val)) {
             $f = $this->dataUpload($val);
             return $f;
         }
@@ -558,7 +586,18 @@ class FileProperty extends AbstractProperty
     }
 
     /**
-     * Upload to filesystem, from data: content.
+     * Determine if the given value is a data URI.
+     *
+     * @param  string $val The value to check.
+     * @return string
+     */
+    public function isDataUri($val)
+    {
+        return preg_match('/^data:/i', $val);
+    }
+
+    /**
+     * Upload to filesystem, from data URI.
      *
      * @param string $fileData The file data, raw.
      * @throws Exception If data content decoding fails.
@@ -566,23 +605,23 @@ class FileProperty extends AbstractProperty
      */
     public function dataUpload($fileData)
     {
-        $file_content = file_get_contents($fileData);
-        if ($file_content === false) {
+        $fileContent = file_get_contents($fileData);
+        if ($fileContent === false) {
             throw new Exception(
                 'File content could not be decoded.'
             );
         }
 
         $info = new finfo(FILEINFO_MIME_TYPE);
-        $this->setMimetype($info->buffer($file_content));
-        $this->setFilesize(strlen($file_content));
+        $this->setMimetype($info->buffer($fileContent));
+        $this->setFilesize(strlen($fileContent));
         if (!$this->validateAcceptedMimetypes() || !$this->validateMaxFilesize()) {
             return '';
         }
 
         $target = $this->uploadTarget();
 
-        $ret = file_put_contents($target, $file_content);
+        $ret = file_put_contents($target, $fileContent);
         if ($ret === false) {
             return '';
         } else {
@@ -594,6 +633,8 @@ class FileProperty extends AbstractProperty
     }
 
     /**
+     * Upload to filesystem.
+     *
      * @param array $fileData The file data (from $_FILES, typically).
      * @throws InvalidArgumentException If the FILES data argument is missing `name` or `tmp_name`.
      * @return string
@@ -664,6 +705,9 @@ class FileProperty extends AbstractProperty
                 return $target;
             } else {
                 $target = $dir.$this->generateUniqueFilename($filename);
+                while ($this->fileExists($target)) {
+                    $target = $dir.$this->generateUniqueFilename($filename);
+                }
             }
         }
 
@@ -676,17 +720,17 @@ class FileProperty extends AbstractProperty
      * PHP builtin's `file_exists` is only case-insensitive on case-insensitive filesystem (such as windows)
      * This method allows to have the same validation across different platforms / filesystem.
      *
-     * @param string  $file             The full file to check.
-     * @param boolean $case_insensitive Optional. Case insensitive flag.
+     * @param string  $file            The full file to check.
+     * @param boolean $caseInsensitive Optional. Case insensitive flag.
      * @return boolean
      */
-    public function fileExists($file, $case_insensitive = true)
+    public function fileExists($file, $caseInsensitive = true)
     {
         if (file_exists($file)) {
             return true;
         }
 
-        if ($case_insensitive === false) {
+        if ($caseInsensitive === false) {
             return false;
         }
 
@@ -719,6 +763,124 @@ class FileProperty extends AbstractProperty
     }
 
     /**
+     * Render the given file to the given pattern.
+     *
+     * This method does not rename the given path.
+     *
+     * @uses   strtr() To replace tokens in the form `{{foobar}}`.
+     * @param  string         $from The string being rendered.
+     * @param  string         $to   The pattern replacing $from.
+     * @param  array|callable $args Extra rename tokens.
+     * @throws InvalidArgumentException If the given arguments are invalid.
+     * @throws UnexpectedValueException If the renaming failed.
+     * @return string Returns the rendered target.
+     */
+    public function renderFileRenamePattern($from, $to, $args = null)
+    {
+        if (!is_string($from)) {
+            throw new InvalidArgumentException(sprintf(
+                'The target to rename must be a string, received %s',
+                (is_object($from) ? get_class($from) : gettype($from))
+            ));
+        }
+
+        if (!is_string($to)) {
+            throw new InvalidArgumentException(sprintf(
+                'The rename pattern must be a string, received %s',
+                (is_object($to) ? get_class($to) : gettype($to))
+            ));
+        }
+
+        $info = pathinfo($from);
+        $args = $this->renamePatternArgs($info, $args);
+
+        $to = strtr($to, $args);
+        if (strpos($to, '{{') !== false) {
+            preg_match_all('~\{\{\s*(.*?)\s*\}\}~i', $to, $matches);
+
+            throw new UnexpectedValueException(sprintf(
+                'The rename pattern failed. Leftover tokens found: %s',
+                implode(', ', $matches[1])
+            ));
+        }
+
+        $to = str_replace($info['basename'], $to, $from);
+
+        return $to;
+    }
+
+    /**
+     * Retrieve the rename pattern tokens for the given file.
+     *
+     * @param  string|array   $path The string to be parsed or an associative array of information about the file.
+     * @param  array|callable $args Extra rename tokens.
+     * @throws InvalidArgumentException If the given arguments are invalid.
+     * @throws UnexpectedValueException If the given path is invalid.
+     * @return string Returns the rendered target.
+     */
+    public function renamePatternArgs($path, $args = null)
+    {
+        if (!is_string($path) && !is_array($path)) {
+            throw new InvalidArgumentException(sprintf(
+                'The target must be a string or an array from [pathfino()], received %s',
+                (is_object($path) ? get_class($path) : gettype($path))
+            ));
+        }
+
+        if (is_string($path)) {
+            $info = pathinfo($path);
+        } else {
+            $info = $path;
+        }
+
+        if (!isset($info['basename']) || $info['basename'] === '') {
+            throw new UnexpectedValueException(
+                'The basename is missing from the target'
+            );
+        }
+
+        if (!isset($info['filename']) || $info['filename'] === '') {
+            throw new UnexpectedValueException(
+                'The filename is missing from the target'
+            );
+        }
+
+        $defaults = [
+            '{{property}}'  => $this->ident(),
+            '{{label}}'     => $this->label(),
+            '{{extension}}' => $info['extension'],
+            '{{basename}}'  => $info['basename'],
+            '{{filename}}'  => $info['filename']
+        ];
+
+        if ($args === null) {
+            $args = $defaults;
+        } else {
+            if (is_callable($args)) {
+                /**
+                 * Rename Arguments Callback Routine
+                 *
+                 * @param  array             $info Information about the file path from {@see pathinfo()}.
+                 * @param  PropertyInterface $prop The related image property.
+                 * @return array
+                 */
+                $args = $args($info, $this);
+            }
+
+            if (is_array($args)) {
+                $args = array_replace($defaults, $args);
+            } else {
+                throw new InvalidArgumentException(sprintf(
+                    'Arguments must be an array or a callable that returns an array, received %s',
+                    (is_object($args) ? get_class($args) : gettype($args))
+                ));
+            }
+        }
+
+        return $args;
+    }
+
+    /**
      * Generate a new filename from the property.
      *
      * @return string
@@ -738,13 +900,24 @@ class FileProperty extends AbstractProperty
     /**
      * Generate a unique filename.
      *
-     * @param string $filename The filename to alter.
+     * @param  string $filename The filename to alter.
+     * @throws InvalidArgumentException If the given filename is invalid.
      * @return string
-     * @todo Improve this feature Can not overwrite. Must rename file.
      */
     public function generateUniqueFilename($filename)
     {
-        $info = pathinfo($filename);
+        if (!is_string($filename) && !is_array($filename)) {
+            throw new InvalidArgumentException(sprintf(
+                'The target must be a string or an array from [pathfino()], received %s',
+                (is_object($filename) ? get_class($filename) : gettype($filename))
+            ));
+        }
+
+        if (is_string($filename)) {
+            $info = pathinfo($filename);
+        } else {
+            $info = $filename;
+        }
 
         $filename = $info['filename'].'-'.uniqid();
 
@@ -758,10 +931,21 @@ class FileProperty extends AbstractProperty
     /**
      * Generate the file extension from the property's value.
      *
-     * @return string
+     * @param  string $file The file to parse.
+     * @return string The extension based on the MIME type.
      */
-    public function generateExtension()
+    public function generateExtension($file = null)
     {
+        if ($file === null) {
+            $file = $this->val();
+        } elseif (is_string($file)) {
+            if (in_array($file, $this->acceptedMimetypes())) {
+                $mime = $file;
+            } else {
+                $mime = $this->mimetypeFor($file);
+            }
+        }
+
         return '';
     }
 }
