@@ -198,7 +198,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.AudioProperty.html#11-120" title="Go to source code">Charcoal/Property/AudioProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.AudioProperty.html#11-130" title="Go to source code">Charcoal/Property/AudioProperty.php</a>
 		<br>
 	</div>
 
@@ -444,20 +444,25 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateExtension">#</a>
-		<code><a href="source-class-Charcoal.Property.AudioProperty.html#99-119" title="Go to source code">generateExtension</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.AudioProperty.html#99-129" title="Go to source code">generateExtension</a>( <span>string <var>$file</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Generate the file extension from the property's value.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Generate the file extension from the property's value.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>The file to parse.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					string
+					string<br>The extension based on the MIME type.
 				</div>
 
 
@@ -481,12 +486,16 @@ Charcoal\Config\AbstractEntity
 			<a href="class-Charcoal.Property.FileProperty.html#_filesize">filesize()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_generateFilename">generateFilename()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_generateUniqueFilename">generateUniqueFilename()</a>, 
+			<a href="class-Charcoal.Property.FileProperty.html#_isDataUri">isDataUri()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_maxFilesize">maxFilesize()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_maxFilesizeAllowedByPhp">maxFilesizeAllowedByPhp()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_mimetype">mimetype()</a>, 
+			<a href="class-Charcoal.Property.FileProperty.html#_mimetypeFor">mimetypeFor()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_overwrite">overwrite()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_parseIniSize">parseIniSize()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_publicAccess">publicAccess()</a>, 
+			<a href="class-Charcoal.Property.FileProperty.html#_renamePatternArgs">renamePatternArgs()</a>, 
+			<a href="class-Charcoal.Property.FileProperty.html#_renderFileRenamePattern">renderFileRenamePattern()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_sanitizeFilename">sanitizeFilename()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_save">save()</a>, 
 			<a href="class-Charcoal.Property.FileProperty.html#_setAcceptedMimetypes">setAcceptedMimetypes()</a>, 

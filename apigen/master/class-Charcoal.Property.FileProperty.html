@@ -194,7 +194,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-767" title="Go to source code">Charcoal/Property/FileProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-951" title="Go to source code">Charcoal/Property/FileProperty.php</a>
 		<br>
 	</div>
 
@@ -617,20 +617,20 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMimetype">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#219-233" title="Go to source code">setMimetype</a>( <span>string <var>$mimetype</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#219-242" title="Go to source code">setMimetype</a>( <span>string <var>$type</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Set the MIME type.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Set the MIME type.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$mimetype</var></dt>
-					<dd>The file mimetype.</dd>
+					<dt><var>$type</var></dt>
+					<dd>The file MIME type.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -640,7 +640,7 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Throws</h4>
 				<div class="list">
-					InvalidArgumentException<br>If the mimetype argument is not a string.
+					InvalidArgumentException<br>If the MIME type argument is not a string.
 				</div>
 
 
@@ -660,14 +660,14 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_mimetype">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#235-250" title="Go to source code">mimetype</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#244-262" title="Go to source code">mimetype</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Retrieve the MIME type.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Retrieve the MIME type.</p>
 
 
 
@@ -677,6 +677,49 @@ Charcoal\Config\AbstractEntity
 				</div>
 
 
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="mimetypeFor" id="_mimetypeFor">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|false
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_mimetypeFor">#</a>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#264-275" title="Go to source code">mimetypeFor</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Extract the MIME type from the given file.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Extract the MIME type from the given file.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>The file to check.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|false<br>Returns the given file's MIME type or FALSE if an error occurred.
+				</div>
+
+
+				<h4>Uses</h4>
+				<div class="list">
+						finfo<br>
+				</div>
 
 
 		</div>
@@ -694,7 +737,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseIniSize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#252-280" title="Go to source code">parseIniSize</a>( <span>mixed <var>$size</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#277-305" title="Go to source code">parseIniSize</a>( <span>mixed <var>$size</var></span> )</code>
 
 		<div class="description short">
 			<p>Converts a php.ini notation for size to an integer.</p>
@@ -737,7 +780,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setMaxFilesize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#282-294" title="Go to source code">setMaxFilesize</a>( <span>string|integer <var>$size</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#307-319" title="Go to source code">setMaxFilesize</a>( <span>string|integer <var>$size</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the maximium size accepted for an uploaded files.</p>
@@ -780,7 +823,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_maxFilesize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#296-310" title="Go to source code">maxFilesize</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#321-335" title="Go to source code">maxFilesize</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the maximum size accepted for uploaded files.</p>
@@ -816,7 +859,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_maxFilesizeAllowedByPhp">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#312-334" title="Go to source code">maxFilesizeAllowedByPhp</a>( <span>string|null <var>&amp; $iniDirective</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#337-359" title="Go to source code">maxFilesizeAllowedByPhp</a>( <span>string|null <var>&amp; $iniDirective</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Retrieve the maximum size (in bytes) allowed for an uploaded file
@@ -858,7 +901,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFilesize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#336-350" title="Go to source code">setFilesize</a>( <span>integer <var>$size</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#361-375" title="Go to source code">setFilesize</a>( <span>integer <var>$size</var></span> )</code>
 
 		<div class="description short">
 			
@@ -901,7 +944,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_filesize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#352-366" title="Go to source code">filesize</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#377-391" title="Go to source code">filesize</a>( )</code>
 
 		<div class="description short">
 			
@@ -935,7 +978,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validationMethods">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#368-375" title="Go to source code">validationMethods</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#393-400" title="Go to source code">validationMethods</a>( )</code>
 
 		<div class="description short">
 			
@@ -971,7 +1014,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateAcceptedMimetypes">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#377-410" title="Go to source code">validateAcceptedMimetypes</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#402-435" title="Go to source code">validateAcceptedMimetypes</a>( )</code>
 
 		<div class="description short">
 			
@@ -1005,7 +1048,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_validateMaxFilesize">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#412-430" title="Go to source code">validateMaxFilesize</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#437-455" title="Go to source code">validateMaxFilesize</a>( )</code>
 
 		<div class="description short">
 			
@@ -1039,7 +1082,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#432-438" title="Go to source code">sqlExtra</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#457-463" title="Go to source code">sqlExtra</a>( )</code>
 
 		<div class="description short">
 			
@@ -1073,7 +1116,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#440-455" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-480" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
 			<p>Get the SQL type (Storage format)</p>
@@ -1109,7 +1152,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#457-463" title="Go to source code">sqlPdoType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#482-488" title="Go to source code">sqlPdoType</a>( )</code>
 
 		<div class="description short">
 			
@@ -1143,7 +1186,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#465-558" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#490-586" title="Go to source code">save</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			
@@ -1172,6 +1215,45 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="isDataUri" id="_isDataUri">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isDataUri">#</a>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#588-597" title="Go to source code">isDataUri</a>( <span>string <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Determine if the given value is a data URI.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if the given value is a data URI.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>The value to check.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="dataUpload" id="_dataUpload">
 
 		<td class="attributes"><code>
@@ -1184,14 +1266,14 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_dataUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#560-594" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#599-633" title="Go to source code">dataUpload</a>( <span>string <var>$fileData</var></span> )</code>
 
 		<div class="description short">
-			<p>Upload to filesystem, from data: content.</p>
+			<p>Upload to filesystem, from data URI.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Upload to filesystem, from data: content.</p>
+			<p>Upload to filesystem, from data URI.</p>
 
 
 				<h4>Parameters</h4>
@@ -1227,14 +1309,14 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileUpload">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#596-632" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#635-673" title="Go to source code">fileUpload</a>( <span>array <var>$fileData</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Upload to filesystem.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Upload to filesystem.</p>
 
 
 				<h4>Parameters</h4>
@@ -1270,7 +1352,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_uploadTarget">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#634-671" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#675-715" title="Go to source code">uploadTarget</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			
@@ -1313,7 +1395,7 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileExists">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#673-701" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$case_insensitive</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#717-745" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$caseInsensitive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			<p>This function checks if a file exist, by default in a case-insensitive manner.</p>
@@ -1330,7 +1412,7 @@ This method allows to have the same validation across different platforms / file
 				<div class="list"><dl>
 					<dt><var>$file</var></dt>
 					<dd>The full file to check.</dd>
-					<dt><var>$case_insensitive</var></dt>
+					<dt><var>$caseInsensitive</var></dt>
 					<dd>Optional. Case insensitive flag.</dd>
 				</dl></div>
 
@@ -1357,7 +1439,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sanitizeFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#703-719" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#747-763" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Sanitize a filename by removing characters from a blacklist and escaping dot.</p>
@@ -1384,6 +1466,106 @@ This method allows to have the same validation across different platforms / file
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="renderFileRenamePattern" id="_renderFileRenamePattern">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderFileRenamePattern">#</a>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#765-810" title="Go to source code">renderFileRenamePattern</a>( <span>string <var>$from</var></span>, <span>string <var>$to</var></span>, <span>array|callable <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Render the given file to the given pattern.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Render the given file to the given pattern.</p>
+
+<p>This method does not rename the given path.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$from</var></dt>
+					<dd>The string being rendered.</dd>
+					<dt><var>$to</var></dt>
+					<dd>The pattern replacing $from.</dd>
+					<dt><var>$args</var></dt>
+					<dd>Extra rename tokens.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>Returns the rendered target.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the given arguments are invalid.<br>
+					UnexpectedValueException<br>If the renaming failed.
+				</div>
+
+				<h4>Uses</h4>
+				<div class="list">
+						strtr() To replace tokens in the form <code>{{foobar}}</code>.<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renamePatternArgs" id="_renamePatternArgs">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renamePatternArgs">#</a>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#812-881" title="Go to source code">renamePatternArgs</a>( <span>string|array <var>$path</var></span>, <span>array|callable <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve the rename pattern tokens for the given file.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the rename pattern tokens for the given file.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd>The string to be parsed or an associative array of information about the file.</dd>
+					<dt><var>$args</var></dt>
+					<dd>Extra rename tokens.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>Returns the rendered target.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the given arguments are invalid.<br>
+					UnexpectedValueException<br>If the given path is invalid.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="generateFilename" id="_generateFilename">
 
 		<td class="attributes"><code>
@@ -1396,7 +1578,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#721-736" title="Go to source code">generateFilename</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#883-898" title="Go to source code">generateFilename</a>( )</code>
 
 		<div class="description short">
 			<p>Generate a new filename from the property.</p>
@@ -1430,7 +1612,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateUniqueFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#738-756" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#900-929" title="Go to source code">generateUniqueFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Generate a unique filename.</p>
@@ -1451,6 +1633,10 @@ This method allows to have the same validation across different platforms / file
 					string
 				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the given filename is invalid.
+				</div>
 
 
 
@@ -1469,7 +1655,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateExtension">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#758-766" title="Go to source code">generateExtension</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#931-950" title="Go to source code">generateExtension</a>( <span>string <var>$file</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Generate the file extension from the property's value.</p>
@@ -1479,10 +1665,15 @@ This method allows to have the same validation across different platforms / file
 			<p>Generate the file extension from the property's value.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>The file to parse.</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					string
+					string<br>The extension based on the MIME type.
 				</div>
 
 
