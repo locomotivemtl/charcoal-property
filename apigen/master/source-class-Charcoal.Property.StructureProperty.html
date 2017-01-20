@@ -613,139 +613,141 @@
 </span><span id="488" class="l"><a href="#488">488: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$propertyValue</span> === <span class="php-keyword1">null</span>) {
 </span><span id="489" class="l"><a href="#489">489: </a>                <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
 </span><span id="490" class="l"><a href="#490">490: </a>            }
-</span><span id="491" class="l"><a href="#491">491: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="492" class="l"><a href="#492">492: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$val</span>;
-</span><span id="493" class="l"><a href="#493">493: </a>        }
-</span><span id="494" class="l"><a href="#494">494: </a>
-</span><span id="495" class="l"><a href="#495">495: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">json_encode</span>(<span class="php-var">$propertyValue</span>, JSON_PRETTY_PRINT);
-</span><span id="496" class="l"><a href="#496">496: </a>    }
-</span><span id="497" class="l"><a href="#497">497: </a>
-</span><span id="498" class="l"><a href="#498">498: </a>    <span class="php-comment">/**
-</span></span><span id="499" class="l"><a href="#499">499: </a><span class="php-comment">     * Convert the given value into a structure.
-</span></span><span id="500" class="l"><a href="#500">500: </a><span class="php-comment">     *
-</span></span><span id="501" class="l"><a href="#501">501: </a><span class="php-comment">     * @param  mixed $val     The value to &quot;structurize&quot;.
-</span></span><span id="502" class="l"><a href="#502">502: </a><span class="php-comment">     * @param  array $options Optional structure options.
-</span></span><span id="503" class="l"><a href="#503">503: </a><span class="php-comment">     * @return ModelInterface|ModelInterface[]
-</span></span><span id="504" class="l"><a href="#504">504: </a><span class="php-comment">     */</span>
-</span><span id="505" class="l"><a href="#505">505: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> structureVal(<span class="php-var">$val</span>, <span class="php-keyword1">array</span> <span class="php-var">$options</span> = [])
-</span><span id="506" class="l"><a href="#506">506: </a>    {
-</span><span id="507" class="l"><a href="#507">507: </a>        <span class="php-comment">/** @todo Find a use for this */</span>
-</span><span id="508" class="l"><a href="#508">508: </a>        <span class="php-keyword1">unset</span>(<span class="php-var">$options</span>);
-</span><span id="509" class="l"><a href="#509">509: </a>
-</span><span id="510" class="l"><a href="#510">510: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span>) {
-</span><span id="511" class="l"><a href="#511">511: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
-</span><span id="512" class="l"><a href="#512">512: </a>        }
-</span><span id="513" class="l"><a href="#513">513: </a>
-</span><span id="514" class="l"><a href="#514">514: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
-</span><span id="515" class="l"><a href="#515">515: </a>            <span class="php-var">$entries</span> = [];
-</span><span id="516" class="l"><a href="#516">516: </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$val</span> <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
-</span><span id="517" class="l"><a href="#517">517: </a>                <span class="php-var">$struct</span> = <span class="php-var">$this</span>-&gt;createStructureModel();
-</span><span id="518" class="l"><a href="#518">518: </a>                <span class="php-var">$struct</span>-&gt;setMetadata(<span class="php-var">$this</span>-&gt;structureMetadata());
-</span><span id="519" class="l"><a href="#519">519: </a>                <span class="php-var">$struct</span>-&gt;setData(<span class="php-var">$entry</span>);
-</span><span id="520" class="l"><a href="#520">520: </a>
-</span><span id="521" class="l"><a href="#521">521: </a>                <span class="php-var">$entries</span>[] = <span class="php-var">$struct</span>;
-</span><span id="522" class="l"><a href="#522">522: </a>            }
-</span><span id="523" class="l"><a href="#523">523: </a>
-</span><span id="524" class="l"><a href="#524">524: </a>            <span class="php-keyword1">return</span> <span class="php-var">$entries</span>;
-</span><span id="525" class="l"><a href="#525">525: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="526" class="l"><a href="#526">526: </a>            <span class="php-var">$struct</span> = <span class="php-var">$this</span>-&gt;createStructureModel();
-</span><span id="527" class="l"><a href="#527">527: </a>            <span class="php-var">$struct</span>-&gt;setMetadata(<span class="php-var">$this</span>-&gt;structureMetadata());
-</span><span id="528" class="l"><a href="#528">528: </a>            <span class="php-var">$struct</span>-&gt;setData(<span class="php-var">$val</span>);
-</span><span id="529" class="l"><a href="#529">529: </a>
-</span><span id="530" class="l"><a href="#530">530: </a>            <span class="php-keyword1">return</span> <span class="php-var">$struct</span>;
-</span><span id="531" class="l"><a href="#531">531: </a>        }
-</span><span id="532" class="l"><a href="#532">532: </a>    }
-</span><span id="533" class="l"><a href="#533">533: </a>
-</span><span id="534" class="l"><a href="#534">534: </a>    <span class="php-comment">/**
-</span></span><span id="535" class="l"><a href="#535">535: </a><span class="php-comment">     * Retrieve the structure as a plain array.
-</span></span><span id="536" class="l"><a href="#536">536: </a><span class="php-comment">     *
-</span></span><span id="537" class="l"><a href="#537">537: </a><span class="php-comment">     * @return array
-</span></span><span id="538" class="l"><a href="#538">538: </a><span class="php-comment">     */</span>
-</span><span id="539" class="l"><a href="#539">539: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toStructure()
-</span><span id="540" class="l"><a href="#540">540: </a>    {
-</span><span id="541" class="l"><a href="#541">541: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;structureVal(<span class="php-var">$this</span>-&gt;val());
-</span><span id="542" class="l"><a href="#542">542: </a>    }
-</span><span id="543" class="l"><a href="#543">543: </a>
-</span><span id="544" class="l"><a href="#544">544: </a>    <span class="php-comment">/**
-</span></span><span id="545" class="l"><a href="#545">545: </a><span class="php-comment">     * Retrieve the structure as a plain array.
-</span></span><span id="546" class="l"><a href="#546">546: </a><span class="php-comment">     *
-</span></span><span id="547" class="l"><a href="#547">547: </a><span class="php-comment">     * @return array
-</span></span><span id="548" class="l"><a href="#548">548: </a><span class="php-comment">     */</span>
-</span><span id="549" class="l"><a href="#549">549: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toArray()
-</span><span id="550" class="l"><a href="#550">550: </a>    {
-</span><span id="551" class="l"><a href="#551">551: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;val();
-</span><span id="552" class="l"><a href="#552">552: </a>    }
-</span><span id="553" class="l"><a href="#553">553: </a>
-</span><span id="554" class="l"><a href="#554">554: </a>    <span class="php-comment">/**
-</span></span><span id="555" class="l"><a href="#555">555: </a><span class="php-comment">     * Retrieve the structure of items as JSON.
-</span></span><span id="556" class="l"><a href="#556">556: </a><span class="php-comment">     *
-</span></span><span id="557" class="l"><a href="#557">557: </a><span class="php-comment">     * @param  integer $options Bitmask of flags.
-</span></span><span id="558" class="l"><a href="#558">558: </a><span class="php-comment">     * @return string
-</span></span><span id="559" class="l"><a href="#559">559: </a><span class="php-comment">     */</span>
-</span><span id="560" class="l"><a href="#560">560: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toJson(<span class="php-var">$options</span> = <span class="php-num">0</span>)
-</span><span id="561" class="l"><a href="#561">561: </a>    {
-</span><span id="562" class="l"><a href="#562">562: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;val(), <span class="php-var">$options</span>);
-</span><span id="563" class="l"><a href="#563">563: </a>    }
-</span><span id="564" class="l"><a href="#564">564: </a>
-</span><span id="565" class="l"><a href="#565">565: </a>    <span class="php-comment">/**
-</span></span><span id="566" class="l"><a href="#566">566: </a><span class="php-comment">     * AbstractProperty &gt; setVal(). Ensure val is an array
-</span></span><span id="567" class="l"><a href="#567">567: </a><span class="php-comment">     *
-</span></span><span id="568" class="l"><a href="#568">568: </a><span class="php-comment">     * @param  string|array $val The value to set.
-</span></span><span id="569" class="l"><a href="#569">569: </a><span class="php-comment">     * @throws InvalidArgumentException If the value is invalid.
-</span></span><span id="570" class="l"><a href="#570">570: </a><span class="php-comment">     * @return array
-</span></span><span id="571" class="l"><a href="#571">571: </a><span class="php-comment">     */</span>
-</span><span id="572" class="l"><a href="#572">572: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> parseOne(<span class="php-var">$val</span>)
-</span><span id="573" class="l"><a href="#573">573: </a>    {
-</span><span id="574" class="l"><a href="#574">574: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span> || <span class="php-var">$val</span> === <span class="php-quote">''</span>) {
-</span><span id="575" class="l"><a href="#575">575: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;allowNull()) {
-</span><span id="576" class="l"><a href="#576">576: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
-</span><span id="577" class="l"><a href="#577">577: </a>            } <span class="php-keyword1">else</span> {
-</span><span id="578" class="l"><a href="#578">578: </a>                <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
-</span><span id="579" class="l"><a href="#579">579: </a>                    <span class="php-quote">'Value can not be NULL (not allowed)'</span>
-</span><span id="580" class="l"><a href="#580">580: </a>                );
-</span><span id="581" class="l"><a href="#581">581: </a>            }
-</span><span id="582" class="l"><a href="#582">582: </a>        }
-</span><span id="583" class="l"><a href="#583">583: </a>
-</span><span id="584" class="l"><a href="#584">584: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$val</span>)) {
-</span><span id="585" class="l"><a href="#585">585: </a>            <span class="php-var">$val</span> = <span class="php-keyword2">json_decode</span>(<span class="php-var">$val</span>, <span class="php-keyword1">true</span>);
-</span><span id="586" class="l"><a href="#586">586: </a>        }
-</span><span id="587" class="l"><a href="#587">587: </a>
-</span><span id="588" class="l"><a href="#588">588: </a>        <span class="php-keyword1">return</span> <span class="php-var">$val</span>;
-</span><span id="589" class="l"><a href="#589">589: </a>    }
-</span><span id="590" class="l"><a href="#590">590: </a>
-</span><span id="591" class="l"><a href="#591">591: </a>    <span class="php-comment">/**
-</span></span><span id="592" class="l"><a href="#592">592: </a><span class="php-comment">     * Retrieve the property's extra SQL field settings.
-</span></span><span id="593" class="l"><a href="#593">593: </a><span class="php-comment">     *
-</span></span><span id="594" class="l"><a href="#594">594: </a><span class="php-comment">     * @return string
-</span></span><span id="595" class="l"><a href="#595">595: </a><span class="php-comment">     */</span>
-</span><span id="596" class="l"><a href="#596">596: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlExtra()
-</span><span id="597" class="l"><a href="#597">597: </a>    {
-</span><span id="598" class="l"><a href="#598">598: </a>        <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="599" class="l"><a href="#599">599: </a>    }
-</span><span id="600" class="l"><a href="#600">600: </a>
-</span><span id="601" class="l"><a href="#601">601: </a>    <span class="php-comment">/**
-</span></span><span id="602" class="l"><a href="#602">602: </a><span class="php-comment">     * Retrieve the property's SQL data type (storage format).
-</span></span><span id="603" class="l"><a href="#603">603: </a><span class="php-comment">     *
-</span></span><span id="604" class="l"><a href="#604">604: </a><span class="php-comment">     * For a lack of better array support in mysql, data is stored as encoded JSON in a LONGTEXT.
+</span><span id="491" class="l"><a href="#491">491: </a>        } <span class="php-keyword1">elseif</span> (<span class="php-var">$val</span> <span class="php-keyword1">instanceof</span> TranslationString) {
+</span><span id="492" class="l"><a href="#492">492: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$val</span>-&gt;fallback();
+</span><span id="493" class="l"><a href="#493">493: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="494" class="l"><a href="#494">494: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$val</span>;
+</span><span id="495" class="l"><a href="#495">495: </a>        }
+</span><span id="496" class="l"><a href="#496">496: </a>
+</span><span id="497" class="l"><a href="#497">497: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">json_encode</span>(<span class="php-var">$propertyValue</span>, JSON_PRETTY_PRINT);
+</span><span id="498" class="l"><a href="#498">498: </a>    }
+</span><span id="499" class="l"><a href="#499">499: </a>
+</span><span id="500" class="l"><a href="#500">500: </a>    <span class="php-comment">/**
+</span></span><span id="501" class="l"><a href="#501">501: </a><span class="php-comment">     * Convert the given value into a structure.
+</span></span><span id="502" class="l"><a href="#502">502: </a><span class="php-comment">     *
+</span></span><span id="503" class="l"><a href="#503">503: </a><span class="php-comment">     * @param  mixed $val     The value to &quot;structurize&quot;.
+</span></span><span id="504" class="l"><a href="#504">504: </a><span class="php-comment">     * @param  array $options Optional structure options.
+</span></span><span id="505" class="l"><a href="#505">505: </a><span class="php-comment">     * @return ModelInterface|ModelInterface[]
+</span></span><span id="506" class="l"><a href="#506">506: </a><span class="php-comment">     */</span>
+</span><span id="507" class="l"><a href="#507">507: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> structureVal(<span class="php-var">$val</span>, <span class="php-keyword1">array</span> <span class="php-var">$options</span> = [])
+</span><span id="508" class="l"><a href="#508">508: </a>    {
+</span><span id="509" class="l"><a href="#509">509: </a>        <span class="php-comment">/** @todo Find a use for this */</span>
+</span><span id="510" class="l"><a href="#510">510: </a>        <span class="php-keyword1">unset</span>(<span class="php-var">$options</span>);
+</span><span id="511" class="l"><a href="#511">511: </a>
+</span><span id="512" class="l"><a href="#512">512: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span>) {
+</span><span id="513" class="l"><a href="#513">513: </a>            <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="514" class="l"><a href="#514">514: </a>        }
+</span><span id="515" class="l"><a href="#515">515: </a>
+</span><span id="516" class="l"><a href="#516">516: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
+</span><span id="517" class="l"><a href="#517">517: </a>            <span class="php-var">$entries</span> = [];
+</span><span id="518" class="l"><a href="#518">518: </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$val</span> <span class="php-keyword1">as</span> <span class="php-var">$entry</span>) {
+</span><span id="519" class="l"><a href="#519">519: </a>                <span class="php-var">$struct</span> = <span class="php-var">$this</span>-&gt;createStructureModel();
+</span><span id="520" class="l"><a href="#520">520: </a>                <span class="php-var">$struct</span>-&gt;setMetadata(<span class="php-var">$this</span>-&gt;structureMetadata());
+</span><span id="521" class="l"><a href="#521">521: </a>                <span class="php-var">$struct</span>-&gt;setData(<span class="php-var">$entry</span>);
+</span><span id="522" class="l"><a href="#522">522: </a>
+</span><span id="523" class="l"><a href="#523">523: </a>                <span class="php-var">$entries</span>[] = <span class="php-var">$struct</span>;
+</span><span id="524" class="l"><a href="#524">524: </a>            }
+</span><span id="525" class="l"><a href="#525">525: </a>
+</span><span id="526" class="l"><a href="#526">526: </a>            <span class="php-keyword1">return</span> <span class="php-var">$entries</span>;
+</span><span id="527" class="l"><a href="#527">527: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="528" class="l"><a href="#528">528: </a>            <span class="php-var">$struct</span> = <span class="php-var">$this</span>-&gt;createStructureModel();
+</span><span id="529" class="l"><a href="#529">529: </a>            <span class="php-var">$struct</span>-&gt;setMetadata(<span class="php-var">$this</span>-&gt;structureMetadata());
+</span><span id="530" class="l"><a href="#530">530: </a>            <span class="php-var">$struct</span>-&gt;setData(<span class="php-var">$val</span>);
+</span><span id="531" class="l"><a href="#531">531: </a>
+</span><span id="532" class="l"><a href="#532">532: </a>            <span class="php-keyword1">return</span> <span class="php-var">$struct</span>;
+</span><span id="533" class="l"><a href="#533">533: </a>        }
+</span><span id="534" class="l"><a href="#534">534: </a>    }
+</span><span id="535" class="l"><a href="#535">535: </a>
+</span><span id="536" class="l"><a href="#536">536: </a>    <span class="php-comment">/**
+</span></span><span id="537" class="l"><a href="#537">537: </a><span class="php-comment">     * Retrieve the structure as a plain array.
+</span></span><span id="538" class="l"><a href="#538">538: </a><span class="php-comment">     *
+</span></span><span id="539" class="l"><a href="#539">539: </a><span class="php-comment">     * @return array
+</span></span><span id="540" class="l"><a href="#540">540: </a><span class="php-comment">     */</span>
+</span><span id="541" class="l"><a href="#541">541: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toStructure()
+</span><span id="542" class="l"><a href="#542">542: </a>    {
+</span><span id="543" class="l"><a href="#543">543: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;structureVal(<span class="php-var">$this</span>-&gt;val());
+</span><span id="544" class="l"><a href="#544">544: </a>    }
+</span><span id="545" class="l"><a href="#545">545: </a>
+</span><span id="546" class="l"><a href="#546">546: </a>    <span class="php-comment">/**
+</span></span><span id="547" class="l"><a href="#547">547: </a><span class="php-comment">     * Retrieve the structure as a plain array.
+</span></span><span id="548" class="l"><a href="#548">548: </a><span class="php-comment">     *
+</span></span><span id="549" class="l"><a href="#549">549: </a><span class="php-comment">     * @return array
+</span></span><span id="550" class="l"><a href="#550">550: </a><span class="php-comment">     */</span>
+</span><span id="551" class="l"><a href="#551">551: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toArray()
+</span><span id="552" class="l"><a href="#552">552: </a>    {
+</span><span id="553" class="l"><a href="#553">553: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;val();
+</span><span id="554" class="l"><a href="#554">554: </a>    }
+</span><span id="555" class="l"><a href="#555">555: </a>
+</span><span id="556" class="l"><a href="#556">556: </a>    <span class="php-comment">/**
+</span></span><span id="557" class="l"><a href="#557">557: </a><span class="php-comment">     * Retrieve the structure of items as JSON.
+</span></span><span id="558" class="l"><a href="#558">558: </a><span class="php-comment">     *
+</span></span><span id="559" class="l"><a href="#559">559: </a><span class="php-comment">     * @param  integer $options Bitmask of flags.
+</span></span><span id="560" class="l"><a href="#560">560: </a><span class="php-comment">     * @return string
+</span></span><span id="561" class="l"><a href="#561">561: </a><span class="php-comment">     */</span>
+</span><span id="562" class="l"><a href="#562">562: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toJson(<span class="php-var">$options</span> = <span class="php-num">0</span>)
+</span><span id="563" class="l"><a href="#563">563: </a>    {
+</span><span id="564" class="l"><a href="#564">564: </a>        <span class="php-keyword1">return</span> <span class="php-keyword2">json_encode</span>(<span class="php-var">$this</span>-&gt;val(), <span class="php-var">$options</span>);
+</span><span id="565" class="l"><a href="#565">565: </a>    }
+</span><span id="566" class="l"><a href="#566">566: </a>
+</span><span id="567" class="l"><a href="#567">567: </a>    <span class="php-comment">/**
+</span></span><span id="568" class="l"><a href="#568">568: </a><span class="php-comment">     * AbstractProperty &gt; setVal(). Ensure val is an array
+</span></span><span id="569" class="l"><a href="#569">569: </a><span class="php-comment">     *
+</span></span><span id="570" class="l"><a href="#570">570: </a><span class="php-comment">     * @param  string|array $val The value to set.
+</span></span><span id="571" class="l"><a href="#571">571: </a><span class="php-comment">     * @throws InvalidArgumentException If the value is invalid.
+</span></span><span id="572" class="l"><a href="#572">572: </a><span class="php-comment">     * @return array
+</span></span><span id="573" class="l"><a href="#573">573: </a><span class="php-comment">     */</span>
+</span><span id="574" class="l"><a href="#574">574: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> parseOne(<span class="php-var">$val</span>)
+</span><span id="575" class="l"><a href="#575">575: </a>    {
+</span><span id="576" class="l"><a href="#576">576: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span> || <span class="php-var">$val</span> === <span class="php-quote">''</span>) {
+</span><span id="577" class="l"><a href="#577">577: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;allowNull()) {
+</span><span id="578" class="l"><a href="#578">578: </a>                <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="579" class="l"><a href="#579">579: </a>            } <span class="php-keyword1">else</span> {
+</span><span id="580" class="l"><a href="#580">580: </a>                <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
+</span><span id="581" class="l"><a href="#581">581: </a>                    <span class="php-quote">'Value can not be NULL (not allowed)'</span>
+</span><span id="582" class="l"><a href="#582">582: </a>                );
+</span><span id="583" class="l"><a href="#583">583: </a>            }
+</span><span id="584" class="l"><a href="#584">584: </a>        }
+</span><span id="585" class="l"><a href="#585">585: </a>
+</span><span id="586" class="l"><a href="#586">586: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$val</span>)) {
+</span><span id="587" class="l"><a href="#587">587: </a>            <span class="php-var">$val</span> = <span class="php-keyword2">json_decode</span>(<span class="php-var">$val</span>, <span class="php-keyword1">true</span>);
+</span><span id="588" class="l"><a href="#588">588: </a>        }
+</span><span id="589" class="l"><a href="#589">589: </a>
+</span><span id="590" class="l"><a href="#590">590: </a>        <span class="php-keyword1">return</span> <span class="php-var">$val</span>;
+</span><span id="591" class="l"><a href="#591">591: </a>    }
+</span><span id="592" class="l"><a href="#592">592: </a>
+</span><span id="593" class="l"><a href="#593">593: </a>    <span class="php-comment">/**
+</span></span><span id="594" class="l"><a href="#594">594: </a><span class="php-comment">     * Retrieve the property's extra SQL field settings.
+</span></span><span id="595" class="l"><a href="#595">595: </a><span class="php-comment">     *
+</span></span><span id="596" class="l"><a href="#596">596: </a><span class="php-comment">     * @return string
+</span></span><span id="597" class="l"><a href="#597">597: </a><span class="php-comment">     */</span>
+</span><span id="598" class="l"><a href="#598">598: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlExtra()
+</span><span id="599" class="l"><a href="#599">599: </a>    {
+</span><span id="600" class="l"><a href="#600">600: </a>        <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="601" class="l"><a href="#601">601: </a>    }
+</span><span id="602" class="l"><a href="#602">602: </a>
+</span><span id="603" class="l"><a href="#603">603: </a>    <span class="php-comment">/**
+</span></span><span id="604" class="l"><a href="#604">604: </a><span class="php-comment">     * Retrieve the property's SQL data type (storage format).
 </span></span><span id="605" class="l"><a href="#605">605: </a><span class="php-comment">     *
-</span></span><span id="606" class="l"><a href="#606">606: </a><span class="php-comment">     * @return string
-</span></span><span id="607" class="l"><a href="#607">607: </a><span class="php-comment">     */</span>
-</span><span id="608" class="l"><a href="#608">608: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlType()
-</span><span id="609" class="l"><a href="#609">609: </a>    {
-</span><span id="610" class="l"><a href="#610">610: </a>        <span class="php-keyword1">return</span> <span class="php-quote">'LONGTEXT'</span>;
-</span><span id="611" class="l"><a href="#611">611: </a>    }
-</span><span id="612" class="l"><a href="#612">612: </a>
-</span><span id="613" class="l"><a href="#613">613: </a>    <span class="php-comment">/**
-</span></span><span id="614" class="l"><a href="#614">614: </a><span class="php-comment">     * Retrieve the property's PDO data type.
-</span></span><span id="615" class="l"><a href="#615">615: </a><span class="php-comment">     *
-</span></span><span id="616" class="l"><a href="#616">616: </a><span class="php-comment">     * @return integer
-</span></span><span id="617" class="l"><a href="#617">617: </a><span class="php-comment">     */</span>
-</span><span id="618" class="l"><a href="#618">618: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlPdoType()
-</span><span id="619" class="l"><a href="#619">619: </a>    {
-</span><span id="620" class="l"><a href="#620">620: </a>        <span class="php-keyword1">return</span> PDO::PARAM_STR;
-</span><span id="621" class="l"><a href="#621">621: </a>    }
-</span><span id="622" class="l"><a href="#622">622: </a>}
-</span><span id="623" class="l"><a href="#623">623: </a></span></code></pre>
+</span></span><span id="606" class="l"><a href="#606">606: </a><span class="php-comment">     * For a lack of better array support in mysql, data is stored as encoded JSON in a LONGTEXT.
+</span></span><span id="607" class="l"><a href="#607">607: </a><span class="php-comment">     *
+</span></span><span id="608" class="l"><a href="#608">608: </a><span class="php-comment">     * @return string
+</span></span><span id="609" class="l"><a href="#609">609: </a><span class="php-comment">     */</span>
+</span><span id="610" class="l"><a href="#610">610: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlType()
+</span><span id="611" class="l"><a href="#611">611: </a>    {
+</span><span id="612" class="l"><a href="#612">612: </a>        <span class="php-keyword1">return</span> <span class="php-quote">'LONGTEXT'</span>;
+</span><span id="613" class="l"><a href="#613">613: </a>    }
+</span><span id="614" class="l"><a href="#614">614: </a>
+</span><span id="615" class="l"><a href="#615">615: </a>    <span class="php-comment">/**
+</span></span><span id="616" class="l"><a href="#616">616: </a><span class="php-comment">     * Retrieve the property's PDO data type.
+</span></span><span id="617" class="l"><a href="#617">617: </a><span class="php-comment">     *
+</span></span><span id="618" class="l"><a href="#618">618: </a><span class="php-comment">     * @return integer
+</span></span><span id="619" class="l"><a href="#619">619: </a><span class="php-comment">     */</span>
+</span><span id="620" class="l"><a href="#620">620: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlPdoType()
+</span><span id="621" class="l"><a href="#621">621: </a>    {
+</span><span id="622" class="l"><a href="#622">622: </a>        <span class="php-keyword1">return</span> PDO::PARAM_STR;
+</span><span id="623" class="l"><a href="#623">623: </a>    }
+</span><span id="624" class="l"><a href="#624">624: </a>}
+</span><span id="625" class="l"><a href="#625">625: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
