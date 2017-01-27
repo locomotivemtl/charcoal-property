@@ -194,7 +194,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-950" title="Go to source code">Charcoal/Property/FileProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.FileProperty.html#18-974" title="Go to source code">Charcoal/Property/FileProperty.php</a>
 		<br>
 	</div>
 
@@ -1395,16 +1395,16 @@ as configured in <a href="http://php.net/manual/en/ini.php">&lt;code&gt;php.ini&
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fileExists">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#716-744" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$caseInsensitive</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#716-748" title="Go to source code">fileExists</a>( <span>string <var>$file</var></span>, <span>boolean <var>$caseInsensitive</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
-			<p>This function checks if a file exist, by default in a case-insensitive manner.</p>
+			<p>Checks whether a file or directory exists.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>This function checks if a file exist, by default in a case-insensitive manner.</p>
+			<p>Checks whether a file or directory exists.</p>
 
-<p>PHP builtin's <code>file_exists</code> is only case-insensitive on case-insensitive filesystem (such as windows)
+<p>PHP built-in's <code>file_exists</code> is only case-insensitive on case-insensitive filesystem (such as Windows)
 This method allows to have the same validation across different platforms / filesystem.</p>
 
 
@@ -1413,7 +1413,7 @@ This method allows to have the same validation across different platforms / file
 					<dt><var>$file</var></dt>
 					<dd>The full file to check.</dd>
 					<dt><var>$caseInsensitive</var></dt>
-					<dd>Optional. Case insensitive flag.</dd>
+					<dd>Case-insensitive by default.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1422,6 +1422,51 @@ This method allows to have the same validation across different platforms / file
 				</div>
 
 
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isAbsolutePath" id="_isAbsolutePath">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isAbsolutePath">#</a>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#750-768" title="Go to source code">isAbsolutePath</a>( <span>string <var>$file</var></span> )</code>
+
+		<div class="description short">
+			<p>Determine if the given file path is am absolute path.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if the given file path is am absolute path.</p>
+
+<p>Note: Adapted from symfony\filesystem.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$file</var></dt>
+					<dd>A file path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Returns TRUE if the given path is absolute. Otherwise, returns FALSE.
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						https://github.com/symfony/symfony/blob/v3.2.2/LICENSE<br>
+				</div>
 
 
 		</div>
@@ -1439,7 +1484,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sanitizeFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#746-762" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#770-786" title="Go to source code">sanitizeFilename</a>( <span>string <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Sanitize a filename by removing characters from a blacklist and escaping dot.</p>
@@ -1478,7 +1523,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renderFileRenamePattern">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#764-809" title="Go to source code">renderFileRenamePattern</a>( <span>string <var>$from</var></span>, <span>string <var>$to</var></span>, <span>array|callable <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#788-833" title="Go to source code">renderFileRenamePattern</a>( <span>string <var>$from</var></span>, <span>string <var>$to</var></span>, <span>array|callable <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Render the given file to the given pattern.</p>
@@ -1532,7 +1577,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#882-897" title="Go to source code">generateFilename</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#906-921" title="Go to source code">generateFilename</a>( )</code>
 
 		<div class="description short">
 			<p>Generate a new filename from the property.</p>
@@ -1566,7 +1611,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateUniqueFilename">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#899-928" title="Go to source code">generateUniqueFilename</a>( <span>string|array <var>$filename</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#923-952" title="Go to source code">generateUniqueFilename</a>( <span>string|array <var>$filename</var></span> )</code>
 
 		<div class="description short">
 			<p>Generate a unique filename.</p>
@@ -1609,7 +1654,7 @@ This method allows to have the same validation across different platforms / file
 
 		<td class="name"><div>
 		<a class="anchor" href="#_generateExtension">#</a>
-		<code><a href="source-class-Charcoal.Property.FileProperty.html#930-949" title="Go to source code">generateExtension</a>( <span>string <var>$file</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.FileProperty.html#954-973" title="Go to source code">generateExtension</a>( <span>string <var>$file</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Generate the file extension from the property's value.</p>
