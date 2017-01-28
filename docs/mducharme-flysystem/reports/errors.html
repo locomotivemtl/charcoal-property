@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Charcoal.html">\Charcoal</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">294</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#AbstractProperty.php"><i class="icon-file"></i> AbstractProperty.php</a></li>
+                                                                                                    <li><a href="#AudioProperty.php"><i class="icon-file"></i> AudioProperty.php</a></li>
+                                                                                                    <li><a href="#BooleanProperty.php"><i class="icon-file"></i> BooleanProperty.php</a></li>
+                                                                                                    <li><a href="#ColorProperty.php"><i class="icon-file"></i> ColorProperty.php</a></li>
+                                                                                                    <li><a href="#DateTimeProperty.php"><i class="icon-file"></i> DateTimeProperty.php</a></li>
+                                                                                                    <li><a href="#DescribablePropertyInterface.php"><i class="icon-file"></i> DescribablePropertyInterface.php</a></li>
+                                                                                                    <li><a href="#DescribablePropertyTrait.php"><i class="icon-file"></i> DescribablePropertyTrait.php</a></li>
+                                                                                                    <li><a href="#EmailProperty.php"><i class="icon-file"></i> EmailProperty.php</a></li>
+                                                                                                    <li><a href="#FileProperty.php"><i class="icon-file"></i> FileProperty.php</a></li>
+                                                                                                    <li><a href="#GenericProperty.php"><i class="icon-file"></i> GenericProperty.php</a></li>
+                                                                                                    <li><a href="#HtmlProperty.php"><i class="icon-file"></i> HtmlProperty.php</a></li>
+                                                                                                    <li><a href="#IdProperty.php"><i class="icon-file"></i> IdProperty.php</a></li>
+                                                                                                    <li><a href="#ImageProperty.php"><i class="icon-file"></i> ImageProperty.php</a></li>
+                                                                                                    <li><a href="#IpProperty.php"><i class="icon-file"></i> IpProperty.php</a></li>
+                                                                                                    <li><a href="#LangProperty.php"><i class="icon-file"></i> LangProperty.php</a></li>
+                                                                                                    <li><a href="#MapStructureProperty.php"><i class="icon-file"></i> MapStructureProperty.php</a></li>
+                                                                                                    <li><a href="#MultiObjectProperty.php"><i class="icon-file"></i> MultiObjectProperty.php</a></li>
+                                                                                                    <li><a href="#NumberProperty.php"><i class="icon-file"></i> NumberProperty.php</a></li>
+                                                                                                    <li><a href="#ObjectProperty.php"><i class="icon-file"></i> ObjectProperty.php</a></li>
+                                                                                                    <li><a href="#PasswordProperty.php"><i class="icon-file"></i> PasswordProperty.php</a></li>
+                                                                                                    <li><a href="#PhoneProperty.php"><i class="icon-file"></i> PhoneProperty.php</a></li>
+                                                                                                    <li><a href="#PropertyFactory.php"><i class="icon-file"></i> PropertyFactory.php</a></li>
+                                                                                                    <li><a href="#PropertyField.php"><i class="icon-file"></i> PropertyField.php</a></li>
+                                                                                                    <li><a href="#PropertyInterface.php"><i class="icon-file"></i> PropertyInterface.php</a></li>
+                                                                                                    <li><a href="#PropertyMetadata.php"><i class="icon-file"></i> PropertyMetadata.php</a></li>
+                                                                                                    <li><a href="#PropertyValidator.php"><i class="icon-file"></i> PropertyValidator.php</a></li>
+                                                                                                    <li><a href="#SelectablePropertyInterface.php"><i class="icon-file"></i> SelectablePropertyInterface.php</a></li>
+                                                                                                    <li><a href="#SelectablePropertyTrait.php"><i class="icon-file"></i> SelectablePropertyTrait.php</a></li>
+                                                                                                    <li><a href="#StorablePropertyInterface.php"><i class="icon-file"></i> StorablePropertyInterface.php</a></li>
+                                                                                                    <li><a href="#StorablePropertyTrait.php"><i class="icon-file"></i> StorablePropertyTrait.php</a></li>
+                                                                                                    <li><a href="#StringProperty.php"><i class="icon-file"></i> StringProperty.php</a></li>
+                                                                                                    <li><a href="#Structure/StructureMetadata.php"><i class="icon-file"></i> Structure/StructureMetadata.php</a></li>
+                                                                                                    <li><a href="#StructureProperty.php"><i class="icon-file"></i> StructureProperty.php</a></li>
+                                                                                                    <li><a href="#TextProperty.php"><i class="icon-file"></i> TextProperty.php</a></li>
+                                                                                                    <li><a href="#UrlProperty.php"><i class="icon-file"></i> UrlProperty.php</a></li>
+                                                                                                    <li><a href="#data/colors.php"><i class="icon-file"></i> data/colors.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="AbstractProperty.php" id="AbstractProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            AbstractProperty.php
+                            <small style="float: right;padding-right: 10px;">44</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>179</td>
+                                        <td>No summary for method setDependencies()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>189</td>
+                                        <td>No summary for method setPdo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>199</td>
+                                        <td>No summary for method __toString()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>228</td>
+                                        <td>No summary for method setIdent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>244</td>
+                                        <td>No summary for method ident()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>318</td>
+                                        <td>No summary for method parseOne()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>328</td>
+                                        <td>No summary for method inputVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>369</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>436</td>
+                                        <td>No summary for method setLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>450</td>
+                                        <td>No summary for method label()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>463</td>
+                                        <td>No summary for method setL10n()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>484</td>
+                                        <td>No summary for method setHidden()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>494</td>
+                                        <td>No summary for method hidden()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>611</td>
+                                        <td>No summary for method setAllowNull()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>635</td>
+                                        <td>No summary for method setRequired()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>659</td>
+                                        <td>No summary for method setUnique()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>669</td>
+                                        <td>No summary for method unique()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>678</td>
+                                        <td>No summary for method setActive()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>688</td>
+                                        <td>No summary for method active()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>697</td>
+                                        <td>No summary for method setStorable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>707</td>
+                                        <td>No summary for method storable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>716</td>
+                                        <td>No summary for method setDescription()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>730</td>
+                                        <td>No summary for method description()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>739</td>
+                                        <td>No summary for method setNotes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>753</td>
+                                        <td>No summary for method notes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>782</td>
+                                        <td>No summary for method validateRequired()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>796</td>
+                                        <td>No summary for method validateUnique()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>809</td>
+                                        <td>No summary for method validateAllowNull()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>824</td>
+                                        <td>No summary for method createMetadata()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>850</td>
+                                        <td>No summary for method save()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>860</td>
+                                        <td>No summary for method setDisplayType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>870</td>
+                                        <td>No summary for method displayType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>59</td>
+                                        <td>No summary for property $ident</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>64</td>
+                                        <td>No summary for property $val</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>69</td>
+                                        <td>No summary for property $label</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>74</td>
+                                        <td>No summary for property $l10n</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>84</td>
+                                        <td>No summary for property $multiple</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>No summary for property $allowNull</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>127</td>
+                                        <td>No summary for property $description</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>No summary for property $notes</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>137</td>
+                                        <td>No summary for property $viewOptions</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>142</td>
+                                        <td>No summary for property $displayType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>147</td>
+                                        <td>No summary for property $pdo</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="AudioProperty.php" id="AudioProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            AudioProperty.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>43</td>
+                                        <td>No summary for method setMinLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>57</td>
+                                        <td>No summary for method minLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>67</td>
+                                        <td>No summary for method setMaxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>81</td>
+                                        <td>No summary for method maxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>89</td>
+                                        <td>No summary for method acceptedMimetypes()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="BooleanProperty.php" id="BooleanProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            BooleanProperty.php
+                            <small style="float: right;padding-right: 10px;">11</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method parseOne()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>46</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>91</td>
+                                        <td>No summary for method setTrueLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>100</td>
+                                        <td>No summary for method trueLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>113</td>
+                                        <td>No summary for method setFalseLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>122</td>
+                                        <td>No summary for method falseLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>134</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>159</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>167</td>
+                                        <td>No summary for method choices()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="ColorProperty.php" id="ColorProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            ColorProperty.php
+                            <small style="float: right;padding-right: 10px;">18</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method setSupportAlpha()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>46</td>
+                                        <td>No summary for method supportAlpha()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>76</td>
+                                        <td>No summary for method colorVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>101</td>
+                                        <td>No summary for method rgbToHexadecimal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>113</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>142</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>151</td>
+                                        <td>No summary for method parseColorVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>No summary for method parseArray()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>197</td>
+                                        <td>No summary for method parseString()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>225</td>
+                                        <td>No summary for method parseHexadecimal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>253</td>
+                                        <td>No summary for method parseRgb()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>275</td>
+                                        <td>No summary for method parseRgba()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>296</td>
+                                        <td>No summary for method parseHsl()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>309</td>
+                                        <td>No summary for method parseHsla()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>322</td>
+                                        <td>No summary for method parseNamedColor()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $supportAlpha</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="DateTimeProperty.php" id="DateTimeProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            DateTimeProperty.php
+                            <small style="float: right;padding-right: 10px;">18</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>161</td>
+                                        <td>No summary for method dateTimeVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>188</td>
+                                        <td>No summary for method setMin()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>215</td>
+                                        <td>No summary for method min()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>228</td>
+                                        <td>No summary for method setMax()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>255</td>
+                                        <td>No summary for method max()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>268</td>
+                                        <td>No summary for method setFormat()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>282</td>
+                                        <td>No summary for method format()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>293</td>
+                                        <td>No summary for method validationMethods()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>302</td>
+                                        <td>No summary for method validateMin()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>318</td>
+                                        <td>No summary for method validateMax()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>334</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>342</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>350</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for property $min</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for property $max</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>39</td>
+                                        <td>No summary for property $format</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="DescribablePropertyInterface.php" id="DescribablePropertyInterface.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            DescribablePropertyInterface.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="DescribablePropertyTrait.php" id="DescribablePropertyTrait.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            DescribablePropertyTrait.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="EmailProperty.php" id="EmailProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            EmailProperty.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for method validationMethods()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>45</td>
+                                        <td>No summary for method validateEmail()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="FileProperty.php" id="FileProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            FileProperty.php
+                            <small style="float: right;padding-right: 10px;">18</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>104</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>223</td>
+                                        <td>No summary for method setFilesystem()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>243</td>
+                                        <td>No summary for method filesystem()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>255</td>
+                                        <td>No summary for method setAcceptedMimetypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>264</td>
+                                        <td>No summary for method acceptedMimetypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>418</td>
+                                        <td>No summary for method setFilesize()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>432</td>
+                                        <td>No summary for method filesize()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>448</td>
+                                        <td>No summary for method validationMethods()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>457</td>
+                                        <td>No summary for method validateAcceptedMimetypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>491</td>
+                                        <td>No summary for method validateMaxFilesize()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>511</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>536</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>545</td>
+                                        <td>No summary for method save()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>1012</td>
+                                        <td>No summary for method currentFilesystem()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>89</td>
+                                        <td>No summary for property $filesystems</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>94</td>
+                                        <td>No summary for property $filesystem</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>99</td>
+                                        <td>No summary for property $defaulFilesystem</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="GenericProperty.php" id="GenericProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            GenericProperty.php
+                            <small style="float: right;padding-right: 10px;">5</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="HtmlProperty.php" id="HtmlProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            HtmlProperty.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="IdProperty.php" id="IdProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            IdProperty.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="ImageProperty.php" id="ImageProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            ImageProperty.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>62</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>243</td>
+                                        <td>No summary for method addEffect()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>252</td>
+                                        <td>No summary for method effects()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>260</td>
+                                        <td>No summary for method batchEffects()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>411</td>
+                                        <td>No summary for method acceptedMimetypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>468</td>
+                                        <td>No summary for method save()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="IpProperty.php" id="IpProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            IpProperty.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>No summary for method setStorageMode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>128</td>
+                                        <td>No summary for method storageMode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>202</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>216</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="LangProperty.php" id="LangProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            LangProperty.php
+                            <small style="float: right;padding-right: 10px;">5</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>60</td>
+                                        <td>No summary for method choices()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="MapStructureProperty.php" id="MapStructureProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            MapStructureProperty.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="MultiObjectProperty.php" id="MultiObjectProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            MultiObjectProperty.php
+                            <small style="float: right;padding-right: 10px;">14</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method setAllowedTypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method addAllowedType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method allowedTypes()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>63</td>
+                                        <td>No summary for method setJoinTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>84</td>
+                                        <td>No summary for method joinTable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>115</td>
+                                        <td>No summary for method joinTableExists()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>129</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>137</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>145</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>153</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $allowedTypes</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $groupedByType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $joinTable</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="NumberProperty.php" id="NumberProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            NumberProperty.php
+                            <small style="float: right;padding-right: 10px;">4</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>52</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="ObjectProperty.php" id="ObjectProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            ObjectProperty.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>274</td>
+                                        <td>No summary for method setPattern()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>290</td>
+                                        <td>No summary for method pattern()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>298</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>306</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>322</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>393</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>675</td>
+                                        <td>No summary for method modelLoader()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PasswordProperty.php" id="PasswordProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PasswordProperty.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for method save()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PhoneProperty.php" id="PhoneProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PhoneProperty.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PropertyFactory.php" id="PropertyFactory.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PropertyFactory.php
+                            <small style="float: right;padding-right: 10px;">6</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Charcoal\Property\PropertyFactory</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for method baseClass()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method defaultClass()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method resolverPrefix()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method resolverSuffix()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PropertyField.php" id="PropertyField.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PropertyField.php
+                            <small style="float: right;padding-right: 10px;">28</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Charcoal\Property\PropertyField</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>59</td>
+                                        <td>No summary for method setData()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>91</td>
+                                        <td>No summary for method setIdent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>105</td>
+                                        <td>No summary for method ident()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>114</td>
+                                        <td>No summary for method setLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>123</td>
+                                        <td>No summary for method label()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>133</td>
+                                        <td>No summary for method setSqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>147</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>157</td>
+                                        <td>No summary for method setSqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>171</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>184</td>
+                                        <td>No summary for method setExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>198</td>
+                                        <td>No summary for method extra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>210</td>
+                                        <td>No summary for method setVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>219</td>
+                                        <td>No summary for method val()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>228</td>
+                                        <td>No summary for method setDefaultVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>237</td>
+                                        <td>No summary for method defaultVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>246</td>
+                                        <td>No summary for method setAllowNull()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>255</td>
+                                        <td>No summary for method allowNull()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>263</td>
+                                        <td>No summary for method sql()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $ident</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $label</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for property $sqlType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for property $sqlPdoType</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for property $extra</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>43</td>
+                                        <td>No summary for property $val</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>No summary for property $defaultVal</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for property $allowNull</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PropertyInterface.php" id="PropertyInterface.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PropertyInterface.php
+                            <small style="float: right;padding-right: 10px;">24</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for interface &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for method setIdent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for method ident()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for method inputVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>43</td>
+                                        <td>No summary for method setLabel()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>No summary for method label()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>54</td>
+                                        <td>No summary for method setL10n()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>59</td>
+                                        <td>No summary for method l10n()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>No summary for method setHidden()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>70</td>
+                                        <td>No summary for method hidden()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>76</td>
+                                        <td>No summary for method setMultiple()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>81</td>
+                                        <td>No summary for method multiple()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>99</td>
+                                        <td>No summary for method multipleOptions()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>105</td>
+                                        <td>No summary for method setRequired()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>110</td>
+                                        <td>No summary for method required()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>116</td>
+                                        <td>No summary for method setUnique()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>121</td>
+                                        <td>No summary for method unique()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>127</td>
+                                        <td>No summary for method setStorable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>No summary for method storable()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>138</td>
+                                        <td>No summary for method setActive()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>143</td>
+                                        <td>No summary for method active()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>149</td>
+                                        <td>No summary for method save()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PropertyMetadata.php" id="PropertyMetadata.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PropertyMetadata.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Charcoal\Property\PropertyMetadata</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="PropertyValidator.php" id="PropertyValidator.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            PropertyValidator.php
+                            <small style="float: right;padding-right: 10px;">3</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>11</td>
+                                        <td>No summary for class \Charcoal\Property\PropertyValidator</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for method validate()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="SelectablePropertyInterface.php" id="SelectablePropertyInterface.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            SelectablePropertyInterface.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="SelectablePropertyTrait.php" id="SelectablePropertyTrait.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            SelectablePropertyTrait.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="StorablePropertyInterface.php" id="StorablePropertyInterface.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            StorablePropertyInterface.php
+                            <small style="float: right;padding-right: 10px;">7</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>8</td>
+                                        <td>No summary for interface &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for method fields()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for method storageVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="StorablePropertyTrait.php" id="StorablePropertyTrait.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            StorablePropertyTrait.php
+                            <small style="float: right;padding-right: 10px;">9</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for trait &quot;&quot;</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>165</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>170</td>
+                                        <td>No summary for method sqlType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>175</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>180</td>
+                                        <td>No summary for method ident()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>185</td>
+                                        <td>No summary for method l10n()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>190</td>
+                                        <td>No summary for method multiple()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>195</td>
+                                        <td>No summary for method allowNull()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="StringProperty.php" id="StringProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            StringProperty.php
+                            <small style="float: right;padding-right: 10px;">22</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>53</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>63</td>
+                                        <td>No summary for method displayVal()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>122</td>
+                                        <td>No summary for method setMaxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>141</td>
+                                        <td>No summary for method maxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>152</td>
+                                        <td>No summary for method defaultMaxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>162</td>
+                                        <td>No summary for method setMinLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>181</td>
+                                        <td>No summary for method minLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>194</td>
+                                        <td>No summary for method setRegexp()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>208</td>
+                                        <td>No summary for method regexp()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>220</td>
+                                        <td>No summary for method setAllowEmpty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>229</td>
+                                        <td>No summary for method allowEmpty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>265</td>
+                                        <td>No summary for method validationMethods()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>280</td>
+                                        <td>No summary for method validateMaxLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>316</td>
+                                        <td>No summary for method validateMinLength()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>356</td>
+                                        <td>No summary for method validateRegexp()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>376</td>
+                                        <td>No summary for method validateAllowEmpty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>390</td>
+                                        <td>No summary for method sqlExtra()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>421</td>
+                                        <td>No summary for method sqlPdoType()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for property $minLength</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for property $maxLength</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>48</td>
+                                        <td>No summary for property $allowEmpty</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Structure/StructureMetadata.php" id="Structure/StructureMetadata.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Structure/StructureMetadata.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>13</td>
+                                        <td>No summary for class \Charcoal\Property\Structure\StructureMetadata</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="StructureProperty.php" id="StructureProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            StructureProperty.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>475</td>
+                                        <td>No summary for method inputVal()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="TextProperty.php" id="TextProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            TextProperty.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="UrlProperty.php" id="UrlProperty.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            UrlProperty.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>51</td>
+                                        <td>No summary for method type()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="data/colors.php" id="data/colors.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            data/colors.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Charcoal.html">\Charcoal</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 28th, 2017 at 02:52.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
