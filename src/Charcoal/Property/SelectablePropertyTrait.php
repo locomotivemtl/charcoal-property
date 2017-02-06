@@ -4,7 +4,6 @@ namespace Charcoal\Property;
 
 use \InvalidArgumentException;
 
-use \Charcoal\Translation\TranslationString;
 
 /**
 * Fully implements, as a Trait, the SelectablePropertyInterface.
@@ -59,7 +58,7 @@ trait SelectablePropertyTrait
         if (is_string($choice)) {
             $choice = [
                 'value' => $choiceIdent,
-                'label' => new TranslationString($choice)
+                'label' => $this->translator()->translation($choice)
             ];
         } else {
             if (isset($choice['value'])) {
@@ -69,7 +68,7 @@ trait SelectablePropertyTrait
             }
 
             if (isset($choice['label'])) {
-                $choice['label'] = new TranslationString($choice['label']);
+                $choice['label'] = $this->translator()->translation($choice['label']);
             }
         }
 

@@ -3,7 +3,7 @@
 namespace Charcoal\Property;
 
 use \Charcoal\Translation\TranslationConfig;
-use \Charcoal\Translation\TranslationString;
+use \Charcoal\Translator\Translation;
 
 use \Charcoal\Property\PropertyField;
 
@@ -142,7 +142,7 @@ trait StorablePropertyTrait
             return null;
         }
 
-        if (!$this->l10n() && $val instanceof TranslationString) {
+        if (!$this->l10n() && $val instanceof Translation) {
             $val = (string)$val;
         }
 
