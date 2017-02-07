@@ -25,7 +25,7 @@ use \Charcoal\Validator\ValidatableInterface;
 use \Charcoal\Validator\ValidatableTrait;
 
 // Dependency from 'charcoal-translation'
-use \Charcoal\Translator\Translator;
+use \Charcoal\Translator\TranslatorAwareTrait;
 use \Charcoal\Translator\Translation;
 
 // Local namespace dependencies
@@ -51,6 +51,7 @@ abstract class AbstractProperty extends AbstractEntity implements
     use DescribableTrait;
     use DescribablePropertyTrait;
     use StorablePropertyTrait;
+    use TranslatorAwareTrait;
     use ValidatableTrait;
 
     /**
@@ -147,11 +148,6 @@ abstract class AbstractProperty extends AbstractEntity implements
     protected $pdo;
 
     /**
-     * @var Translator
-     */
-    private $translator;
-
-    /**
      * Required dependencies:
      * - `logger` a PSR3-compliant logger.
      *
@@ -195,16 +191,6 @@ abstract class AbstractProperty extends AbstractEntity implements
     private function setPdo(PDO $pdo)
     {
         $this->pdo = $pdo;
-    }
-
-    private function setTranslator(Translator $translator)
-    {
-        $this->translator = $translator;
-    }
-
-    protected function translator()
-    {
-        return $this->translator;
     }
 
     /**
