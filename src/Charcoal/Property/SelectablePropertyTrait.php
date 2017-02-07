@@ -4,7 +4,6 @@ namespace Charcoal\Property;
 
 use \InvalidArgumentException;
 
-
 /**
 * Fully implements, as a Trait, the SelectablePropertyInterface.
 */
@@ -115,4 +114,9 @@ trait SelectablePropertyTrait
 
         return $this->choices[$choiceIdent];
     }
+
+    /**
+     * @return \Charcoal\Translator\Translator
+     */
+    abstract protected function translator();
 }
