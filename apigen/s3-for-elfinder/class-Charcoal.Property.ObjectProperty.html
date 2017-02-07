@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Charcoal\Property\ObjectProperty</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.html">
+						Charcoal<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Charcoal.Property.html">
+						Property<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Charcoal.Property.Structure.html">
+						Structure					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Charcoal.Property.AbstractProperty.html">AbstractProperty</a></li>
+				<li><a href="class-Charcoal.Property.AudioProperty.html">AudioProperty</a></li>
+				<li><a href="class-Charcoal.Property.BooleanProperty.html">BooleanProperty</a></li>
+				<li><a href="class-Charcoal.Property.ColorProperty.html">ColorProperty</a></li>
+				<li><a href="class-Charcoal.Property.DateTimeProperty.html">DateTimeProperty</a></li>
+				<li><a href="class-Charcoal.Property.EmailProperty.html">EmailProperty</a></li>
+				<li><a href="class-Charcoal.Property.FileProperty.html">FileProperty</a></li>
+				<li><a href="class-Charcoal.Property.GenericProperty.html">GenericProperty</a></li>
+				<li><a href="class-Charcoal.Property.HtmlProperty.html">HtmlProperty</a></li>
+				<li><a href="class-Charcoal.Property.IdProperty.html">IdProperty</a></li>
+				<li><a href="class-Charcoal.Property.ImageProperty.html">ImageProperty</a></li>
+				<li><a href="class-Charcoal.Property.IpProperty.html">IpProperty</a></li>
+				<li><a href="class-Charcoal.Property.LangProperty.html">LangProperty</a></li>
+				<li><a href="class-Charcoal.Property.MapStructureProperty.html">MapStructureProperty</a></li>
+				<li><a href="class-Charcoal.Property.MultiObjectProperty.html">MultiObjectProperty</a></li>
+				<li><a href="class-Charcoal.Property.NumberProperty.html">NumberProperty</a></li>
+				<li class="active"><a href="class-Charcoal.Property.ObjectProperty.html">ObjectProperty</a></li>
+				<li><a href="class-Charcoal.Property.PasswordProperty.html">PasswordProperty</a></li>
+				<li><a href="class-Charcoal.Property.PhoneProperty.html">PhoneProperty</a></li>
+				<li><a href="class-Charcoal.Property.PropertyFactory.html">PropertyFactory</a></li>
+				<li><a href="class-Charcoal.Property.PropertyField.html">PropertyField</a></li>
+				<li><a href="class-Charcoal.Property.PropertyMetadata.html">PropertyMetadata</a></li>
+				<li><a href="class-Charcoal.Property.PropertyValidator.html">PropertyValidator</a></li>
+				<li><a href="class-Charcoal.Property.StringProperty.html">StringProperty</a></li>
+				<li><a href="class-Charcoal.Property.StructureProperty.html">StructureProperty</a></li>
+				<li><a href="class-Charcoal.Property.TextProperty.html">TextProperty</a></li>
+				<li><a href="class-Charcoal.Property.UrlProperty.html">UrlProperty</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-Charcoal.Property.DescribablePropertyInterface.html">DescribablePropertyInterface</a></li>
+				<li><a href="class-Charcoal.Property.PropertyInterface.html">PropertyInterface</a></li>
+				<li><a href="class-Charcoal.Property.SelectablePropertyInterface.html">SelectablePropertyInterface</a></li>
+				<li><a href="class-Charcoal.Property.StorablePropertyInterface.html">StorablePropertyInterface</a></li>
+			</ul>
+
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Charcoal.Property.DescribablePropertyTrait.html">DescribablePropertyTrait</a></li>
+				<li><a href="class-Charcoal.Property.SelectablePropertyTrait.html">SelectablePropertyTrait</a></li>
+				<li><a href="class-Charcoal.Property.StorablePropertyTrait.html">StorablePropertyTrait</a></li>
+			</ul>
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Charcoal.Property.html" title="Summary of Charcoal\Property"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ObjectProperty</h1>
+
+
+	<div class="description">
+	<p>Object Property holds a reference to an external object.</p>
+
+<p>The object property implements the full <code>SelectablePropertyInterface</code> without using
+its accompanying trait. (<code>set_choices</code>, <code>add_choice</code>, <code>choices</code>, <code>has_choice</code>, <code>choice</code>).</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Charcoal\Config\AbstractEntity
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-Charcoal.Property.AbstractProperty.html"><span>Charcoal\Property\AbstractProperty</span></a>
+			
+			 implements 
+				<a href="class-Charcoal.Property.PropertyInterface.html"><span>Charcoal\Property\PropertyInterface</span></a>, 
+			
+<span>Charcoal\Model\DescribableInterface</span>, 
+			
+				<a href="class-Charcoal.Property.DescribablePropertyInterface.html"><span>Charcoal\Property\DescribablePropertyInterface</span></a>, 
+			
+<span>Psr\Log\LoggerAwareInterface</span>, 
+			
+				<a href="class-Charcoal.Property.StorablePropertyInterface.html"><span>Charcoal\Property\StorablePropertyInterface</span></a>, 
+			
+<span>Charcoal\Validator\ValidatableInterface</span>
+			
+			 uses 
+					Psr\Log\LoggerAwareTrait (not available)
+
+			
+					Charcoal\Model\DescribableTrait (not available)
+
+			
+					<a href="class-Charcoal.Property.DescribablePropertyTrait.html"><span>Charcoal\Property\DescribablePropertyTrait</span></a>, 
+			
+					<a href="class-Charcoal.Property.StorablePropertyTrait.html"><span>Charcoal\Property\StorablePropertyTrait</span></a>, 
+			
+					Charcoal\Validator\ValidatableTrait (not available)
+
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Charcoal\Property\ObjectProperty</span></b>			
+			 implements 
+				<a href="class-Charcoal.Property.SelectablePropertyInterface.html"><span>Charcoal\Property\SelectablePropertyInterface</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Charcoal.Property.ObjectProperty.html#34-680" title="Go to source code">Charcoal/Property/ObjectProperty.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setDependencies" id="_setDependencies">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setDependencies">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#107-120" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
+
+		<div class="description short">
+			<p>Inject dependencies from a DI Container.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Inject dependencies from a DI Container.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$container</var></dt>
+					<dd>A dependencies container instance.</dd>
+				</dl></div>
+
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_setDependencies">Charcoal\Property\AbstractProperty::setDependencies()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="type" id="_type">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_type">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#122-128" title="Go to source code">type</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setModelFactory" id="_setModelFactory">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setModelFactory">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#130-141" title="Go to source code">setModelFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
+
+		<div class="description short">
+			<p>Set an object model factory.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set an object model factory.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$factory</var></dt>
+					<dd>The model factory, to create objects.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="modelFactory" id="_modelFactory">
+
+		<td class="attributes"><code>
+			 public 
+
+			Charcoal\Factory\FactoryInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_modelFactory">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#143-158" title="Go to source code">modelFactory</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the object model factory.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the object model factory.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Factory\FactoryInterface
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					RuntimeException<br>If the model factory was not previously set.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="collectionLoader" id="_collectionLoader">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Charcoal\Loader\CollectionLoader
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_collectionLoader">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#173-192" title="Go to source code">collectionLoader</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the model collection loader.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the model collection loader.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Loader\CollectionLoader
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					RuntimeException<br>If the collection loader was not previously set.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setObjType" id="_setObjType">
+
+		<td class="attributes"><code>
+			 public 
+
+			ObjectPropertyChainable
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setObjType">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#224-242" title="Go to source code">setObjType</a>( <span>string <var>$objType</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the object type to build the choices from.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the object type to build the choices from.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$objType</var></dt>
+					<dd>The object type.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					ObjectPropertyChainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the object type is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="objType" id="_objType">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_objType">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#244-260" title="Go to source code">objType</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the object type to build the choices from.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the object type to build the choices from.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					RuntimeException<br>If the object type was not previously set.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPattern" id="_setPattern">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPattern">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#262-278" title="Go to source code">setPattern</a>( <span>string <var>$pattern</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pattern</var></dt>
+					<dd>The render pattern.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the pattern is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="pattern" id="_pattern">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_pattern">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#280-286" title="Go to source code">pattern</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sqlExtra" id="_sqlExtra">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sqlExtra">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#288-294" title="Go to source code">sqlExtra</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sqlType" id="_sqlType">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sqlType">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#296-310" title="Go to source code">sqlType</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sqlPdoType" id="_sqlPdoType">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sqlPdoType">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#312-322" title="Go to source code">sqlPdoType</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseOne" id="_parseOne">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseOne">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#324-337" title="Go to source code">parseOne</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Always return IDs.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Always return IDs.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>Value to be parsed.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_parseOne">Charcoal\Property\AbstractProperty::parseOne()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="storageVal" id="_storageVal">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_storageVal">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#339-365" title="Go to source code">storageVal</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Get the property's value in a format suitable for storage.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the property's value in a format suitable for storage.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>Optional. The value to convert to storage value.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_storageVal">Charcoal\Property\AbstractProperty::storageVal()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="proto" id="_proto">
+
+		<td class="attributes"><code>
+			 public 
+
+			Charcoal\Model\ModelInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_proto">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#367-375" title="Go to source code">proto</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve a singleton of the {self::$objType} for prototyping.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve a singleton of the {self::$objType} for prototyping.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Model\ModelInterface
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="displayVal" id="_displayVal">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_displayVal">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#377-441" title="Go to source code">displayVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd>The value to to convert for display.</dd>
+					<dt><var>$options</var></dt>
+					<dd>Optional display options.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.AbstractProperty.html#_displayVal">Charcoal\Property\AbstractProperty::displayVal()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setChoices" id="_setChoices">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#443-455" title="Go to source code">setChoices</a>( <span>array <var>$choices</var></span> )</code>
+
+		<div class="description short">
+			<p>Fulfills the SelectableProperty interface, but does nothing.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Fulfills the SelectableProperty interface, but does nothing.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choices</var></dt>
+					<dd>The array of choice structures.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code><br>Chainable.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_setChoices">Charcoal\Property\SelectablePropertyInterface::setChoices()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addChoice" id="_addChoice">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addChoice">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#457-470" title="Go to source code">addChoice</a>( <span>string <var>$choiceIdent</var></span>, <span>string|array <var>$choice</var></span> )</code>
+
+		<div class="description short">
+			<p>Add a choice to the available choices map.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Add a choice to the available choices map.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choiceIdent</var></dt>
+					<dd>The choice identifier (will be key / default ident).</dd>
+					<dt><var>$choice</var></dt>
+					<dd>A string representing the choice label or a structure.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code><br>Chainable.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_addChoice">Charcoal\Property\SelectablePropertyInterface::addChoice()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setOrders" id="_setOrders">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setOrders">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#472-483" title="Go to source code">setOrders</a>( <span>array <var>$orders</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the rules for sorting the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the rules for sorting the collection of objects.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$orders</var></dt>
+					<dd>An array of orders.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="orders" id="_orders">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_orders">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#485-493" title="Go to source code">orders</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the rules for sorting the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the rules for sorting the collection of objects.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setFilters" id="_setFilters">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setFilters">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#495-506" title="Go to source code">setFilters</a>( <span>array <var>$filters</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the rules for filtering the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the rules for filtering the collection of objects.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filters</var></dt>
+					<dd>An array of filters.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="filters" id="_filters">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_filters">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#508-516" title="Go to source code">filters</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the rules for filtering the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the rules for filtering the collection of objects.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="choices" id="_choices">
+
+		<td class="attributes"><code>
+			 public 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_choices">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#518-556" title="Go to source code">choices</a>( )</code>
+
+		<div class="description short">
+			<p>Get the choices array map.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the choices array map.</p>
+
+<p>Required by <code>SelectablePropertyInterface</code>.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choices">Charcoal\Property\SelectablePropertyInterface::choices()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasChoice" id="_hasChoice">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasChoice">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#558-569" title="Go to source code">hasChoice</a>( <span>string <var>$choiceIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Returns wether a given choiceIdent exists or not.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns wether a given choiceIdent exists or not.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choiceIdent</var></dt>
+					<dd>The choice identifier.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>True / false wether the choice exists or not.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_hasChoice">Charcoal\Property\SelectablePropertyInterface::hasChoice()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="choice" id="_choice">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_choice">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#571-597" title="Go to source code">choice</a>( <span>string|Charcoal\Model\ModelInterface <var>$choiceIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Returns a choice structure for a given ident.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns a choice structure for a given ident.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choiceIdent</var></dt>
+					<dd>The choice ident or object to format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed<br>The matching choice.
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choice">Charcoal\Property\SelectablePropertyInterface::choice()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="renderObjPattern" id="_renderObjPattern">
+
+		<td class="attributes"><code>
+			 protected 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_renderObjPattern">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#599-637" title="Go to source code">renderObjPattern</a>( <span>Charcoal\Model\ModelInterface|Charcoal\View\ViewableInterface <var>$obj</var></span>, <span>string|null <var>$pattern</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Render the given object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Render the given object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd>The object or view to render as a label.</dd>
+					<dt><var>$pattern</var></dt>
+					<dd>Optional. The render pattern to render.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the pattern is not a string.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="loadObject" id="_loadObject">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Charcoal\Model\ModelInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_loadObject">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#639-659" title="Go to source code">loadObject</a>( <span>mixed <var>$id</var></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve an object by its ID.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve an object by its ID.</p>
+
+<p>Loads the object from the cache store or from the storage source.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$id</var></dt>
+					<dd>Object id.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Model\ModelInterface
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.AbstractProperty.html#methods">Charcoal\Property\AbstractProperty</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.AbstractProperty.html#___construct">__construct()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#___toString">__toString()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_active">active()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_allowNull">allowNull()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_createMetadata">createMetadata()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_createValidator">createValidator()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_defaultMultipleOptions">defaultMultipleOptions()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_description">description()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_displayType">displayType()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_hidden">hidden()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_ident">ident()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_inputVal">inputVal()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_l10n">l10n()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_l10nVal">l10nVal()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_label">label()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_multiple">multiple()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleOptions">multipleOptions()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleOptionsAsJson">multipleOptionsAsJson()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_multipleSeparator">multipleSeparator()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_notes">notes()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_parseVal">parseVal()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_required">required()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_save">save()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setActive">setActive()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setAllowNull">setAllowNull()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setDescription">setDescription()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setDisplayType">setDisplayType()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setHidden">setHidden()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setIdent">setIdent()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setL10n">setL10n()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setLabel">setLabel()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setMultiple">setMultiple()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setMultipleOptions">setMultipleOptions()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setNotes">setNotes()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setRequired">setRequired()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setStorable">setStorable()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setUnique">setUnique()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setVal">setVal()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_setViewOptions">setViewOptions()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_storable">storable()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_unique">unique()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_val">val()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_validateAllowNull">validateAllowNull()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_validateRequired">validateRequired()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_validateUnique">validateUnique()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_validationMethods">validationMethods()</a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#_viewOptions">viewOptions()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.StorablePropertyInterface.html#methods">Charcoal\Property\StorablePropertyInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StorablePropertyInterface.html#_fields">fields()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Charcoal.Property.DescribablePropertyInterface.html#methods">Charcoal\Property\DescribablePropertyInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_p">p()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_properties">properties()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyInterface.html#_property">property()</a>
+		</code></td>
+	</tr>
+	</table>
+
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Property.DescribablePropertyTrait.html#methods">Charcoal\Property\DescribablePropertyTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_createProperty">createProperty()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_filterPropertyMetadata">filterPropertyMetadata()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_hasProperty">hasProperty()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_p">p()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_properties">properties()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_property">property()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_propertyFactory">propertyFactory()</a>, 
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#_setPropertyFactory">setPropertyFactory()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Charcoal.Property.StorablePropertyTrait.html#methods">Charcoal\Property\StorablePropertyTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.StorablePropertyTrait.html#_fields">fields()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="choices" id="$choices">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#56-63" title="Go to source code"><var>$choices</var></a>
+
+			<div class="description short">
+				<p>The available selectable choices.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The available selectable choices.</p>
+
+<p>This collection is built from selected <a href="self::$objType">self::$objType</a>.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$choices" class="anchor">#</a>
+				<code>[]</code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="orders" id="$orders">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#72-77" title="Go to source code"><var>$orders</var></a>
+
+			<div class="description short">
+				<p>The rules for sorting the collection of objects.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The rules for sorting the collection of objects.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$orders" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="filters" id="$filters">
+		<td class="attributes"><code>
+			protected  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#79-84" title="Go to source code"><var>$filters</var></a>
+
+			<div class="description short">
+				<p>The rules for filtering the collection of objects.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The rules for filtering the collection of objects.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$filters" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Charcoal.Property.AbstractProperty.html#properties">Charcoal\Property\AbstractProperty</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.AbstractProperty.html#$displayType"><var>$displayType</var></a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#$pdo"><var>$pdo</var></a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#$val"><var>$val</var></a>, 
+			<a href="class-Charcoal.Property.AbstractProperty.html#$viewOptions"><var>$viewOptions</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+	<table class="summary used">
+	<caption>Properties used from <a href="class-Charcoal.Property.DescribablePropertyTrait.html#properties">Charcoal\Property\DescribablePropertyTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Charcoal.Property.DescribablePropertyTrait.html#$propertyFactory"><var>$propertyFactory</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
