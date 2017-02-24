@@ -228,7 +228,7 @@
 </span><span id="103" class="l"><a href="#103">103: </a>    {
 </span><span id="104" class="l"><a href="#104">104: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$ident</span>)) {
 </span><span id="105" class="l"><a href="#105">105: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
-</span><span id="106" class="l"><a href="#106">106: </a>                <span class="php-quote">'Ident must be a string.'</span>
+</span><span id="106" class="l"><a href="#106">106: </a>                <span class="php-quote">'Identifier must be a string.'</span>
 </span><span id="107" class="l"><a href="#107">107: </a>            );
 </span><span id="108" class="l"><a href="#108">108: </a>        }
 </span><span id="109" class="l"><a href="#109">109: </a>        <span class="php-var">$this</span>-&gt;ident = <span class="php-var">$ident</span>;
@@ -270,7 +270,7 @@
 </span><span id="145" class="l"><a href="#145">145: </a>    {
 </span><span id="146" class="l"><a href="#146">146: </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$sqlType</span>)) {
 </span><span id="147" class="l"><a href="#147">147: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
-</span><span id="148" class="l"><a href="#148">148: </a>                <span class="php-quote">'Sql Type must be a string.'</span>
+</span><span id="148" class="l"><a href="#148">148: </a>                <span class="php-quote">'SQL Type must be a string.'</span>
 </span><span id="149" class="l"><a href="#149">149: </a>            );
 </span><span id="150" class="l"><a href="#150">150: </a>        }
 </span><span id="151" class="l"><a href="#151">151: </a>        <span class="php-var">$this</span>-&gt;sqlType = <span class="php-var">$sqlType</span>;
@@ -404,8 +404,8 @@
 </span><span id="279" class="l"><a href="#279">279: </a>        }
 </span><span id="280" class="l"><a href="#280">280: </a>
 </span><span id="281" class="l"><a href="#281">281: </a>        <span class="php-var">$sqlType</span> = <span class="php-var">$this</span>-&gt;sqlType();
-</span><span id="282" class="l"><a href="#282">282: </a>        <span class="php-var">$null</span> = ((<span class="php-var">$this</span>-&gt;allowNull() === <span class="php-keyword1">false</span>) ? <span class="php-quote">' NOT NULL '</span> : <span class="php-quote">''</span>);
-</span><span id="283" class="l"><a href="#283">283: </a>        <span class="php-var">$extra</span> = <span class="php-var">$this</span>-&gt;extra() ? <span class="php-quote">' '</span>.<span class="php-var">$this</span>-&gt;extra().<span class="php-quote">' '</span> : <span class="php-quote">''</span>;
+</span><span id="282" class="l"><a href="#282">282: </a>        <span class="php-var">$null</span>    = ((<span class="php-var">$this</span>-&gt;allowNull() === <span class="php-keyword1">false</span>) ? <span class="php-quote">' NOT NULL '</span> : <span class="php-quote">''</span>);
+</span><span id="283" class="l"><a href="#283">283: </a>        <span class="php-var">$extra</span>   = <span class="php-var">$this</span>-&gt;extra() ? <span class="php-quote">' '</span>.<span class="php-var">$this</span>-&gt;extra().<span class="php-quote">' '</span> : <span class="php-quote">''</span>;
 </span><span id="284" class="l"><a href="#284">284: </a>        <span class="php-var">$default</span> = (<span class="php-var">$this</span>-&gt;defaultVal() ? <span class="php-quote">' DEFAULT \''</span>.<span class="php-keyword2">addslashes</span>(<span class="php-var">$this</span>-&gt;defaultVal()).<span class="php-quote">'\' '</span> : <span class="php-quote">''</span>);
 </span><span id="285" class="l"><a href="#285">285: </a>        <span class="php-var">$comment</span> = (<span class="php-var">$this</span>-&gt;label() ? <span class="php-quote">' COMMENT \''</span>.<span class="php-keyword2">addslashes</span>(<span class="php-var">$this</span>-&gt;label()).<span class="php-quote">'\' '</span> : <span class="php-quote">''</span>);
 </span><span id="286" class="l"><a href="#286">286: </a>
