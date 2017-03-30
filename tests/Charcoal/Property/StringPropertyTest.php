@@ -15,12 +15,14 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
     use \Charcoal\Tests\Property\ContainerIntegrationTrait;
 
     /**
-     * @var StringProperty $obj
+     * Tested Class.
+     *
+     * @var StringProperty
      */
     public $obj;
 
     /**
-     *
+     * Set up the test.
      */
     public function setUp()
     {
@@ -31,18 +33,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
             'logger'     => $container['logger'],
             'translator' => $container['translator']
         ]);
-    }
-
-    /**
-     *
-     */
-    public function testConstructor()
-    {
-        $this->assertInstanceOf('\Charcoal\Property\StringProperty', $this->obj);
-
-        $this->assertEquals(0, $this->obj->minLength());
-        $this->assertEquals(255, $this->obj->maxLength());
-        $this->assertEquals('', $this->obj->regexp());
     }
 
     public function testType()
@@ -108,7 +98,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testSetMaxLenghtNegativeThrowsException()
     {
-
         $this->setExpectedException('\InvalidArgumentException');
         $this->obj->setMaxLength(-1);
     }
@@ -229,7 +218,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testValidateMaxLengthUTF8()
     {
-
         $this->obj->setMaxLength(5);
 
         $this->obj->setVal('Éçä˚');
@@ -252,7 +240,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testValidateMaxLengthWithZeroMaxLengthReturnsTrue()
     {
-
         $this->obj->setMaxLength(0);
 
         $this->assertTrue($this->obj->validateMaxLength());
@@ -264,7 +251,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testValidateRegexp()
     {
-
         $this->obj->setRegexp('/[0-9*]/');
 
         $this->obj->setVal('123');
@@ -276,16 +262,20 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testValidateRegexpEmptyRegexpReturnsTrue()
     {
-
         $this->assertTrue($this->obj->validateRegexp());
 
         $this->obj->setVal('123');
         $this->assertTrue($this->obj->validateRegexp());
     }
 
+    public function testSqlExtra()
+    {
+        $this->assertEquals('', $this->obj->sqlExtra());
+    }
+
     public function testSqlType()
     {
-
+        $this->obj->setMultiple(false);
         $this->assertEquals('VARCHAR(255)', $this->obj->sqlType());
 
         $this->obj->setMaxLength(20);
@@ -293,12 +283,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
         $this->obj->setMaxLength(256);
         $this->assertEquals('TEXT', $this->obj->sqlType());
-    }
-
-    public function testSqlTypeMultiple()
-    {
-
-        $this->assertEquals('VARCHAR(255)', $this->obj->sqlType());
 
         $this->obj->setMultiple(true);
         $this->assertEquals('TEXT', $this->obj->sqlType());
@@ -306,7 +290,6 @@ class StringPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testSqlPdoType()
     {
-
         $this->assertEquals(PDO::PARAM_STR, $this->obj->sqlPdoType());
     }
 }

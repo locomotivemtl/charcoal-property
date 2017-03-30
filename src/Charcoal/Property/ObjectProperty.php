@@ -24,6 +24,9 @@ use Charcoal\Factory\FactoryInterface;
 use Charcoal\View\ViewInterface;
 use Charcoal\View\ViewableInterface;
 
+// From 'charcoal-translator'
+use Charcoal\Translator\Translation;
+
 // From 'charcoal-property'
 use Charcoal\Property\AbstractProperty;
 use Charcoal\Property\SelectablePropertyInterface;
@@ -424,17 +427,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             return $propertyVal;
         }
 
+        /** Parse multilingual values */
         if ($this->l10n()) {
             $propertyValue = $this->l10nVal($val, $options);
             if ($propertyValue === null) {
                 return '';
             }
+        } elseif ($val instanceof Translation) {
+            $propertyValue = (string)$val;
         } else {
             $propertyValue = $val;
         }
 
         $separator = $this->multipleSeparator();
 
+        /** Parse multiple values / ensure they are of array type. */
         if ($this->multiple()) {
             if (!is_array($propertyValue)) {
                 $propertyValue = explode($separator, $propertyValue);
@@ -470,9 +477,9 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
-     * Fulfills the SelectableProperty interface, but does nothing.
+     * Set the available choices.
      *
-     * @param array $choices The array of choice structures.
+     * @param  array $choices One or more choice structures.
      * @return SelectablePropertyInterface Chainable.
      */
     public function setChoices(array $choices)
@@ -484,7 +491,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
-     * Add a choice to the available choices map.
+     * Merge the available choices.
+     *
+     * @param  array $choices One or more choice structures.
+     * @return SelectablePropertyInterface Chainable.
+     */
+    public function addChoices(array $choices)
+    {
+        unset($choices);
+        $this->logger->debug('Choices can not be set for object properties. They are auto-generated from objects.');
+
+        return $this;
+    }
+
+    /**
+     * Add a choice to the available choices.
      *
      * @param string       $choiceIdent The choice identifier (will be key / default ident).
      * @param string|array $choice      A string representing the choice label or a structure.
@@ -545,10 +566,30 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
-     * Get the choices array map.
+     * Determine if choices are available.
      *
-     * Required by `SelectablePropertyInterface`.
+     * @return boolean
+     */
+    public function hasChoices()
+    {
+        if (!$this->proto()->source()->tableExists()) {
+            return false;
+        }
+
+        $loader = $this->collectionLoader();
+
+        $filters = $this->filters();
+        if ($filters) {
+            $loader->setFilters($filters);
+        }
+
+        return ($loader->loadCount() > 0);
+    }
+
+    /**
+     * Retrieve the available choice structures.
      *
+     * @see    SelectablePropertyInterface::choices()
      * @return array
      */
     public function choices()
@@ -577,7 +618,8 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             $choice = $this->choice($obj);
 
             if ($choice !== null) {
-                $choices[$choice['value']] = $choice;
+                $choiceIdent = $choice['value'];
+                $choices[$choiceIdent] = $choice;
             }
         }
 
@@ -585,10 +627,11 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
-     * Returns wether a given choiceIdent exists or not.
+     * Determine if the given choice is available.
      *
-     * @param string $choiceIdent The choice identifier.
-     * @return boolean True / false wether the choice exists or not.
+     * @see    SelectablePropertyInterface::hasChoice()
+     * @param  string $choiceIdent The choice identifier to lookup.
+     * @return boolean
      */
     public function hasChoice($choiceIdent)
     {
@@ -598,9 +641,12 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
-     * Returns a choice structure for a given ident.
+     * Retrieve the structure for a given choice.
      *
-     * @param string|ModelInterface $choiceIdent The choice ident or object to format.
+     * The method can be used to format an object into a choice structure.
+     *
+     * @see    SelectablePropertyInterface::choice()
+     * @param  string $choiceIdent The choice identifier to lookup or object to format.
      * @return mixed The matching choice.
      */
     public function choice($choiceIdent)
@@ -623,6 +669,42 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
         }
 
         return $choice;
+    }
+
+
+    /**
+     * Retrieve the label for a given choice.
+     *
+     * @see    SelectablePropertyInterface::choiceLabel()
+     * @param  mixed $choiceIdent The choice identifier to lookup.
+     * @throws InvalidArgumentException If the choice is invalid.
+     * @return string|null Returns the label. Otherwise, returns the raw value.
+     */
+    public function choiceLabel($choiceIdent)
+    {
+        if ($choiceIdent === null) {
+            return null;
+        }
+
+        if (is_array($choiceIdent)) {
+            if (isset($choiceIdent['label'])) {
+                return $choiceIdent['label'];
+            } elseif (isset($choiceIdent['value'])) {
+                return $choiceIdent['value'];
+            } else {
+                throw new InvalidArgumentException(
+                    'Choice structure must contain a "label" or "value".'
+                );
+            }
+        }
+
+        $obj = $this->loadObject($choiceIdent);
+
+        if ($obj === null) {
+            return $choiceIdent;
+        }
+
+        return $this->renderObjPattern($obj);
     }
 
     /**

@@ -7,6 +7,9 @@ use PDO;
 use Exception;
 use InvalidArgumentException;
 
+// From 'charcoal-translator'
+use Charcoal\Translator\Translation;
+
 // From 'charcoal-property'
 use Charcoal\Property\AbstractProperty;
 use Charcoal\Property\SelectablePropertyInterface;
@@ -60,51 +63,56 @@ class StringProperty extends AbstractProperty implements SelectablePropertyInter
      */
     public function displayVal($val, array $options = [])
     {
-        if ($val === null) {
+        if ($val === null || $val === '') {
             return '';
         }
 
+        /** Parse multilingual values */
         if ($this->l10n()) {
             $propertyValue = $this->l10nVal($val, $options);
             if ($propertyValue === null) {
                 return '';
             }
+        } elseif ($val instanceof Translation) {
+            $propertyValue = (string)$val;
         } else {
             $propertyValue = $val;
         }
 
+        $separator = $this->multipleSeparator();
+
+        /** Parse multiple values / ensure they are of array type. */
         if ($this->multiple()) {
-            $separator = $this->multipleSeparator();
             if (!is_array($propertyValue)) {
                 $propertyValue = explode($separator, $propertyValue);
-            }
-
-            $values = [];
-            foreach ($propertyValue as $val) {
-                $values[] = $this->valLabel($val);
             }
 
             if ($separator === ',') {
                 $separator = ', ';
             }
+        }
 
-            $propertyValue = implode($separator, $values);
+        if (is_array($propertyValue)) {
+            foreach ($propertyValue as &$value) {
+                $value = (string)$this->valLabel($value);
+            }
+            $propertyValue = implode($separator, $propertyValue);
         } else {
-            $propertyValue = $this->valLabel((string)$propertyValue);
+            $propertyValue = (string)$this->valLabel($propertyValue);
         }
 
         return $propertyValue;
     }
 
     /**
-     * Attempt to get the label from choices. Otherwise, return the raw value.
+     * Attempts to return the label for a given choice.
      *
-     * @param string $val The value to retrieve the label of.
-     * @return string
+     * @param  string $val The value to retrieve the label of.
+     * @return string Returns the label. Otherwise, returns the raw value.
      */
     protected function valLabel($val)
     {
-        if ($this->hasChoice($val)) {
+        if (is_string($val) && $this->hasChoice($val)) {
             $choice = $this->choice($val);
             return $choice['label'];
         } else {
