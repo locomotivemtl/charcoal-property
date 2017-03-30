@@ -1,0 +1,147 @@
+<?php
+
+namespace Charcoal\Property;
+
+use PDO;
+
+// From Pimple
+use Pimple\Container;
+
+// From 'charcoal-property'
+use Charcoal\Property\AbstractProperty;
+use Charcoal\Property\SelectablePropertyInterface;
+use Charcoal\Property\SelectablePropertyTrait;
+
+/**
+ * Language property
+ */
+class LangProperty extends AbstractProperty implements SelectablePropertyInterface
+{
+    use SelectablePropertyTrait {
+        SelectablePropertyTrait::addChoice as addExtraChoice;
+    }
+
+    /**
+     * The available selectable locales.
+     *
+     * @var array|null
+     */
+    private $localeChoices;
+
+    /**
+     * @return string
+     */
+    public function type()
+    {
+        return 'lang';
+    }
+
+    /**
+     * Inject dependencies from a DI Container.
+     *
+     * @param  Container $container A dependencies container instance.
+     * @return void
+     */
+    public function setDependencies(Container $container)
+    {
+        parent::setDependencies($container);
+
+        $this->choices = $this->localeChoices();
+    }
+
+    /**
+     * Add a choice to the available choices map.
+     *
+     * @uses   SelectablePropertyTrait::addChoice()
+     * @param  string       $choiceIdent The choice identifier (will be key / default ident).
+     * @param  string|array $choice      A string representing the choice label or a structure.
+     * @throws InvalidArgumentException If the choice identifier is not a string.
+     * @return SelectablePropertyInterface Chainable.
+     */
+    public function addChoice($choiceIdent, $choice)
+    {
+        $locales = $this->localeChoices();
+
+        if (is_string($choice)) {
+            if (isset($locales[$choice])) {
+                $this->choices[$choiceIdent] = $locales[$choice];
+
+                return $this;
+            }
+        } elseif (is_array($choice)) {
+            if (isset($choice['value'])) {
+                $choiceIdent = (string)$choice['value'];
+            } else {
+                $choice['value'] = $choiceIdent;
+            }
+
+            if (isset($locales[$choiceIdent])) {
+                $this->choices[$choiceIdent] = array_merge($locales[$choice], $choice);
+
+                return $this;
+            }
+        }
+
+        return $this->addExtraChoice($choiceIdent, $choice);
+    }
+
+    /**
+     * Retrieve the available locales as a choices array map.
+     *
+     * @return array
+     */
+    private function localeChoices()
+    {
+        if ($this->localeChoices === null) {
+            $choices = [];
+            foreach ($this->translator()->locales() as $locale => $localeStruct) {
+                if (isset($localeStruct['name'])) {
+                    $label = $this->translator()->translation($localeStruct['name']);
+                } else {
+                    $label = $this->translator()->translation('locale.'.$locale);
+                }
+
+                $choices[$locale] = [
+                    'label'    => $label,
+                    'selected' => ($this->val() === $locale),
+                    'value'    => $locale
+                ];
+            }
+
+            $this->localeChoices = $choices;
+        }
+
+        return $this->localeChoices;
+    }
+
+    /**
+     * @return string
+     */
+    public function sqlExtra()
+    {
+        return '';
+    }
+
+    /**
+     * Get the SQL type (Storage format)
+     *
+     * @return string The SQL type
+     * @todo   Only the 2-character language code (ISO 639-1)
+     */
+    public function sqlType()
+    {
+        if ($this->multiple()) {
+            return 'TEXT';
+        }
+        return 'CHAR(2)';
+    }
+
+    /**
+     * @return integer
+     */
+    public function sqlPdoType()
+    {
+        return PDO::PARAM_BOOL;
+    }
+}
+
