@@ -432,19 +432,6 @@ abstract class AbstractProperty extends AbstractEntity implements
             }
         }
 
-        if ($this instanceof SelectablePropertyInterface) {
-            if (is_array($propertyValue)) {
-                foreach ($propertyValue as &$value) {
-                    if (is_string($value)) {
-                        $value = (string)$this->choiceLabel($value);
-                    }
-                }
-                $propertyValue = implode($separator, $propertyValue);
-            } elseif (is_string($propertyValue)) {
-                $propertyValue = (string)$this->choiceLabel($propertyValue);
-            }
-        }
-
         if (is_array($propertyValue)) {
             $propertyValue = implode($separator, $propertyValue);
         }

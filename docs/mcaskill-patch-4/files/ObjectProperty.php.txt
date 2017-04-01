@@ -434,17 +434,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             return $propertyVal;
         }
 
+        /** Parse multilingual values */
         if ($this->l10n()) {
             $propertyValue = $this->l10nVal($val, $options);
             if ($propertyValue === null) {
                 return '';
             }
+        } elseif ($val instanceof Translation) {
+            $propertyValue = (string)$val;
         } else {
             $propertyValue = $val;
         }
 
         $separator = $this->multipleSeparator();
 
+        /** Parse multiple values / ensure they are of array type. */
         if ($this->multiple()) {
             if (!is_array($propertyValue)) {
                 $propertyValue = explode($separator, $propertyValue);
