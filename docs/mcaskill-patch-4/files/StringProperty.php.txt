@@ -109,7 +109,7 @@ class StringProperty extends AbstractProperty implements SelectablePropertyInter
      */
     protected function valLabel($val)
     {
-        if ($this->hasChoice($val)) {
+        if (is_string($val) && $this->hasChoice($val)) {
             $choice = $this->choice($val);
             return $choice['label'];
         } else {
