@@ -34,7 +34,6 @@ use Charcoal\Property\DescribablePropertyInterface;
 use Charcoal\Property\DescribablePropertyTrait;
 use Charcoal\Property\PropertyInterface;
 use Charcoal\Property\PropertyValidator;
-use Charcoal\Property\SelectablePropertyInterface;
 use Charcoal\Property\StorablePropertyInterface;
 use Charcoal\Property\StorablePropertyTrait;
 

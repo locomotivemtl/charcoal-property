@@ -4,6 +4,9 @@ namespace Charcoal\Property;
 
 use InvalidArgumentException;
 
+// From 'charcoal-translator'
+use Charcoal\Translator\Translation;
+
 /**
 * Fully implements, as a Trait, the SelectablePropertyInterface.
 */
