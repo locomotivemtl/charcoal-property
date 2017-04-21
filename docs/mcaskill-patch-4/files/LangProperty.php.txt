@@ -96,17 +96,27 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
     private function localeChoices()
     {
         if ($this->localeChoices === null) {
-            $choices = [];
+            $selected = (array)$this->val();
+            $choices  = [];
             foreach ($this->translator()->locales() as $locale => $localeStruct) {
+                /**
+                 * @see \Charcoal\Admin\Widget\FormSidebarWidget::languages()
+                 * @see \Charcoal\Admin\Widget\FormGroupWidget::languages()
+                 */
                 if (isset($localeStruct['name'])) {
                     $label = $this->translator()->translation($localeStruct['name']);
                 } else {
-                    $label = $this->translator()->translation('locale.'.$locale);
+                    $trans = 'locale.'.$locale;
+                    if ($trans === $this->translator()->translate($trans)) {
+                        $label = strtoupper($locale);
+                    } else {
+                        $label = $this->translator()->translation($trans);
+                    }
                 }
 
                 $choices[$locale] = [
                     'label'    => $label,
-                    'selected' => ($this->val() === $locale),
+                    'selected' => in_array($locale, $selected),
                     'value'    => $locale
                 ];
             }
@@ -156,12 +166,18 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
         if (is_array($propertyValue)) {
             foreach ($propertyValue as &$value) {
                 if (is_string($value)) {
-                    $value = (string)$this->choiceLabel($value);
+                    $value = $this->choiceLabel($value);
+                    if (!is_string($value)) {
+                        $value = $this->l10nVal($value, $options);
+                    }
                 }
             }
             $propertyValue = implode($separator, $propertyValue);
         } elseif (is_string($propertyValue)) {
-            $propertyValue = (string)$this->choiceLabel($propertyValue);
+            $propertyValue = $this->choiceLabel($propertyValue);
+            if (!is_string($propertyValue)) {
+                $propertyValue = $this->l10nVal($propertyValue, $options);
+            }
         }
 
         return $propertyValue;
@@ -186,6 +202,7 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
         if ($this->multiple()) {
             return 'TEXT';
         }
+
         return 'CHAR(2)';
     }
 
