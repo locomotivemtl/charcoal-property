@@ -95,7 +95,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      *
      * @var ModelLoader[]
      */
-    private static $modelLoaders = [];
+    protected static $modelLoaders = [];
 
     /**
      * Store the factory instance for the current class.
@@ -743,16 +743,16 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      *
      * Loads the object from the cache store or from the storage source.
      *
-     * @param mixed $id Object id.
+     * @param  mixed $objId Object id.
      * @return ModelInterface
      */
-    protected function loadObject($id)
+    protected function loadObject($objId)
     {
-        if ($id instanceof ModelInterface) {
-            return $id;
+        if ($objId instanceof ModelInterface) {
+            return $objId;
         }
 
-        $obj = $this->modelLoader()->load($id);
+        $obj = $this->modelLoader()->load($objId);
         if (!$obj->id()) {
             return null;
         } else {
@@ -761,11 +761,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
+     * Retrieve the model loader.
+     *
+     * @param  string $objType The object type.
      * @return ModelLoader
      */
-    private function modelLoader()
+    protected function modelLoader($objType = null)
     {
-        $objType = $this->objType();
+        if ($objType === null) {
+            $objType = $this->objType();
+        } elseif (!is_string($objType)) {
+            throw new InvalidArgumentException(
+                'Object type must be a string.'
+            );
+        }
+
         if (isset(self::$modelLoaders[$objType])) {
             return self::$modelLoaders[$objType];
         }
