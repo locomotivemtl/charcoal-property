@@ -120,8 +120,6 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
                 $selected = (array)$this->val();
                 $choices  = [];
 
-                # error_log('❯ '.json_encode($locales, JSON_PRETTY_PRINT));
-
                 foreach ($locales as $langCode => $localeStruct) {
                     /**
                      * @see \Charcoal\Admin\Widget\FormSidebarWidget::languages()
@@ -145,8 +143,6 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
                     ];
                 }
 
-                # error_log('❯ '.json_encode($choices, JSON_PRETTY_PRINT));
-
                 $this->choices = $choices;
             }
         }
@@ -167,10 +163,7 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
 
         /** Parse multilingual values */
         if ($this->l10n()) {
-            error_log(get_called_class().'::'.__FUNCTION__);
-            error_log('❯ '.var_export($val, true));
             $propertyValue = $this->l10nVal($val, $options);
-            error_log('❯ '.var_export($propertyValue, true));
             if ($propertyValue === null) {
                 return '';
             }
