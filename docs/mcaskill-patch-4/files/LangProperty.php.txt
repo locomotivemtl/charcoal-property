@@ -4,9 +4,6 @@ namespace Charcoal\Property;
 
 use PDO;
 
-// From Pimple
-use Pimple\Container;
-
 // From 'charcoal-translator'
 use Charcoal\Translator\Translation;
 
@@ -17,19 +14,12 @@ use Charcoal\Property\SelectablePropertyTrait;
 
 /**
  * Language property
+ *
+ * Provides an immutable list of selectable locales based on the available languages of your application.
  */
 class LangProperty extends AbstractProperty implements SelectablePropertyInterface
 {
-    use SelectablePropertyTrait {
-        SelectablePropertyTrait::addChoice as addExtraChoice;
-    }
-
-    /**
-     * The available selectable locales.
-     *
-     * @var array|null
-     */
-    private $localeChoices;
+    use SelectablePropertyTrait;
 
     /**
      * @return string
@@ -40,91 +30,128 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
     }
 
     /**
-     * Inject dependencies from a DI Container.
+     * Set the available choices.
      *
-     * @param  Container $container A dependencies container instance.
-     * @return void
+     * @param  array $choices One or more choice structures.
+     * @return SelectablePropertyInterface Chainable.
      */
-    public function setDependencies(Container $container)
+    public function setChoices(array $choices)
     {
-        parent::setDependencies($container);
+        unset($choices);
 
-        $this->choices = $this->localeChoices();
+        $this->logger->debug(
+            'Choices can not be set for language properties. They are auto-generated from available languages.'
+        );
+
+        return $this;
     }
 
     /**
-     * Add a choice to the available choices map.
+     * Merge the available choices.
      *
-     * @uses   SelectablePropertyTrait::addChoice()
-     * @param  string       $choiceIdent The choice identifier (will be key / default ident).
-     * @param  string|array $choice      A string representing the choice label or a structure.
-     * @throws InvalidArgumentException If the choice identifier is not a string.
+     * @param  array $choices One or more choice structures.
+     * @return SelectablePropertyInterface Chainable.
+     */
+    public function addChoices(array $choices)
+    {
+        unset($choices);
+
+        $this->logger->debug(
+            'Choices can not be added for language properties. They are auto-generated from available languages.'
+        );
+
+        return $this;
+    }
+
+    /**
+     * Add a choice to the available choices.
+     *
+     * @param string       $choiceIdent The choice identifier (will be key / default ident).
+     * @param string|array $choice      A string representing the choice label or a structure.
      * @return SelectablePropertyInterface Chainable.
      */
     public function addChoice($choiceIdent, $choice)
     {
-        $locales = $this->localeChoices();
+        unset($choiceIdent, $choice);
 
-        if (is_string($choice)) {
-            if (isset($locales[$choice])) {
-                $this->choices[$choiceIdent] = $locales[$choice];
+        $this->logger->debug(
+            'Choices can not be added for language properties. They are auto-generated from available languages.'
+        );
 
-                return $this;
-            }
-        } elseif (is_array($choice)) {
-            if (isset($choice['value'])) {
-                $choiceIdent = (string)$choice['value'];
-            } else {
-                $choice['value'] = $choiceIdent;
-            }
-
-            if (isset($locales[$choiceIdent])) {
-                $this->choices[$choiceIdent] = array_merge($locales[$choice], $choice);
-
-                return $this;
-            }
-        }
-
-        return $this->addExtraChoice($choiceIdent, $choice);
+        return $this;
     }
 
     /**
-     * Retrieve the available locales as a choices array map.
+     * Determine if choices are available.
      *
-     * @return array
+     * @return boolean
      */
-    private function localeChoices()
+    public function hasChoices()
     {
-        if ($this->localeChoices === null) {
-            $selected = (array)$this->val();
-            $choices  = [];
-            foreach ($this->translator()->locales() as $locale => $localeStruct) {
-                /**
-                 * @see \Charcoal\Admin\Widget\FormSidebarWidget::languages()
-                 * @see \Charcoal\Admin\Widget\FormGroupWidget::languages()
-                 */
-                if (isset($localeStruct['name'])) {
-                    $label = $this->translator()->translation($localeStruct['name']);
-                } else {
-                    $trans = 'locale.'.$locale;
-                    if ($trans === $this->translator()->translate($trans)) {
-                        $label = strtoupper($locale);
-                    } else {
-                        $label = $this->translator()->translation($trans);
-                    }
-                }
+        return !!$this->translator()->locales();
+    }
 
-                $choices[$locale] = [
-                    'label'    => $label,
-                    'selected' => in_array($locale, $selected),
-                    'value'    => $locale
-                ];
-            }
-
-            $this->localeChoices = $choices;
+    /**
+     * Determine if the given choice is available.
+     *
+     * @param  string $choiceIdent The choice identifier to lookup.
+     * @return boolean
+     */
+    public function hasChoice($choiceIdent)
+    {
+        if (empty($this->choices)) {
+            $this->choices();
         }
 
-        return $this->localeChoices;
+        return isset($this->choices[$choiceIdent]);
+    }
+
+    /**
+     * Retrieve the available choice structures.
+     *
+     * @see    SelectablePropertyInterface::choices()
+     * @return array
+     */
+    public function choices()
+    {
+        if (empty($this->choices)) {
+            $locales = $this->translator()->locales();
+            if ($locales) {
+                $selected = (array)$this->val();
+                $choices  = [];
+
+                # error_log('❯ '.json_encode($locales, JSON_PRETTY_PRINT));
+
+                foreach ($locales as $langCode => $localeStruct) {
+                    /**
+                     * @see \Charcoal\Admin\Widget\FormSidebarWidget::languages()
+                     * @see \Charcoal\Admin\Widget\FormGroupWidget::languages()
+                     */
+                    if (isset($localeStruct['name'])) {
+                        $label = $this->translator()->translation($localeStruct['name']);
+                    } else {
+                        $trans = 'locale.'.$langCode;
+                        if ($trans === $this->translator()->translate($trans)) {
+                            $label = strtoupper($langCode);
+                        } else {
+                            $label = $this->translator()->translation($trans);
+                        }
+                    }
+
+                    $choices[$langCode] = [
+                        'label'    => $label,
+                        'selected' => in_array($langCode, $selected),
+                        'value'    => $langCode
+                    ];
+                }
+
+                # error_log('❯ '.json_encode($choices, JSON_PRETTY_PRINT));
+
+                $this->choices = $choices;
+            }
+        }
+
+        return $this->choices;
     }
 
     /**
@@ -140,7 +167,10 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
 
         /** Parse multilingual values */
         if ($this->l10n()) {
+            error_log(get_called_class().'::'.__FUNCTION__);
+            error_log('❯ '.var_export($val, true));
             $propertyValue = $this->l10nVal($val, $options);
+            error_log('❯ '.var_export($propertyValue, true));
             if ($propertyValue === null) {
                 return '';
             }
