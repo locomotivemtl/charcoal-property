@@ -889,33 +889,34 @@
 </span></span><span id="764" class="l"><a href="#764">764: </a><span class="php-comment">     * Retrieve the model loader.
 </span></span><span id="765" class="l"><a href="#765">765: </a><span class="php-comment">     *
 </span></span><span id="766" class="l"><a href="#766">766: </a><span class="php-comment">     * @param  string $objType The object type.
-</span></span><span id="767" class="l"><a href="#767">767: </a><span class="php-comment">     * @return ModelLoader
-</span></span><span id="768" class="l"><a href="#768">768: </a><span class="php-comment">     */</span>
-</span><span id="769" class="l"><a href="#769">769: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> modelLoader(<span class="php-var">$objType</span> = <span class="php-keyword1">null</span>)
-</span><span id="770" class="l"><a href="#770">770: </a>    {
-</span><span id="771" class="l"><a href="#771">771: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$objType</span> === <span class="php-keyword1">null</span>) {
-</span><span id="772" class="l"><a href="#772">772: </a>            <span class="php-var">$objType</span> = <span class="php-var">$this</span>-&gt;objType();
-</span><span id="773" class="l"><a href="#773">773: </a>        } <span class="php-keyword1">elseif</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$objType</span>)) {
-</span><span id="774" class="l"><a href="#774">774: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
-</span><span id="775" class="l"><a href="#775">775: </a>                <span class="php-quote">'Object type must be a string.'</span>
-</span><span id="776" class="l"><a href="#776">776: </a>            );
-</span><span id="777" class="l"><a href="#777">777: </a>        }
-</span><span id="778" class="l"><a href="#778">778: </a>
-</span><span id="779" class="l"><a href="#779">779: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>])) {
-</span><span id="780" class="l"><a href="#780">780: </a>            <span class="php-keyword1">return</span> self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>];
-</span><span id="781" class="l"><a href="#781">781: </a>        }
-</span><span id="782" class="l"><a href="#782">782: </a>
-</span><span id="783" class="l"><a href="#783">783: </a>        self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>] = <span class="php-keyword1">new</span> ModelLoader([
-</span><span id="784" class="l"><a href="#784">784: </a>            <span class="php-quote">'logger'</span>    =&gt; <span class="php-var">$this</span>-&gt;logger,
-</span><span id="785" class="l"><a href="#785">785: </a>            <span class="php-quote">'obj_type'</span>  =&gt; <span class="php-var">$objType</span>,
-</span><span id="786" class="l"><a href="#786">786: </a>            <span class="php-quote">'factory'</span>   =&gt; <span class="php-var">$this</span>-&gt;modelFactory(),
-</span><span id="787" class="l"><a href="#787">787: </a>            <span class="php-quote">'cache'</span>     =&gt; <span class="php-var">$this</span>-&gt;cachePool()
-</span><span id="788" class="l"><a href="#788">788: </a>        ]);
-</span><span id="789" class="l"><a href="#789">789: </a>
-</span><span id="790" class="l"><a href="#790">790: </a>        <span class="php-keyword1">return</span> self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>];
-</span><span id="791" class="l"><a href="#791">791: </a>    }
-</span><span id="792" class="l"><a href="#792">792: </a>}
-</span><span id="793" class="l"><a href="#793">793: </a></span></code></pre>
+</span></span><span id="767" class="l"><a href="#767">767: </a><span class="php-comment">     * @throws InvalidArgumentException If the object type is invalid.
+</span></span><span id="768" class="l"><a href="#768">768: </a><span class="php-comment">     * @return ModelLoader
+</span></span><span id="769" class="l"><a href="#769">769: </a><span class="php-comment">     */</span>
+</span><span id="770" class="l"><a href="#770">770: </a>    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> modelLoader(<span class="php-var">$objType</span> = <span class="php-keyword1">null</span>)
+</span><span id="771" class="l"><a href="#771">771: </a>    {
+</span><span id="772" class="l"><a href="#772">772: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$objType</span> === <span class="php-keyword1">null</span>) {
+</span><span id="773" class="l"><a href="#773">773: </a>            <span class="php-var">$objType</span> = <span class="php-var">$this</span>-&gt;objType();
+</span><span id="774" class="l"><a href="#774">774: </a>        } <span class="php-keyword1">elseif</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$objType</span>)) {
+</span><span id="775" class="l"><a href="#775">775: </a>            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> InvalidArgumentException(
+</span><span id="776" class="l"><a href="#776">776: </a>                <span class="php-quote">'Object type must be a string.'</span>
+</span><span id="777" class="l"><a href="#777">777: </a>            );
+</span><span id="778" class="l"><a href="#778">778: </a>        }
+</span><span id="779" class="l"><a href="#779">779: </a>
+</span><span id="780" class="l"><a href="#780">780: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword1">isset</span>(self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>])) {
+</span><span id="781" class="l"><a href="#781">781: </a>            <span class="php-keyword1">return</span> self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>];
+</span><span id="782" class="l"><a href="#782">782: </a>        }
+</span><span id="783" class="l"><a href="#783">783: </a>
+</span><span id="784" class="l"><a href="#784">784: </a>        self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>] = <span class="php-keyword1">new</span> ModelLoader([
+</span><span id="785" class="l"><a href="#785">785: </a>            <span class="php-quote">'logger'</span>    =&gt; <span class="php-var">$this</span>-&gt;logger,
+</span><span id="786" class="l"><a href="#786">786: </a>            <span class="php-quote">'obj_type'</span>  =&gt; <span class="php-var">$objType</span>,
+</span><span id="787" class="l"><a href="#787">787: </a>            <span class="php-quote">'factory'</span>   =&gt; <span class="php-var">$this</span>-&gt;modelFactory(),
+</span><span id="788" class="l"><a href="#788">788: </a>            <span class="php-quote">'cache'</span>     =&gt; <span class="php-var">$this</span>-&gt;cachePool()
+</span><span id="789" class="l"><a href="#789">789: </a>        ]);
+</span><span id="790" class="l"><a href="#790">790: </a>
+</span><span id="791" class="l"><a href="#791">791: </a>        <span class="php-keyword1">return</span> self::<span class="php-var">$modelLoaders</span>[<span class="php-var">$objType</span>];
+</span><span id="792" class="l"><a href="#792">792: </a>    }
+</span><span id="793" class="l"><a href="#793">793: </a>}
+</span><span id="794" class="l"><a href="#794">794: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
