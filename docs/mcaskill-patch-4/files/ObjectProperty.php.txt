@@ -764,6 +764,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Retrieve the model loader.
      *
      * @param  string $objType The object type.
+     * @throws InvalidArgumentException If the object type is invalid.
      * @return ModelLoader
      */
     protected function modelLoader($objType = null)
