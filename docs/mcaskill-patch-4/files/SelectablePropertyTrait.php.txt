@@ -8,8 +8,8 @@ use InvalidArgumentException;
 use Charcoal\Translator\Translation;
 
 /**
-* Fully implements, as a Trait, the SelectablePropertyInterface.
-*/
+ * Provides an implementation of {@see \Charcoal\Property\SelectablePropertyInterface}.
+ */
 trait SelectablePropertyTrait
 {
     /**

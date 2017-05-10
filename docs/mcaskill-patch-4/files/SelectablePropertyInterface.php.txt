@@ -3,15 +3,7 @@
 namespace Charcoal\Property;
 
 /**
- * Selectable properties provide choices.
- *
- * Choices are :
- * - `value`
- * - `label`
- * - `title`
- * - `subtext`
- * - `icon`
- * - `selected`
+ * Defines a property providing options to choose from.
  */
 interface SelectablePropertyInterface
 {
