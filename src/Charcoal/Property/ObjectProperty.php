@@ -70,6 +70,13 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     private $collectionLoader;
 
     /**
+     * The rules for pagination the collection of objects.
+     *
+     * @var array
+     */
+    protected $pagination;
+
+    /**
      * The rules for sorting the collection of objects.
      *
      * @var array
@@ -520,6 +527,29 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
+     * Set the rules for pagination the collection of objects.
+     *
+     * @param  array $pagination Pagination settings.
+     * @return ObjectProperty Chainable
+     */
+    public function setPagination(array $pagination)
+    {
+        $this->pagination = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the rules for pagination the collection of objects.
+     *
+     * @return array|null
+     */
+    public function pagination()
+    {
+        return $this->pagination;
+    }
+
+    /**
      * Set the rules for sorting the collection of objects.
      *
      * @param  array $orders An array of orders.
@@ -535,7 +565,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * Retrieve the rules for sorting the collection of objects.
      *
-     * @return array
+     * @return array|null
      */
     public function orders()
     {
@@ -558,7 +588,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * Retrieve the rules for filtering the collection of objects.
      *
-     * @return array
+     * @return array|null
      */
     public function filters()
     {
@@ -602,6 +632,11 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
         }
 
         $loader = $this->collectionLoader();
+
+        $pagination = $this->pagination();
+        if ($pagination) {
+            $loader->setPagination($pagination);
+        }
 
         $orders = $this->orders();
         if ($orders) {
