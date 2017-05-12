@@ -72,21 +72,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * The rules for pagination the collection of objects.
      *
-     * @var array
+     * @var array|null
      */
     protected $pagination;
 
     /**
      * The rules for sorting the collection of objects.
      *
-     * @var array
+     * @var array|null
      */
     protected $orders;
 
     /**
      * The rules for filtering the collection of objects.
      *
-     * @var array
+     * @var array|null
      */
     protected $filters;
 
@@ -191,11 +191,26 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             );
         }
 
-        $proto  = $this->proto();
-        $loader = $this->collectionLoader;
-        $loader->setModel($proto);
+        if (!$this->collectionLoader->hasModel()) {
+            $this->collectionLoader->setModel($this->proto());
 
-        return $loader;
+            $pagination = $this->pagination();
+            if (!empty($pagination)) {
+                $this->collectionLoader->setPagination($pagination);
+            }
+
+            $orders = $this->orders();
+            if (!empty($orders)) {
+                $this->collectionLoader->setOrders($orders);
+            }
+
+            $filters = $this->filters();
+            if (!empty($filters)) {
+                $this->collectionLoader->setFilters($filters);
+            }
+        }
+
+        return $this->collectionLoader;
     }
 
     /**
@@ -606,14 +621,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             return false;
         }
 
-        $loader = $this->collectionLoader();
-
-        $filters = $this->filters();
-        if ($filters) {
-            $loader->setFilters($filters);
-        }
-
-        return ($loader->loadCount() > 0);
+        return ($this->collectionLoader()->loadCount() > 0);
     }
 
     /**
@@ -631,24 +639,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             return $choices;
         }
 
-        $loader = $this->collectionLoader();
-
-        $pagination = $this->pagination();
-        if ($pagination) {
-            $loader->setPagination($pagination);
-        }
-
-        $orders = $this->orders();
-        if ($orders) {
-            $loader->setOrders($orders);
-        }
-
-        $filters = $this->filters();
-        if ($filters) {
-            $loader->setFilters($filters);
-        }
-
-        $objects = $loader->load();
+        $objects = $this->collectionLoader()->load();
         foreach ($objects as $obj) {
             $choice = $this->choice($obj);
 
