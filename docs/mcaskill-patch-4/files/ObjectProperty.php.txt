@@ -70,16 +70,23 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     private $collectionLoader;
 
     /**
+     * The rules for pagination the collection of objects.
+     *
+     * @var array|null
+     */
+    protected $pagination;
+
+    /**
      * The rules for sorting the collection of objects.
      *
-     * @var array
+     * @var array|null
      */
     protected $orders;
 
     /**
      * The rules for filtering the collection of objects.
      *
-     * @var array
+     * @var array|null
      */
     protected $filters;
 
@@ -186,6 +193,11 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
 
         if (!$this->collectionLoader->hasModel()) {
             $this->collectionLoader->setModel($this->proto());
+
+            $pagination = $this->pagination();
+            if (!empty($pagination)) {
+                $this->collectionLoader->setPagination($pagination);
+            }
 
             $orders = $this->orders();
             if (!empty($orders)) {
@@ -530,6 +542,29 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     }
 
     /**
+     * Set the rules for pagination the collection of objects.
+     *
+     * @param  array $pagination Pagination settings.
+     * @return ObjectProperty Chainable
+     */
+    public function setPagination(array $pagination)
+    {
+        $this->pagination = $pagination;
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the rules for pagination the collection of objects.
+     *
+     * @return array|null
+     */
+    public function pagination()
+    {
+        return $this->pagination;
+    }
+
+    /**
      * Set the rules for sorting the collection of objects.
      *
      * @param  array $orders An array of orders.
@@ -545,7 +580,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * Retrieve the rules for sorting the collection of objects.
      *
-     * @return array
+     * @return array|null
      */
     public function orders()
     {
@@ -568,7 +603,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * Retrieve the rules for filtering the collection of objects.
      *
-     * @return array
+     * @return array|null
      */
     public function filters()
     {
