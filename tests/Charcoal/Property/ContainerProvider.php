@@ -10,6 +10,10 @@ use Psr\Log\NullLogger;
 // From 'cache/void-adapter' (PSR-6)
 use Cache\Adapter\Void\VoidCachePool;
 
+// From 'tedivm/stash' (PSR-6)
+use \Stash\Pool;
+use \Stash\Driver\Ephemeral;
+
 // From Pimple
 use Pimple\Container;
 
@@ -23,6 +27,11 @@ use Charcoal\Factory\GenericFactory as Factory;
 use Charcoal\Model\Service\MetadataLoader;
 use Charcoal\Loader\CollectionLoader;
 use Charcoal\Source\DatabaseSource;
+
+// From 'charcoal-view'
+use Charcoal\View\GenericView;
+use Charcoal\View\Mustache\MustacheEngine;
+use Charcoal\View\Mustache\MustacheLoader;
 
 // From 'charcoal-translator'
 use Charcoal\Translator\LocalesManager;
@@ -99,7 +108,41 @@ class ContainerProvider
     public function registerCache(Container $container)
     {
         $container['cache'] = function ($container) {
-            return new VoidCachePool();
+            return new Pool(new Ephemeral());
+        };
+    }
+
+    /**
+     * Setup the framework's view renderer.
+     *
+     * @param  Container $container A DI container.
+     * @return void
+     */
+    public function registerView(Container $container)
+    {
+        $container['view/loader'] = function (Container $container) {
+            return new MustacheLoader([
+                'logger'    => $container['logger'],
+                'base_path' => realpath(__DIR__.'/../../../'),
+                'paths'     => [
+                    'views'
+                ]
+            ]);
+        };
+
+        $container['view/engine'] = function (Container $container) {
+            return new MustacheEngine([
+                'logger' => $container['logger'],
+                'cache'  => $container['cache'],
+                'loader' => $container['view/loader']
+            ]);
+        };
+
+        $container['view'] = function (Container $container) {
+            return new GenericView([
+                'logger' => $container['logger'],
+                'engine' => $container['view/engine']
+            ]);
         };
     }
 
@@ -202,8 +245,7 @@ class ContainerProvider
                 'logger'    => $container['logger'],
                 'base_path' => realpath(__DIR__.'/../../../'),
                 'paths'     => [
-                    'metadata',
-                    'vendor/locomotivemtl/charcoal-property/metadata'
+                    'metadata'
                 ]
             ]);
         };
@@ -267,9 +309,10 @@ class ContainerProvider
                     'suffix' => 'Property'
                 ],
                 'arguments' => [[
-                    'container' => $container,
-                    'database'  => $container['database'],
-                    'logger'    => $container['logger']
+                    'container'  => $container,
+                    'database'   => $container['database'],
+                    'logger'     => $container['logger'],
+                    'translator' => $container['translator']
                 ]]
             ]);
         };
@@ -285,8 +328,9 @@ class ContainerProvider
     {
         $container['model/collection/loader'] = function (Container $container) {
             return new CollectionLoader([
-                'logger' => $container['logger'],
-                'cache'  => $container['cache']
+                'logger'  => $container['logger'],
+                'cache'   => $container['cache'],
+                'factory' => $container['model/factory']
             ]);
         };
     }

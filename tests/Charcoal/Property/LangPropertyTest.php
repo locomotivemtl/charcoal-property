@@ -73,13 +73,12 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
         $locales = $translator->locales();
         $choices = $this->obj->choices();
 
-        $this->assertEquals(array_keys($choices), array_keys($this->obj->choices()));
+        $this->assertEquals(array_keys($locales), array_keys($choices));
 
-        $this->obj->addChoice('zz', 'en');
-        $this->assertEquals(array_keys($choices), array_keys($this->obj->choices()));
-
-        $this->obj->addChoices([ 'zz' => 'en' ]);
-        $this->obj->setChoices([ 'zz' => 'en' ]);
+        $this->obj->addChoice('x', 'en');
+        $this->obj->addChoices([ 'y' => 'en' ]);
+        $this->obj->setChoices([ 'z' => 'en' ]);
+        $this->assertEquals(array_keys($locales), array_keys($choices));
     }
 
     public function testDisplayVal()
@@ -99,6 +98,7 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
 
         /** Test translatable value with a multilingual property */
         $this->obj->setL10n(true);
+
         $this->assertEquals('',        $this->obj->displayVal('foo'));
         $this->assertEquals('',        $this->obj->displayVal($val, [ 'lang' => 'ja' ]));
         $this->assertEquals('Inglés',  $this->obj->displayVal($val, [ 'lang' => 'es' ]));
@@ -108,6 +108,7 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
 
         $this->obj->setL10n(false);
         $this->obj->setMultiple(true);
+
         $this->assertEquals('English, French, ES',   $this->obj->displayVal([ 'en', 'fr', 'es' ]));
         $this->assertEquals('Anglais, Français, ES', $this->obj->displayVal('en,fr,es', [ 'lang' => 'fr' ]));
         $this->assertEquals('Inglés, Francés, ES',   $this->obj->displayVal('en,fr,es', [ 'lang' => 'es' ]));
