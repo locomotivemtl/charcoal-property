@@ -472,6 +472,10 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             $propertyValue = (array)$propertyValue;
         }
 
+        if ($separator === ',') {
+            $separator = ', ';
+        }
+
         $values = [];
         foreach ($propertyValue as $val) {
             $label = null;
@@ -489,10 +493,6 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             }
 
             $values[] = $label;
-        }
-
-        if ($separator === ',') {
-            $separator = ', ';
         }
 
         return implode($separator, $values);

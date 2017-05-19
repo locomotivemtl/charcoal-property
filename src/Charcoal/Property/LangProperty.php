@@ -33,7 +33,7 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
      * Set the available choices.
      *
      * @param  array $choices One or more choice structures.
-     * @return SelectablePropertyInterface Chainable.
+     * @return LangProperty Chainable.
      */
     public function setChoices(array $choices)
     {
@@ -50,7 +50,7 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
      * Merge the available choices.
      *
      * @param  array $choices One or more choice structures.
-     * @return SelectablePropertyInterface Chainable.
+     * @return LangProperty Chainable.
      */
     public function addChoices(array $choices)
     {
@@ -68,7 +68,7 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
      *
      * @param string       $choiceIdent The choice identifier (will be key / default ident).
      * @param string|array $choice      A string representing the choice label or a structure.
-     * @return SelectablePropertyInterface Chainable.
+     * @return LangProperty Chainable.
      */
     public function addChoice($choiceIdent, $choice)
     {
@@ -151,6 +151,8 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
     }
 
     /**
+     * Format the given value for display.
+     *
      * @param  mixed $val     The value to to convert for display.
      * @param  array $options Optional display options.
      * @return string
@@ -180,10 +182,10 @@ class LangProperty extends AbstractProperty implements SelectablePropertyInterfa
             if (!is_array($propertyValue)) {
                 $propertyValue = explode($separator, $propertyValue);
             }
+        }
 
-            if ($separator === ',') {
-                $separator = ', ';
-            }
+        if ($separator === ',') {
+            $separator = ', ';
         }
 
         if (is_array($propertyValue)) {

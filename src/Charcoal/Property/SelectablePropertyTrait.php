@@ -189,7 +189,7 @@ trait SelectablePropertyTrait
             );
         }
 
-        if (is_string($choice)) {
+        if (is_string($choice) || $choice instanceof Translation) {
             $choice = [
                 'value' => $choiceIdent,
                 'label' => $this->translator()->translation($choice)

@@ -5,13 +5,6 @@ namespace Charcoal\Tests\Property;
 use PDO;
 use ReflectionClass;
 
-// From 'symfony/translator'
-use Symfony\Component\Translation\Loader\ArrayLoader;
-
-// From 'charcoal-translator'
-use Charcoal\Translator\Translator;
-use Charcoal\Translator\LocalesManager;
-
 // From 'charcoal-property'
 use Charcoal\Property\LangProperty;
 
@@ -30,69 +23,20 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
     public $obj;
 
     /**
-     * Store the translator service.
-     *
-     * @var Translator
-     */
-    private $translator;
-
-    /**
      * Set up the test.
      */
     public function setUp()
     {
         $container = $this->getContainer();
 
+        $this->getContainerProvider()->registerMultilingualTranslator($container);
+
         $this->obj = new LangProperty([
             'container'  => $container,
             'database'   => $container['database'],
             'logger'     => $container['logger'],
-            'translator' => $this->translator()
+            'translator' => $container['translator']
         ]);
-    }
-
-    private function translator()
-    {
-        if ($this->translator === null) {
-            $this->translator = new Translator([
-                'manager' => new LocalesManager([
-                    'locales' => [
-                        'en'  => [
-                            'locale' => 'en-US',
-                            'name'   => [
-                                'en' => 'English',
-                                'fr' => 'Anglais',
-                                'es' => 'Inglés'
-                            ]
-                        ],
-                        'fr' => [
-                            'locale' => 'fr-CA',
-                            'name'   => [
-                                'en' => 'French',
-                                'fr' => 'Français',
-                                'es' => 'Francés'
-                            ]
-                        ],
-                        'de' => [
-                            'locale' => 'de-DE'
-                        ],
-                        'es' => [
-                            'locale' => 'es-MX'
-                        ]
-                    ],
-                    'default_language'   => 'en',
-                    'fallback_languages' => [ 'en' ]
-                ])
-            ]);
-
-            $this->translator->addLoader('array', new ArrayLoader());
-            $this->translator->addResource('array', [ 'locale.de' => 'German'   ], 'en', 'messages');
-            $this->translator->addResource('array', [ 'locale.de' => 'Allemand' ], 'fr', 'messages');
-            $this->translator->addResource('array', [ 'locale.de' => 'Deutsch'  ], 'es', 'messages');
-            $this->translator->addResource('array', [ 'locale.de' => 'Alemán'   ], 'de', 'messages');
-        }
-
-        return $this->translator;
     }
 
     public function testType()
@@ -121,9 +65,12 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testChoices()
     {
+        $container  = $this->getContainer();
+        $translator = $container['translator'];
+
         $this->assertTrue($this->obj->hasChoices());
 
-        $locales = $this->translator()->locales();
+        $locales = $translator->locales();
         $choices = $this->obj->choices();
 
         $this->assertEquals(array_keys($choices), array_keys($this->obj->choices()));
@@ -137,18 +84,22 @@ class LangPropertyTest extends \PHPUnit_Framework_TestCase
 
     public function testDisplayVal()
     {
+        $container  = $this->getContainer();
+        $translator = $container['translator'];
+
         $this->assertEquals('', $this->obj->displayVal(null));
         $this->assertEquals('', $this->obj->displayVal(''));
 
         $this->assertEquals('English', $this->obj->displayVal('en'));
         $this->assertEquals('Anglais', $this->obj->displayVal('en', [ 'lang' => 'fr' ]));
 
-        $val = $this->translator()->translation('en');
+        $val = $translator->translation('en');
         /** Test translatable value with a unilingual property */
         $this->assertEquals('English', $this->obj->displayVal($val));
 
         /** Test translatable value with a multilingual property */
         $this->obj->setL10n(true);
+        $this->assertEquals('',        $this->obj->displayVal('foo'));
         $this->assertEquals('',        $this->obj->displayVal($val, [ 'lang' => 'ja' ]));
         $this->assertEquals('Inglés',  $this->obj->displayVal($val, [ 'lang' => 'es' ]));
         $this->assertEquals('Anglais', $this->obj->displayVal($val, [ 'lang' => 'fr' ]));
