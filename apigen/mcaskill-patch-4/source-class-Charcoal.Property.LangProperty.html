@@ -158,7 +158,7 @@
 </span></span><span id="33" class="l"><a href="#33"> 33: </a><span class="php-comment">     * Set the available choices.
 </span></span><span id="34" class="l"><a href="#34"> 34: </a><span class="php-comment">     *
 </span></span><span id="35" class="l"><a href="#35"> 35: </a><span class="php-comment">     * @param  array $choices One or more choice structures.
-</span></span><span id="36" class="l"><a href="#36"> 36: </a><span class="php-comment">     * @return SelectablePropertyInterface Chainable.
+</span></span><span id="36" class="l"><a href="#36"> 36: </a><span class="php-comment">     * @return LangProperty Chainable.
 </span></span><span id="37" class="l"><a href="#37"> 37: </a><span class="php-comment">     */</span>
 </span><span id="38" class="l"><a href="#38"> 38: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setChoices(<span class="php-keyword1">array</span> <span class="php-var">$choices</span>)
 </span><span id="39" class="l"><a href="#39"> 39: </a>    {
@@ -175,7 +175,7 @@
 </span></span><span id="50" class="l"><a href="#50"> 50: </a><span class="php-comment">     * Merge the available choices.
 </span></span><span id="51" class="l"><a href="#51"> 51: </a><span class="php-comment">     *
 </span></span><span id="52" class="l"><a href="#52"> 52: </a><span class="php-comment">     * @param  array $choices One or more choice structures.
-</span></span><span id="53" class="l"><a href="#53"> 53: </a><span class="php-comment">     * @return SelectablePropertyInterface Chainable.
+</span></span><span id="53" class="l"><a href="#53"> 53: </a><span class="php-comment">     * @return LangProperty Chainable.
 </span></span><span id="54" class="l"><a href="#54"> 54: </a><span class="php-comment">     */</span>
 </span><span id="55" class="l"><a href="#55"> 55: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> addChoices(<span class="php-keyword1">array</span> <span class="php-var">$choices</span>)
 </span><span id="56" class="l"><a href="#56"> 56: </a>    {
@@ -193,7 +193,7 @@
 </span></span><span id="68" class="l"><a href="#68"> 68: </a><span class="php-comment">     *
 </span></span><span id="69" class="l"><a href="#69"> 69: </a><span class="php-comment">     * @param string       $choiceIdent The choice identifier (will be key / default ident).
 </span></span><span id="70" class="l"><a href="#70"> 70: </a><span class="php-comment">     * @param string|array $choice      A string representing the choice label or a structure.
-</span></span><span id="71" class="l"><a href="#71"> 71: </a><span class="php-comment">     * @return SelectablePropertyInterface Chainable.
+</span></span><span id="71" class="l"><a href="#71"> 71: </a><span class="php-comment">     * @return LangProperty Chainable.
 </span></span><span id="72" class="l"><a href="#72"> 72: </a><span class="php-comment">     */</span>
 </span><span id="73" class="l"><a href="#73"> 73: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> addChoice(<span class="php-var">$choiceIdent</span>, <span class="php-var">$choice</span>)
 </span><span id="74" class="l"><a href="#74"> 74: </a>    {
@@ -276,93 +276,95 @@
 </span><span id="151" class="l"><a href="#151">151: </a>    }
 </span><span id="152" class="l"><a href="#152">152: </a>
 </span><span id="153" class="l"><a href="#153">153: </a>    <span class="php-comment">/**
-</span></span><span id="154" class="l"><a href="#154">154: </a><span class="php-comment">     * @param  mixed $val     The value to to convert for display.
-</span></span><span id="155" class="l"><a href="#155">155: </a><span class="php-comment">     * @param  array $options Optional display options.
-</span></span><span id="156" class="l"><a href="#156">156: </a><span class="php-comment">     * @return string
-</span></span><span id="157" class="l"><a href="#157">157: </a><span class="php-comment">     */</span>
-</span><span id="158" class="l"><a href="#158">158: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> displayVal(<span class="php-var">$val</span>, <span class="php-keyword1">array</span> <span class="php-var">$options</span> = [])
-</span><span id="159" class="l"><a href="#159">159: </a>    {
-</span><span id="160" class="l"><a href="#160">160: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span> || <span class="php-var">$val</span> === <span class="php-quote">''</span>) {
-</span><span id="161" class="l"><a href="#161">161: </a>            <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="162" class="l"><a href="#162">162: </a>        }
-</span><span id="163" class="l"><a href="#163">163: </a>
-</span><span id="164" class="l"><a href="#164">164: </a>        <span class="php-comment">/** Parse multilingual values */</span>
-</span><span id="165" class="l"><a href="#165">165: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;l10n()) {
-</span><span id="166" class="l"><a href="#166">166: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$val</span>, <span class="php-var">$options</span>);
-</span><span id="167" class="l"><a href="#167">167: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$propertyValue</span> === <span class="php-keyword1">null</span>) {
-</span><span id="168" class="l"><a href="#168">168: </a>                <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="169" class="l"><a href="#169">169: </a>            }
-</span><span id="170" class="l"><a href="#170">170: </a>        } <span class="php-keyword1">elseif</span> (<span class="php-var">$val</span> <span class="php-keyword1">instanceof</span> Translation) {
-</span><span id="171" class="l"><a href="#171">171: </a>            <span class="php-var">$propertyValue</span> = (string)<span class="php-var">$val</span>;
-</span><span id="172" class="l"><a href="#172">172: </a>        } <span class="php-keyword1">else</span> {
-</span><span id="173" class="l"><a href="#173">173: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$val</span>;
-</span><span id="174" class="l"><a href="#174">174: </a>        }
-</span><span id="175" class="l"><a href="#175">175: </a>
-</span><span id="176" class="l"><a href="#176">176: </a>        <span class="php-var">$separator</span> = <span class="php-var">$this</span>-&gt;multipleSeparator();
+</span></span><span id="154" class="l"><a href="#154">154: </a><span class="php-comment">     * Format the given value for display.
+</span></span><span id="155" class="l"><a href="#155">155: </a><span class="php-comment">     *
+</span></span><span id="156" class="l"><a href="#156">156: </a><span class="php-comment">     * @param  mixed $val     The value to to convert for display.
+</span></span><span id="157" class="l"><a href="#157">157: </a><span class="php-comment">     * @param  array $options Optional display options.
+</span></span><span id="158" class="l"><a href="#158">158: </a><span class="php-comment">     * @return string
+</span></span><span id="159" class="l"><a href="#159">159: </a><span class="php-comment">     */</span>
+</span><span id="160" class="l"><a href="#160">160: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> displayVal(<span class="php-var">$val</span>, <span class="php-keyword1">array</span> <span class="php-var">$options</span> = [])
+</span><span id="161" class="l"><a href="#161">161: </a>    {
+</span><span id="162" class="l"><a href="#162">162: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$val</span> === <span class="php-keyword1">null</span> || <span class="php-var">$val</span> === <span class="php-quote">''</span>) {
+</span><span id="163" class="l"><a href="#163">163: </a>            <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="164" class="l"><a href="#164">164: </a>        }
+</span><span id="165" class="l"><a href="#165">165: </a>
+</span><span id="166" class="l"><a href="#166">166: </a>        <span class="php-comment">/** Parse multilingual values */</span>
+</span><span id="167" class="l"><a href="#167">167: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;l10n()) {
+</span><span id="168" class="l"><a href="#168">168: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$val</span>, <span class="php-var">$options</span>);
+</span><span id="169" class="l"><a href="#169">169: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$propertyValue</span> === <span class="php-keyword1">null</span>) {
+</span><span id="170" class="l"><a href="#170">170: </a>                <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="171" class="l"><a href="#171">171: </a>            }
+</span><span id="172" class="l"><a href="#172">172: </a>        } <span class="php-keyword1">elseif</span> (<span class="php-var">$val</span> <span class="php-keyword1">instanceof</span> Translation) {
+</span><span id="173" class="l"><a href="#173">173: </a>            <span class="php-var">$propertyValue</span> = (string)<span class="php-var">$val</span>;
+</span><span id="174" class="l"><a href="#174">174: </a>        } <span class="php-keyword1">else</span> {
+</span><span id="175" class="l"><a href="#175">175: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$val</span>;
+</span><span id="176" class="l"><a href="#176">176: </a>        }
 </span><span id="177" class="l"><a href="#177">177: </a>
-</span><span id="178" class="l"><a href="#178">178: </a>        <span class="php-comment">/** Parse multiple values / ensure they are of array type. */</span>
-</span><span id="179" class="l"><a href="#179">179: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
-</span><span id="180" class="l"><a href="#180">180: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
-</span><span id="181" class="l"><a href="#181">181: </a>                <span class="php-var">$propertyValue</span> = <span class="php-keyword2">explode</span>(<span class="php-var">$separator</span>, <span class="php-var">$propertyValue</span>);
-</span><span id="182" class="l"><a href="#182">182: </a>            }
-</span><span id="183" class="l"><a href="#183">183: </a>
-</span><span id="184" class="l"><a href="#184">184: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$separator</span> === <span class="php-quote">','</span>) {
-</span><span id="185" class="l"><a href="#185">185: </a>                <span class="php-var">$separator</span> = <span class="php-quote">', '</span>;
-</span><span id="186" class="l"><a href="#186">186: </a>            }
-</span><span id="187" class="l"><a href="#187">187: </a>        }
-</span><span id="188" class="l"><a href="#188">188: </a>
-</span><span id="189" class="l"><a href="#189">189: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
-</span><span id="190" class="l"><a href="#190">190: </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$propertyValue</span> <span class="php-keyword1">as</span> &amp;<span class="php-var">$value</span>) {
-</span><span id="191" class="l"><a href="#191">191: </a>                <span class="php-keyword1">if</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$value</span>)) {
-</span><span id="192" class="l"><a href="#192">192: </a>                    <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;choiceLabel(<span class="php-var">$value</span>);
-</span><span id="193" class="l"><a href="#193">193: </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$value</span>)) {
-</span><span id="194" class="l"><a href="#194">194: </a>                        <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$value</span>, <span class="php-var">$options</span>);
-</span><span id="195" class="l"><a href="#195">195: </a>                    }
-</span><span id="196" class="l"><a href="#196">196: </a>                }
-</span><span id="197" class="l"><a href="#197">197: </a>            }
-</span><span id="198" class="l"><a href="#198">198: </a>            <span class="php-var">$propertyValue</span> = <span class="php-keyword2">implode</span>(<span class="php-var">$separator</span>, <span class="php-var">$propertyValue</span>);
-</span><span id="199" class="l"><a href="#199">199: </a>        } <span class="php-keyword1">elseif</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$propertyValue</span>)) {
-</span><span id="200" class="l"><a href="#200">200: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;choiceLabel(<span class="php-var">$propertyValue</span>);
-</span><span id="201" class="l"><a href="#201">201: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$propertyValue</span>)) {
-</span><span id="202" class="l"><a href="#202">202: </a>                <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$propertyValue</span>, <span class="php-var">$options</span>);
-</span><span id="203" class="l"><a href="#203">203: </a>            }
-</span><span id="204" class="l"><a href="#204">204: </a>        }
-</span><span id="205" class="l"><a href="#205">205: </a>
-</span><span id="206" class="l"><a href="#206">206: </a>        <span class="php-keyword1">return</span> <span class="php-var">$propertyValue</span>;
-</span><span id="207" class="l"><a href="#207">207: </a>    }
-</span><span id="208" class="l"><a href="#208">208: </a>
-</span><span id="209" class="l"><a href="#209">209: </a>    <span class="php-comment">/**
-</span></span><span id="210" class="l"><a href="#210">210: </a><span class="php-comment">     * @return string
-</span></span><span id="211" class="l"><a href="#211">211: </a><span class="php-comment">     */</span>
-</span><span id="212" class="l"><a href="#212">212: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlExtra()
-</span><span id="213" class="l"><a href="#213">213: </a>    {
-</span><span id="214" class="l"><a href="#214">214: </a>        <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
-</span><span id="215" class="l"><a href="#215">215: </a>    }
-</span><span id="216" class="l"><a href="#216">216: </a>
-</span><span id="217" class="l"><a href="#217">217: </a>    <span class="php-comment">/**
-</span></span><span id="218" class="l"><a href="#218">218: </a><span class="php-comment">     * Get the SQL type (Storage format)
-</span></span><span id="219" class="l"><a href="#219">219: </a><span class="php-comment">     *
-</span></span><span id="220" class="l"><a href="#220">220: </a><span class="php-comment">     * @return string The SQL type
-</span></span><span id="221" class="l"><a href="#221">221: </a><span class="php-comment">     * @todo   Only the 2-character language code (ISO 639-1)
-</span></span><span id="222" class="l"><a href="#222">222: </a><span class="php-comment">     */</span>
-</span><span id="223" class="l"><a href="#223">223: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlType()
-</span><span id="224" class="l"><a href="#224">224: </a>    {
-</span><span id="225" class="l"><a href="#225">225: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
-</span><span id="226" class="l"><a href="#226">226: </a>            <span class="php-keyword1">return</span> <span class="php-quote">'TEXT'</span>;
-</span><span id="227" class="l"><a href="#227">227: </a>        }
-</span><span id="228" class="l"><a href="#228">228: </a>
-</span><span id="229" class="l"><a href="#229">229: </a>        <span class="php-keyword1">return</span> <span class="php-quote">'CHAR(2)'</span>;
-</span><span id="230" class="l"><a href="#230">230: </a>    }
-</span><span id="231" class="l"><a href="#231">231: </a>
-</span><span id="232" class="l"><a href="#232">232: </a>    <span class="php-comment">/**
-</span></span><span id="233" class="l"><a href="#233">233: </a><span class="php-comment">     * @return integer
-</span></span><span id="234" class="l"><a href="#234">234: </a><span class="php-comment">     */</span>
-</span><span id="235" class="l"><a href="#235">235: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlPdoType()
-</span><span id="236" class="l"><a href="#236">236: </a>    {
-</span><span id="237" class="l"><a href="#237">237: </a>        <span class="php-keyword1">return</span> PDO::PARAM_BOOL;
-</span><span id="238" class="l"><a href="#238">238: </a>    }
-</span><span id="239" class="l"><a href="#239">239: </a>}
-</span><span id="240" class="l"><a href="#240">240: </a></span></code></pre>
+</span><span id="178" class="l"><a href="#178">178: </a>        <span class="php-var">$separator</span> = <span class="php-var">$this</span>-&gt;multipleSeparator();
+</span><span id="179" class="l"><a href="#179">179: </a>
+</span><span id="180" class="l"><a href="#180">180: </a>        <span class="php-comment">/** Parse multiple values / ensure they are of array type. */</span>
+</span><span id="181" class="l"><a href="#181">181: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
+</span><span id="182" class="l"><a href="#182">182: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
+</span><span id="183" class="l"><a href="#183">183: </a>                <span class="php-var">$propertyValue</span> = <span class="php-keyword2">explode</span>(<span class="php-var">$separator</span>, <span class="php-var">$propertyValue</span>);
+</span><span id="184" class="l"><a href="#184">184: </a>            }
+</span><span id="185" class="l"><a href="#185">185: </a>        }
+</span><span id="186" class="l"><a href="#186">186: </a>
+</span><span id="187" class="l"><a href="#187">187: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$separator</span> === <span class="php-quote">','</span>) {
+</span><span id="188" class="l"><a href="#188">188: </a>            <span class="php-var">$separator</span> = <span class="php-quote">', '</span>;
+</span><span id="189" class="l"><a href="#189">189: </a>        }
+</span><span id="190" class="l"><a href="#190">190: </a>
+</span><span id="191" class="l"><a href="#191">191: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
+</span><span id="192" class="l"><a href="#192">192: </a>            <span class="php-keyword1">foreach</span> (<span class="php-var">$propertyValue</span> <span class="php-keyword1">as</span> &amp;<span class="php-var">$value</span>) {
+</span><span id="193" class="l"><a href="#193">193: </a>                <span class="php-keyword1">if</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$value</span>)) {
+</span><span id="194" class="l"><a href="#194">194: </a>                    <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;choiceLabel(<span class="php-var">$value</span>);
+</span><span id="195" class="l"><a href="#195">195: </a>                    <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$value</span>)) {
+</span><span id="196" class="l"><a href="#196">196: </a>                        <span class="php-var">$value</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$value</span>, <span class="php-var">$options</span>);
+</span><span id="197" class="l"><a href="#197">197: </a>                    }
+</span><span id="198" class="l"><a href="#198">198: </a>                }
+</span><span id="199" class="l"><a href="#199">199: </a>            }
+</span><span id="200" class="l"><a href="#200">200: </a>            <span class="php-var">$propertyValue</span> = <span class="php-keyword2">implode</span>(<span class="php-var">$separator</span>, <span class="php-var">$propertyValue</span>);
+</span><span id="201" class="l"><a href="#201">201: </a>        } <span class="php-keyword1">elseif</span> (<span class="php-keyword2">is_string</span>(<span class="php-var">$propertyValue</span>)) {
+</span><span id="202" class="l"><a href="#202">202: </a>            <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;choiceLabel(<span class="php-var">$propertyValue</span>);
+</span><span id="203" class="l"><a href="#203">203: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_string</span>(<span class="php-var">$propertyValue</span>)) {
+</span><span id="204" class="l"><a href="#204">204: </a>                <span class="php-var">$propertyValue</span> = <span class="php-var">$this</span>-&gt;l10nVal(<span class="php-var">$propertyValue</span>, <span class="php-var">$options</span>);
+</span><span id="205" class="l"><a href="#205">205: </a>            }
+</span><span id="206" class="l"><a href="#206">206: </a>        }
+</span><span id="207" class="l"><a href="#207">207: </a>
+</span><span id="208" class="l"><a href="#208">208: </a>        <span class="php-keyword1">return</span> <span class="php-var">$propertyValue</span>;
+</span><span id="209" class="l"><a href="#209">209: </a>    }
+</span><span id="210" class="l"><a href="#210">210: </a>
+</span><span id="211" class="l"><a href="#211">211: </a>    <span class="php-comment">/**
+</span></span><span id="212" class="l"><a href="#212">212: </a><span class="php-comment">     * @return string
+</span></span><span id="213" class="l"><a href="#213">213: </a><span class="php-comment">     */</span>
+</span><span id="214" class="l"><a href="#214">214: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlExtra()
+</span><span id="215" class="l"><a href="#215">215: </a>    {
+</span><span id="216" class="l"><a href="#216">216: </a>        <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
+</span><span id="217" class="l"><a href="#217">217: </a>    }
+</span><span id="218" class="l"><a href="#218">218: </a>
+</span><span id="219" class="l"><a href="#219">219: </a>    <span class="php-comment">/**
+</span></span><span id="220" class="l"><a href="#220">220: </a><span class="php-comment">     * Get the SQL type (Storage format)
+</span></span><span id="221" class="l"><a href="#221">221: </a><span class="php-comment">     *
+</span></span><span id="222" class="l"><a href="#222">222: </a><span class="php-comment">     * @return string The SQL type
+</span></span><span id="223" class="l"><a href="#223">223: </a><span class="php-comment">     * @todo   Only the 2-character language code (ISO 639-1)
+</span></span><span id="224" class="l"><a href="#224">224: </a><span class="php-comment">     */</span>
+</span><span id="225" class="l"><a href="#225">225: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlType()
+</span><span id="226" class="l"><a href="#226">226: </a>    {
+</span><span id="227" class="l"><a href="#227">227: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;multiple()) {
+</span><span id="228" class="l"><a href="#228">228: </a>            <span class="php-keyword1">return</span> <span class="php-quote">'TEXT'</span>;
+</span><span id="229" class="l"><a href="#229">229: </a>        }
+</span><span id="230" class="l"><a href="#230">230: </a>
+</span><span id="231" class="l"><a href="#231">231: </a>        <span class="php-keyword1">return</span> <span class="php-quote">'CHAR(2)'</span>;
+</span><span id="232" class="l"><a href="#232">232: </a>    }
+</span><span id="233" class="l"><a href="#233">233: </a>
+</span><span id="234" class="l"><a href="#234">234: </a>    <span class="php-comment">/**
+</span></span><span id="235" class="l"><a href="#235">235: </a><span class="php-comment">     * @return integer
+</span></span><span id="236" class="l"><a href="#236">236: </a><span class="php-comment">     */</span>
+</span><span id="237" class="l"><a href="#237">237: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sqlPdoType()
+</span><span id="238" class="l"><a href="#238">238: </a>    {
+</span><span id="239" class="l"><a href="#239">239: </a>        <span class="php-keyword1">return</span> PDO::PARAM_BOOL;
+</span><span id="240" class="l"><a href="#240">240: </a>    }
+</span><span id="241" class="l"><a href="#241">241: </a>}
+</span><span id="242" class="l"><a href="#242">242: </a></span></code></pre>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>

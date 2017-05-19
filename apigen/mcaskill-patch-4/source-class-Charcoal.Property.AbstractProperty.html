@@ -556,10 +556,10 @@
 </span><span id="431" class="l"><a href="#431">431: </a>            <span class="php-keyword1">if</span> (!<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
 </span><span id="432" class="l"><a href="#432">432: </a>                <span class="php-var">$propertyValue</span> = <span class="php-keyword2">explode</span>(<span class="php-var">$separator</span>, <span class="php-var">$propertyValue</span>);
 </span><span id="433" class="l"><a href="#433">433: </a>            }
-</span><span id="434" class="l"><a href="#434">434: </a>
-</span><span id="435" class="l"><a href="#435">435: </a>            <span class="php-keyword1">if</span> (<span class="php-var">$separator</span> === <span class="php-quote">','</span>) {
-</span><span id="436" class="l"><a href="#436">436: </a>                <span class="php-var">$separator</span> = <span class="php-quote">', '</span>;
-</span><span id="437" class="l"><a href="#437">437: </a>            }
+</span><span id="434" class="l"><a href="#434">434: </a>        }
+</span><span id="435" class="l"><a href="#435">435: </a>
+</span><span id="436" class="l"><a href="#436">436: </a>        <span class="php-keyword1">if</span> (<span class="php-var">$separator</span> === <span class="php-quote">','</span>) {
+</span><span id="437" class="l"><a href="#437">437: </a>            <span class="php-var">$separator</span> = <span class="php-quote">', '</span>;
 </span><span id="438" class="l"><a href="#438">438: </a>        }
 </span><span id="439" class="l"><a href="#439">439: </a>
 </span><span id="440" class="l"><a href="#440">440: </a>        <span class="php-keyword1">if</span> (<span class="php-keyword2">is_array</span>(<span class="php-var">$propertyValue</span>)) {
@@ -948,7 +948,7 @@
 </span><span id="823" class="l"><a href="#823">823: </a>    }
 </span><span id="824" class="l"><a href="#824">824: </a>
 </span><span id="825" class="l"><a href="#825">825: </a>    <span class="php-comment">/**
-</span></span><span id="826" class="l"><a href="#826">826: </a><span class="php-comment">     * The property's default validation methods/
+</span></span><span id="826" class="l"><a href="#826">826: </a><span class="php-comment">     * The property's default validation methods.
 </span></span><span id="827" class="l"><a href="#827">827: </a><span class="php-comment">     *
 </span></span><span id="828" class="l"><a href="#828">828: </a><span class="php-comment">     * - `required`
 </span></span><span id="829" class="l"><a href="#829">829: </a><span class="php-comment">     * - `unique`
