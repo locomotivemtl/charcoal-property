@@ -309,7 +309,7 @@ class StringProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * The property's default validation methods.
      *
-     * @return array
+     * @return stringp[]
      */
     public function validationMethods()
     {

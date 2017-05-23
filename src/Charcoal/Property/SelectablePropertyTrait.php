@@ -118,21 +118,21 @@ trait SelectablePropertyTrait
     /**
      * Retrieve the label for a given choice.
      *
-     * @param  mixed $choiceIdent The choice identifier to lookup.
+     * @param  string|array $choice The choice identifier to lookup.
      * @throws InvalidArgumentException If the choice is invalid.
      * @return string|null Returns the label. Otherwise, returns the raw value.
      */
-    public function choiceLabel($choiceIdent)
+    public function choiceLabel($choice)
     {
-        if ($choiceIdent === null) {
+        if ($choice === null) {
             return null;
         }
 
-        if (is_array($choiceIdent)) {
-            if (isset($choiceIdent['label'])) {
-                return $choiceIdent['label'];
-            } elseif (isset($choiceIdent['value'])) {
-                return $choiceIdent['value'];
+        if (is_array($choice)) {
+            if (isset($choice['label'])) {
+                return $choice['label'];
+            } elseif (isset($choice['value'])) {
+                return $choice['value'];
             } else {
                 throw new InvalidArgumentException(
                     'Choice structure must contain a "label" or "value".'
@@ -140,17 +140,17 @@ trait SelectablePropertyTrait
             }
         }
 
-        if (!is_string($choiceIdent)) {
+        if (!is_string($choice)) {
             throw new InvalidArgumentException(
                 'Choice identifier must be a string.'
             );
         }
 
-        if ($this->hasChoice($choiceIdent)) {
-            $choice = $this->choice($choiceIdent);
+        if ($this->hasChoice($choice)) {
+            $choice = $this->choice($choice);
             return $choice['label'];
         } else {
-            return $choiceIdent;
+            return $choice;
         }
     }
 

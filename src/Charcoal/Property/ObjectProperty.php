@@ -138,7 +138,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Set an object model factory.
      *
      * @param  FactoryInterface $factory The model factory, to create objects.
-     * @return self
+     * @return ObjectProperty Chainable
      */
     private function setModelFactory(FactoryInterface $factory)
     {
@@ -231,7 +231,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Set the cache service.
      *
      * @param  CacheItemPoolInterface $cache A PSR-6 compliant cache pool instance.
-     * @return MetadataLoader Chainable
+     * @return ObjectProperty Chainable
      */
     private function setCachePool(CacheItemPoolInterface $cache)
     {
@@ -263,7 +263,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      *
      * @param  string $objType The object type.
      * @throws InvalidArgumentException If the object type is not a string.
-     * @return ObjectPropertyChainable
+     * @return ObjectProperty Chainable
      */
     public function setObjType($objType)
     {
@@ -529,7 +529,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Set the available choices.
      *
      * @param  array $choices One or more choice structures.
-     * @return ObjectProperty Chainable.
+     * @return ObjectProperty Chainable
      */
     public function setChoices(array $choices)
     {
@@ -546,7 +546,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Merge the available choices.
      *
      * @param  array $choices One or more choice structures.
-     * @return ObjectProperty Chainable.
+     * @return ObjectProperty Chainable
      */
     public function addChoices(array $choices)
     {
@@ -564,7 +564,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      *
      * @param  string       $choiceIdent The choice identifier (will be key / default ident).
      * @param  string|array $choice      A string representing the choice label or a structure.
-     * @return ObjectProperty Chainable.
+     * @return ObjectProperty Chainable
      */
     public function addChoice($choiceIdent, $choice)
     {
@@ -718,7 +718,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
     /**
      * Parse the given objects into choice structures.
      *
-     * @param  array|Traversable $objs One or more objects to format.
+     * @param  ModelInterface[]|Traversable $objs One or more objects to format.
      * @throws InvalidArgumentException If the collection of objects is not iterable.
      * @return array Returns a collection of choice structures.
      */
@@ -756,7 +756,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
         ];
 
         /** @todo Move to {@see \Charcoal\Admin\Property\AbstractSelectableInput::choiceObjMap()} */
-        if (is_callable([ $obj, 'icon' ])) {
+        if (is_callable([$obj, 'icon'])) {
             $choice['icon'] = $obj->icon();
         }
 
@@ -767,21 +767,21 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
      * Retrieve the label for a given choice.
      *
      * @see    SelectablePropertyInterface::choiceLabel()
-     * @param  mixed $choiceIdent The choice identifier to lookup.
+     * @param  string|array|ModelInterface $choice The choice identifier to lookup.
      * @throws InvalidArgumentException If the choice is invalid.
      * @return string|null Returns the label. Otherwise, returns the raw value.
      */
-    public function choiceLabel($choiceIdent)
+    public function choiceLabel($choice)
     {
-        if ($choiceIdent === null) {
+        if ($choice === null) {
             return null;
         }
 
-        if (is_array($choiceIdent)) {
-            if (isset($choiceIdent['label'])) {
-                return $choiceIdent['label'];
-            } elseif (isset($choiceIdent['value'])) {
-                return $choiceIdent['value'];
+        if (is_array($choice)) {
+            if (isset($choice['label'])) {
+                return $choice['label'];
+            } elseif (isset($choice['value'])) {
+                return $choice['value'];
             } else {
                 throw new InvalidArgumentException(
                     'Choice structure must contain a "label" or "value".'
@@ -789,10 +789,10 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
             }
         }
 
-        $obj = $this->loadObject($choiceIdent);
+        $obj = $this->loadObject($choice);
 
         if ($obj === null) {
-            return $choiceIdent;
+            return $choice;
         }
 
         return $this->renderObjPattern($obj);
@@ -838,7 +838,7 @@ class ObjectProperty extends AbstractProperty implements SelectablePropertyInter
         } elseif (($obj instanceof ViewableInterface) && $obj->view()) {
             $output = $obj->renderTemplate($pattern);
         } else {
-            $callback = function ($matches) use ($obj) {
+            $callback = function($matches) use ($obj) {
                 $prop = trim($matches[1]);
                 return (string)$obj[$prop];
             };

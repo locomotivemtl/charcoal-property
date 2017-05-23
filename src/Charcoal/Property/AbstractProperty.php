@@ -832,7 +832,7 @@ abstract class AbstractProperty extends AbstractEntity implements
      * ## Notes
      * - Those 3 base validation methods should always be merged, in implementing factory class.
      *
-     * @return array
+     * @return string[]
      */
     public function validationMethods()
     {
