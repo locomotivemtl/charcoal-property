@@ -127,15 +127,7 @@
 
 
 	<div class="description">
-	<p>Selectable properties provide choices.</p>
-
-<p>Choices are :
-- <code>value</code>
-- <code>label</code>
-- <code>title</code>
-- <code>subtext</code>
-- <code>icon</code>
-- <code>selected</code></p>
+	<p>Defines a property providing options to choose from.</p>
 	</div>
 
 
@@ -167,7 +159,7 @@
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#5-57" title="Go to source code">Charcoal/Property/SelectablePropertyInterface.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#5-72" title="Go to source code">Charcoal/Property/SelectablePropertyInterface.php</a>
 		<br>
 	</div>
 
@@ -187,20 +179,59 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setChoices">#</a>
-		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#18-24" title="Go to source code">setChoices</a>( <span>array <var>$choices</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#10-16" title="Go to source code">setChoices</a>( <span>array <var>$choices</var></span> )</code>
 
 		<div class="description short">
-			<p>Explicitely set the selectable choices (to the array map).</p>
+			<p>Set the available choices.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Explicitely set the selectable choices (to the array map).</p>
+			<p>Set the available choices.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choices</var></dt>
-					<dd>The array of choice structures.</dd>
+					<dd>One or more choice structures.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code><br>Chainable.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addChoices" id="_addChoices">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#18-24" title="Go to source code">addChoices</a>( <span>array <var>$choices</var></span> )</code>
+
+		<div class="description short">
+			<p>Merge the available choices.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Merge the available choices.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choices</var></dt>
+					<dd>One or more choice structures.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -229,11 +260,11 @@
 		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#26-33" title="Go to source code">addChoice</a>( <span>string <var>$choiceIdent</var></span>, <span>string|array <var>$choice</var></span> )</code>
 
 		<div class="description short">
-			<p>Add a choice to the available choices map.</p>
+			<p>Add a choice to the available choices.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Add a choice to the available choices map.</p>
+			<p>Add a choice to the available choices.</p>
 
 
 				<h4>Parameters</h4>
@@ -255,6 +286,40 @@
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="hasChoices" id="_hasChoices">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#35-40" title="Go to source code">hasChoices</a>( )</code>
+
+		<div class="description short">
+			<p>Determine if choices are available.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if choices are available.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="choices" id="_choices">
 
 		<td class="attributes"><code>
@@ -267,14 +332,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_choices">#</a>
-		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#35-40" title="Go to source code">choices</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#42-47" title="Go to source code">choices</a>( )</code>
 
 		<div class="description short">
-			<p>Get the choices array map.</p>
+			<p>Retrieve the available choice structures.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Get the choices array map.</p>
+			<p>Retrieve the available choice structures.</p>
 
 
 
@@ -301,25 +366,25 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasChoice">#</a>
-		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#42-48" title="Go to source code">hasChoice</a>( <span>string <var>$choiceIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#49-55" title="Go to source code">hasChoice</a>( <span>string <var>$choiceIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Returns wether a given choice_ident exists or not.</p>
+			<p>Determine if the given choice is available.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns wether a given choice_ident exists or not.</p>
+			<p>Determine if the given choice is available.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choiceIdent</var></dt>
-					<dd>The choice ident.</dd>
+					<dd>The choice identifier to lookup.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					boolean<br>True / false wether the choice exists or not.
+					boolean
 				</div>
 
 
@@ -340,25 +405,64 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_choice">#</a>
-		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#50-56" title="Go to source code">choice</a>( <span>string <var>$choiceIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#57-63" title="Go to source code">choice</a>( <span>string <var>$choiceIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Returns a choice structure for a given ident.</p>
+			<p>Retrieve the structure for a given choice.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns a choice structure for a given ident.</p>
+			<p>Retrieve the structure for a given choice.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choiceIdent</var></dt>
-					<dd>The choice ident to load.</dd>
+					<dd>The choice identifier to lookup.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
 					mixed<br>The matching choice.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="choiceLabel" id="_choiceLabel">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_choiceLabel">#</a>
+		<code><a href="source-class-Charcoal.Property.SelectablePropertyInterface.html#65-71" title="Go to source code">choiceLabel</a>( <span>mixed <var>$choiceIdent</var></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve the label for a given choice.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the label for a given choice.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choiceIdent</var></dt>
+					<dd>The choice identifier to lookup.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null<br>Returns the label. Otherwise, returns the raw value.
 				</div>
 
 

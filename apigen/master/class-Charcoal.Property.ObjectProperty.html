@@ -197,7 +197,7 @@ Charcoal\Config\AbstractEntity
 		<b>Namespace:</b> <a href="namespace-Charcoal.html">Charcoal</a>\<a href="namespace-Charcoal.Property.html">Property</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Charcoal.Property.ObjectProperty.html#31-709" title="Go to source code">Charcoal/Property/ObjectProperty.php</a>
+			<b>Located at</b> <a href="source-class-Charcoal.Property.ObjectProperty.html#34-906" title="Go to source code">Charcoal/Property/ObjectProperty.php</a>
 		<br>
 	</div>
 
@@ -217,7 +217,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setDependencies">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#104-117" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#114-127" title="Go to source code">setDependencies</a>( <span>Pimple\Container <var>$container</var></span> )</code>
 
 		<div class="description short">
 			<p>Inject dependencies from a DI Container.</p>
@@ -254,7 +254,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_type">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#119-125" title="Go to source code">type</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#129-135" title="Go to source code">type</a>( )</code>
 
 		<div class="description short">
 			
@@ -276,49 +276,10 @@ Charcoal\Config\AbstractEntity
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="setModelFactory" id="_setModelFactory">
-
-		<td class="attributes"><code>
-			 protected 
-
-			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_setModelFactory">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#127-138" title="Go to source code">setModelFactory</a>( <span>Charcoal\Factory\FactoryInterface <var>$factory</var></span> )</code>
-
-		<div class="description short">
-			<p>Set an object model factory.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Set an object model factory.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$factory</var></dt>
-					<dd>The model factory, to create objects.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="modelFactory" id="_modelFactory">
 
 		<td class="attributes"><code>
-			 public 
+			 protected 
 
 			Charcoal\Factory\FactoryInterface
 			
@@ -327,7 +288,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_modelFactory">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#140-155" title="Go to source code">modelFactory</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#150-166" title="Go to source code">modelFactory</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the object model factory.</p>
@@ -365,7 +326,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_collectionLoader">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#170-189" title="Go to source code">collectionLoader</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#181-197" title="Go to source code">collectionLoader</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the model collection loader.</p>
@@ -391,19 +352,91 @@ Charcoal\Config\AbstractEntity
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="collectionModelLoader" id="_collectionModelLoader">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Charcoal\Loader\CollectionLoader
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_collectionModelLoader">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#199-228" title="Go to source code">collectionModelLoader</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the prepared model collection loader.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the prepared model collection loader.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Loader\CollectionLoader
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="cachePool" id="_cachePool">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Psr\Cache\CacheItemPoolInterface
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_cachePool">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#243-259" title="Go to source code">cachePool</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the cache service.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the cache service.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					Psr\Cache\CacheItemPoolInterface
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					RuntimeException<br>If the cache service was not previously set.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="setObjType" id="_setObjType">
 
 		<td class="attributes"><code>
 			 public 
 
-			ObjectPropertyChainable
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setObjType">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#221-239" title="Go to source code">setObjType</a>( <span>string <var>$objType</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#261-279" title="Go to source code">setObjType</a>( <span>string <var>$objType</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the object type to build the choices from.</p>
@@ -421,7 +454,7 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Returns</h4>
 				<div class="list">
-					ObjectPropertyChainable
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
 				</div>
 
 				<h4>Throws</h4>
@@ -446,7 +479,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_objType">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#241-257" title="Go to source code">objType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#281-297" title="Go to source code">objType</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the object type to build the choices from.</p>
@@ -484,7 +517,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPattern">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#259-275" title="Go to source code">setPattern</a>( <span>string <var>$pattern</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#299-315" title="Go to source code">setPattern</a>( <span>string <var>$pattern</var></span> )</code>
 
 		<div class="description short">
 			
@@ -527,7 +560,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_pattern">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#277-283" title="Go to source code">pattern</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#317-323" title="Go to source code">pattern</a>( )</code>
 
 		<div class="description short">
 			
@@ -561,7 +594,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlExtra">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#285-291" title="Go to source code">sqlExtra</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#325-331" title="Go to source code">sqlExtra</a>( )</code>
 
 		<div class="description short">
 			
@@ -595,7 +628,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlType">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#293-307" title="Go to source code">sqlType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#333-347" title="Go to source code">sqlType</a>( )</code>
 
 		<div class="description short">
 			
@@ -629,7 +662,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_sqlPdoType">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#309-319" title="Go to source code">sqlPdoType</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#349-359" title="Go to source code">sqlPdoType</a>( )</code>
 
 		<div class="description short">
 			
@@ -663,7 +696,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseOne">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#321-334" title="Go to source code">parseOne</a>( <span>mixed <var>$val</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#361-374" title="Go to source code">parseOne</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			<p>Always return IDs.</p>
@@ -704,7 +737,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_storageVal">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#336-362" title="Go to source code">storageVal</a>( <span>mixed <var>$val</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#376-402" title="Go to source code">storageVal</a>( <span>mixed <var>$val</var></span> )</code>
 
 		<div class="description short">
 			<p>Get the property's value in a format suitable for storage.</p>
@@ -745,7 +778,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_proto">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#364-372" title="Go to source code">proto</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#404-412" title="Go to source code">proto</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve a singleton of the {self::$objType} for prototyping.</p>
@@ -779,7 +812,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_inputVal">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#374-404" title="Go to source code">inputVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#414-444" title="Go to source code">inputVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			
@@ -822,7 +855,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_displayVal">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#406-470" title="Go to source code">displayVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#446-526" title="Go to source code">displayVal</a>( <span>mixed <var>$val</var></span>, <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			
@@ -858,32 +891,32 @@ Charcoal\Config\AbstractEntity
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code>
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setChoices">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#472-484" title="Go to source code">setChoices</a>( <span>array <var>$choices</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#528-543" title="Go to source code">setChoices</a>( <span>array <var>$choices</var></span> )</code>
 
 		<div class="description short">
-			<p>Fulfills the SelectableProperty interface, but does nothing.</p>
+			<p>Set the available choices.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Fulfills the SelectableProperty interface, but does nothing.</p>
+			<p>Set the available choices.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choices</var></dt>
-					<dd>The array of choice structures.</dd>
+					<dd>One or more choice structures.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code><br>Chainable.
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
 				</div>
 
 
@@ -894,26 +927,67 @@ Charcoal\Config\AbstractEntity
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="addChoices" id="_addChoices">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#545-560" title="Go to source code">addChoices</a>( <span>array <var>$choices</var></span> )</code>
+
+		<div class="description short">
+			<p>Merge the available choices.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Merge the available choices.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choices</var></dt>
+					<dd>One or more choice structures.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_addChoices">Charcoal\Property\SelectablePropertyInterface::addChoices()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="addChoice" id="_addChoice">
 
 		<td class="attributes"><code>
 			 public 
 
-			<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code>
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addChoice">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#486-499" title="Go to source code">addChoice</a>( <span>string <var>$choiceIdent</var></span>, <span>string|array <var>$choice</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#562-578" title="Go to source code">addChoice</a>( <span>string <var>$choiceIdent</var></span>, <span>string|array <var>$choice</var></span> )</code>
 
 		<div class="description short">
-			<p>Add a choice to the available choices map.</p>
+			<p>Add a choice to the available choices.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Add a choice to the available choices map.</p>
+			<p>Add a choice to the available choices.</p>
 
 
 				<h4>Parameters</h4>
@@ -926,7 +1000,7 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Returns</h4>
 				<div class="list">
-					<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html">Charcoal\Property\SelectablePropertyInterface</a></code><br>Chainable.
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
 				</div>
 
 
@@ -934,6 +1008,79 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_addChoice">Charcoal\Property\SelectablePropertyInterface::addChoice()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="setPagination" id="_setPagination">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setPagination">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#580-591" title="Go to source code">setPagination</a>( <span>array <var>$pagination</var></span> )</code>
+
+		<div class="description short">
+			<p>Set the rules for pagination the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Set the rules for pagination the collection of objects.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$pagination</var></dt>
+					<dd>Pagination settings.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Charcoal.Property.ObjectProperty.html">Charcoal\Property\ObjectProperty</a></code><br>Chainable
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="pagination" id="_pagination">
+
+		<td class="attributes"><code>
+			 public 
+
+			array|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_pagination">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#593-601" title="Go to source code">pagination</a>( )</code>
+
+		<div class="description short">
+			<p>Retrieve the rules for pagination the collection of objects.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the rules for pagination the collection of objects.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array|null
+				</div>
+
+
+
+
 		</div>
 		</div></td>
 	</tr>
@@ -949,7 +1096,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setOrders">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#501-512" title="Go to source code">setOrders</a>( <span>array <var>$orders</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#603-614" title="Go to source code">setOrders</a>( <span>array <var>$orders</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the rules for sorting the collection of objects.</p>
@@ -981,14 +1128,14 @@ Charcoal\Config\AbstractEntity
 		<td class="attributes"><code>
 			 public 
 
-			array
+			array|null
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_orders">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#514-522" title="Go to source code">orders</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#616-624" title="Go to source code">orders</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the rules for sorting the collection of objects.</p>
@@ -1001,7 +1148,7 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					array|null
 				</div>
 
 
@@ -1022,7 +1169,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setFilters">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#524-535" title="Go to source code">setFilters</a>( <span>array <var>$filters</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#626-637" title="Go to source code">setFilters</a>( <span>array <var>$filters</var></span> )</code>
 
 		<div class="description short">
 			<p>Set the rules for filtering the collection of objects.</p>
@@ -1054,14 +1201,14 @@ Charcoal\Config\AbstractEntity
 		<td class="attributes"><code>
 			 public 
 
-			array
+			array|null
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_filters">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#537-545" title="Go to source code">filters</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#639-647" title="Go to source code">filters</a>( )</code>
 
 		<div class="description short">
 			<p>Retrieve the rules for filtering the collection of objects.</p>
@@ -1074,12 +1221,48 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					array|null
 				</div>
 
 
 
 
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasChoices" id="_hasChoices">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#649-661" title="Go to source code">hasChoices</a>( )</code>
+
+		<div class="description short">
+			<p>Determine if choices are available.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Determine if choices are available.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_hasChoices">Charcoal\Property\SelectablePropertyInterface::hasChoices()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -1095,16 +1278,14 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_choices">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#547-585" title="Go to source code">choices</a>( )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#663-680" title="Go to source code">choices</a>( )</code>
 
 		<div class="description short">
-			<p>Get the choices array map.</p>
+			<p>Retrieve the available choice structures.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Get the choices array map.</p>
-
-<p>Required by <code>SelectablePropertyInterface</code>.</p>
+			<p>Retrieve the available choice structures.</p>
 
 
 
@@ -1114,6 +1295,10 @@ Charcoal\Config\AbstractEntity
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choices">Charcoal\Property\SelectablePropertyInterface::choices()</a></code><br>
+				</div>
 
 
 				<h4>Implementation of</h4>
@@ -1133,28 +1318,32 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_hasChoice">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#587-598" title="Go to source code">hasChoice</a>( <span>string <var>$choiceIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#682-694" title="Go to source code">hasChoice</a>( <span>string <var>$choiceIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Returns wether a given choiceIdent exists or not.</p>
+			<p>Determine if the given choice is available.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns wether a given choiceIdent exists or not.</p>
+			<p>Determine if the given choice is available.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choiceIdent</var></dt>
-					<dd>The choice identifier.</dd>
+					<dd>The choice identifier to lookup.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					boolean<br>True / false wether the choice exists or not.
+					boolean
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_hasChoice">Charcoal\Property\SelectablePropertyInterface::hasChoice()</a></code><br>
+				</div>
 
 
 				<h4>Implementation of</h4>
@@ -1174,20 +1363,22 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_choice">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#600-626" title="Go to source code">choice</a>( <span>string|Charcoal\Model\ModelInterface <var>$choiceIdent</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#696-716" title="Go to source code">choice</a>( <span>string <var>$choiceIdent</var></span> )</code>
 
 		<div class="description short">
-			<p>Returns a choice structure for a given ident.</p>
+			<p>Retrieve the structure for a given choice.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Returns a choice structure for a given ident.</p>
+			<p>Retrieve the structure for a given choice.</p>
+
+<p>The method can be used to format an object into a choice structure.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
 					<dt><var>$choiceIdent</var></dt>
-					<dd>The choice ident or object to format.</dd>
+					<dd>The choice identifier to lookup or object to format.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1196,10 +1387,145 @@ Charcoal\Config\AbstractEntity
 				</div>
 
 
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choice">Charcoal\Property\SelectablePropertyInterface::choice()</a></code><br>
+				</div>
 
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choice">Charcoal\Property\SelectablePropertyInterface::choice()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseChoices" id="_parseChoices">
+
+		<td class="attributes"><code>
+			 protected 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseChoices">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#718-741" title="Go to source code">parseChoices</a>( <span>Charcoal\Model\ModelInterface|Traversable <var>$objs</var></span> )</code>
+
+		<div class="description short">
+			<p>Parse the given objects into choice structures.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parse the given objects into choice structures.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$objs</var></dt>
+					<dd>One or more objects to format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>Returns a collection of choice structures.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the collection of objects is not iterable.
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="parseChoice" id="_parseChoice">
+
+		<td class="attributes"><code>
+			 protected 
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_parseChoice">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#743-764" title="Go to source code">parseChoice</a>( <span>Charcoal\Model\ModelInterface <var>$obj</var></span> )</code>
+
+		<div class="description short">
+			<p>Parse the given value into a choice structure.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Parse the given value into a choice structure.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$obj</var></dt>
+					<dd>An object to format.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					array<br>Returns a choice structure.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="choiceLabel" id="_choiceLabel">
+
+		<td class="attributes"><code>
+			 public 
+
+			string|null
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_choiceLabel">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#766-799" title="Go to source code">choiceLabel</a>( <span>string|array|Charcoal\Model\ModelInterface <var>$choice</var></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve the label for a given choice.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the label for a given choice.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$choice</var></dt>
+					<dd>The choice identifier to lookup.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string|null<br>Returns the label. Otherwise, returns the raw value.
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the choice is invalid.
+				</div>
+
+				<h4>See</h4>
+				<div class="list">
+						<code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choiceLabel">Charcoal\Property\SelectablePropertyInterface::choiceLabel()</a></code><br>
+				</div>
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Charcoal.Property.SelectablePropertyInterface.html#_choiceLabel">Charcoal\Property\SelectablePropertyInterface::choiceLabel()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -1215,7 +1541,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_renderObjPattern">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#628-666" title="Go to source code">renderObjPattern</a>( <span>Charcoal\Model\ModelInterface|Charcoal\View\ViewableInterface <var>$obj</var></span>, <span>string|null <var>$pattern</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#801-852" title="Go to source code">renderObjPattern</a>( <span>Charcoal\Model\ModelInterface <var>$obj</var></span>, <span>string|null <var>$pattern</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$lang</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Render the given object.</p>
@@ -1231,6 +1557,8 @@ Charcoal\Config\AbstractEntity
 					<dd>The object or view to render as a label.</dd>
 					<dt><var>$pattern</var></dt>
 					<dd>Optional. The render pattern to render.</dd>
+					<dt><var>$lang</var></dt>
+					<dd>The language to return the value in.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -1243,6 +1571,10 @@ Charcoal\Config\AbstractEntity
 					InvalidArgumentException<br>If the pattern is not a string.
 				</div>
 
+				<h4>See</h4>
+				<div class="list">
+						Move to \Charcoal\Admin\Property\AbstractSelectableInput::choiceObjMap()<br>
+				</div>
 
 
 		</div>
@@ -1260,7 +1592,7 @@ Charcoal\Config\AbstractEntity
 
 		<td class="name"><div>
 		<a class="anchor" href="#_loadObject">#</a>
-		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#668-688" title="Go to source code">loadObject</a>( <span>mixed <var>$id</var></span> )</code>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#854-874" title="Go to source code">loadObject</a>( <span>mixed <var>$objId</var></span> )</code>
 
 		<div class="description short">
 			<p>Retrieve an object by its ID.</p>
@@ -1274,7 +1606,7 @@ Charcoal\Config\AbstractEntity
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$id</var></dt>
+					<dt><var>$objId</var></dt>
 					<dd>Object id.</dd>
 				</dl></div>
 
@@ -1283,6 +1615,49 @@ Charcoal\Config\AbstractEntity
 					Charcoal\Model\ModelInterface
 				</div>
 
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="modelLoader" id="_modelLoader">
+
+		<td class="attributes"><code>
+			 protected 
+
+			Charcoal\Model\Service\ModelLoader
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_modelLoader">#</a>
+		<code><a href="source-class-Charcoal.Property.ObjectProperty.html#876-905" title="Go to source code">modelLoader</a>( <span>string <var>$objType</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Retrieve the model loader.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Retrieve the model loader.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$objType</var></dt>
+					<dd>The object type.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					Charcoal\Model\Service\ModelLoader
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException<br>If the object type is invalid.
+				</div>
 
 
 
@@ -1410,7 +1785,7 @@ Charcoal\Config\AbstractEntity
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Charcoal.Property.ObjectProperty.html#53-60" title="Go to source code"><var>$choices</var></a>
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#56-63" title="Go to source code"><var>$choices</var></a>
 
 			<div class="description short">
 				<p>The available selectable choices.</p>
@@ -1430,14 +1805,39 @@ Charcoal\Config\AbstractEntity
 			</div>
 		</td>
 	</tr>
-	<tr data-order="orders" id="$orders">
+	<tr data-order="pagination" id="$pagination">
 		<td class="attributes"><code>
 			protected  
-			array
+			array|null
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Charcoal.Property.ObjectProperty.html#69-74" title="Go to source code"><var>$orders</var></a>
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#72-77" title="Go to source code"><var>$pagination</var></a>
+
+			<div class="description short">
+				<p>The rules for pagination the collection of objects.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The rules for pagination the collection of objects.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$pagination" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="orders" id="$orders">
+		<td class="attributes"><code>
+			protected  
+			array|null
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#79-84" title="Go to source code"><var>$orders</var></a>
 
 			<div class="description short">
 				<p>The rules for sorting the collection of objects.</p>
@@ -1458,11 +1858,11 @@ Charcoal\Config\AbstractEntity
 	<tr data-order="filters" id="$filters">
 		<td class="attributes"><code>
 			protected  
-			array
+			array|null
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Charcoal.Property.ObjectProperty.html#76-81" title="Go to source code"><var>$filters</var></a>
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#86-91" title="Go to source code"><var>$filters</var></a>
 
 			<div class="description short">
 				<p>The rules for filtering the collection of objects.</p>
@@ -1477,6 +1877,31 @@ Charcoal\Config\AbstractEntity
 			<div>
 				<a href="#$filters" class="anchor">#</a>
 				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="modelLoaders" id="$modelLoaders">
+		<td class="attributes"><code>
+			protected static 
+			Charcoal\Model\Service\ModelLoader
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Charcoal.Property.ObjectProperty.html#100-105" title="Go to source code"><var>$modelLoaders</var></a>
+
+			<div class="description short">
+				<p>Store all model loaders.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Store all model loaders.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$modelLoaders" class="anchor">#</a>
+				<code>[]</code>
 			</div>
 		</td>
 	</tr>
