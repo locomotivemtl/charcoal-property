@@ -1,6 +1,6 @@
 {
     "properties":{
-        "storage_mode":{
+        "storageMode":{
             "type": "text",
             "choices":{
                 "string":{},

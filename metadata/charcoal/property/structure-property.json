@@ -1,10 +1,10 @@
 {
     "properties": {
-        "structure_interfaces": {
+        "structureInterfaces": {
             "type": "string",
             "multiple": true
         },
-        "structure_metadata": {
+        "structureMetadata": {
             "type": "structure"
         }
     },

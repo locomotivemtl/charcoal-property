@@ -1,6 +1,6 @@
 {
     "properties": {
-        "driver_type":{
+        "driverType":{
             "label":"Image driver",
             "type": "text",
             "choices":{
@@ -11,7 +11,7 @@
         "effects": {
             "type": "structure"
         },
-        "apply_effects": {
+        "applyEffects": {
             "type": "string"
         }
     }

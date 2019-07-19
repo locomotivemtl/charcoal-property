@@ -1,6 +1,6 @@
 {
     "properties": {
-        "support_alpha": {
+        "supportAlpha": {
             "type": "boolean",
             "label": "Alpha supported?"
         }

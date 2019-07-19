@@ -1,6 +1,6 @@
 {
     "properties":{
-        "obj_type":{
+        "objType":{
             "type":"string",
             "label":"Object type"
         },
