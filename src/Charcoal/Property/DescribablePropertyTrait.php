@@ -67,6 +67,7 @@ trait DescribablePropertyTrait
             );
         }
 
+        $propertyIdent = $this->camelize($propertyIdent);
         $metadata = $this->metadata();
         $property = $metadata->propertyObject($propertyIdent);
         if ($property === null) {
@@ -110,6 +111,7 @@ trait DescribablePropertyTrait
             );
         }
 
+        $propertyIdent = $this->camelize($propertyIdent);
         $metadata   = $this->metadata();
         $properties = $metadata->properties();
 
@@ -179,7 +181,8 @@ trait DescribablePropertyTrait
                 (is_object($propertyIdent) ? get_class($propertyIdent) : gettype($propertyIdent))
             );
         }
-
+        $propertyIdent = $this->camelize($propertyIdent);
+        
         $props = $this->metadata()->properties();
 
         if (empty($props)) {
