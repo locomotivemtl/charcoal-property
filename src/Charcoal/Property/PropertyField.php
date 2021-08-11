@@ -43,7 +43,17 @@ class PropertyField
     /**
      * @var mixed
      */
+    private $selectExpressions;
+
+    /**
+     * @var mixed
+     */
     private $val;
+
+    /**
+     * @var \Closure
+     */
+    private $parseBinding;
 
     /**
      * @var mixed
@@ -86,8 +96,14 @@ class PropertyField
         if (isset($data['extra'])) {
             $this->setExtra($data['extra']);
         }
+        if (isset($data['selectExpressions'])) {
+            $this->setSelectExpressions($data['selectExpressions']);
+        }
         if (isset($data['val'])) {
             $this->setVal($data['val']);
+        }
+        if (isset($data['parseBinding'])) {
+            $this->setParseBinding($data['parseBinding']);
         }
         if (isset($data['defaultVal'])) {
             $this->setDefaultVal($data['defaultVal']);
@@ -248,6 +264,25 @@ class PropertyField
     }
 
     /**
+     * @return array
+     */
+    public function selectExpressions()
+    {
+        return $this->selectExpressions;
+    }
+
+    /**
+     * @param mixed $selectExpressions SqlSelectExpressions for PropertyField.
+     * @return self
+     */
+    public function setSelectExpressions($selectExpressions)
+    {
+        $this->selectExpressions = $selectExpressions;
+
+        return $this;
+    }
+
+    /**
      * @param  mixed $val The field value.
      * @return PropertyField Chainable
      */
@@ -263,6 +298,25 @@ class PropertyField
     public function val()
     {
         return $this->val;
+    }
+
+    /**
+     * @return \Closure
+     */
+    public function parseBinding()
+    {
+        return $this->parseBinding;
+    }
+
+    /**
+     * @param \Closure $parseBinding ParseBinding for PropertyField.
+     * @return self
+     */
+    public function setParseBinding($parseBinding)
+    {
+        $this->parseBinding = $parseBinding;
+
+        return $this;
     }
 
     /**

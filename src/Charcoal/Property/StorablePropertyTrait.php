@@ -122,6 +122,23 @@ trait StorablePropertyTrait
     }
 
     /**
+     * Overridable to allow for custom Field Name parsing.
+     *
+     * This allows to add additional functions to a select statement that looks like this :
+     *  'MySQL_FUNCTION(select)'
+     *
+     * @param string $key       The property field key.
+     * @param mixed  $fieldName The raw filed name.
+     * @return mixed
+     */
+    protected function fieldExpression($key, $fieldName)
+    {
+        unset($key);
+
+        return $fieldName;
+    }
+
+    /**
      * Retrieve the property's value in a format suitable for the given field key.
      *
      * @param  string $key The property field key.
@@ -191,6 +208,24 @@ trait StorablePropertyTrait
     }
 
     /**
+     * Overridable by property controller to add a custom parsing for the binding identifier.
+     *
+     * This allows to add additional functions to an expression to generate a binding statement that looks like this :
+     *  'MySQL_FUNCTION(:bind)'
+     *
+     * @return \Closure
+     */
+    protected function parseBinding()
+    {
+        /**
+         * @param string $bind The PDO bind string.
+         */
+        return function ($bind) {
+            return $bind;
+        };
+    }
+
+    /**
      * Parse the property's value (from a flattened structure)
      * in a format suitable for models.
      *
@@ -254,14 +289,16 @@ trait StorablePropertyTrait
         $fieldNames = $this->fieldNames();
         foreach ($fieldNames as $fieldKey => $fieldName) {
             $field = $this->createPropertyField([
-                'ident'       => $fieldName,
-                'sqlType'     => $this->sqlType(),
-                'sqlPdoType'  => $this->sqlPdoType(),
-                'sqlEncoding' => $this->sqlEncoding(),
-                'extra'       => $this->sqlExtra(),
-                'val'         => $this->fieldValue($fieldKey, $val),
-                'defaultVal'  => $this->sqlDefaultVal(),
-                'allowNull'   => $this['allowNull'],
+                'ident'                => $fieldName,
+                'sqlType'              => $this->sqlType(),
+                'sqlPdoType'           => $this->sqlPdoType(),
+                'sqlEncoding'          => $this->sqlEncoding(),
+                'extra'                => $this->sqlExtra(),
+                'selectExpressions'    => $this->fieldExpression($fieldKey, $fieldName),
+                'val'                  => $this->fieldValue($fieldKey, $val),
+                'parseBinding'         => $this->parseBinding(),
+                'defaultVal'           => $this->sqlDefaultVal(),
+                'allowNull'            => $this['allowNull'],
             ]);
 
             $fields[$fieldKey] = $field;
