@@ -43,7 +43,7 @@ class PropertyField
     /**
      * @var mixed
      */
-    private $selectExpressions;
+    private $sqlSelectExpression;
 
     /**
      * @var mixed
@@ -53,7 +53,7 @@ class PropertyField
     /**
      * @var \Closure
      */
-    private $parseBinding;
+    private $sqlPdoBindParamExpression;
 
     /**
      * @var mixed
@@ -102,8 +102,8 @@ class PropertyField
         if (isset($data['val'])) {
             $this->setVal($data['val']);
         }
-        if (isset($data['parseBinding'])) {
-            $this->setParseBinding($data['parseBinding']);
+        if (isset($data['sqlPdoBindParamExpression'])) {
+            $this->setSqlPdoBindParamExpression($data['sqlPdoBindParamExpression']);
         }
         if (isset($data['defaultVal'])) {
             $this->setDefaultVal($data['defaultVal']);
@@ -270,7 +270,7 @@ class PropertyField
      */
     public function sqlSelectExpression()
     {
-        return $this->sqlSelectExpression ?? $this->ident();
+        return ($this->sqlSelectExpression ?? $this->ident());
     }
 
     /**
@@ -305,20 +305,35 @@ class PropertyField
     }
 
     /**
+     * Format the property's PDO binding parameter identifier.
+     *
+     * This method allows a property to apply an SQL function to a named placeholder:
+     *
+     * ```sql
+     * function ($param) {
+     *     return 'ST_GeomFromGeoJSON('.$param.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of object
+     * inserts and updates in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @link https://www.php.net/manual/en/pdostatement.bindparam.php
+     *
      * @return \Closure
      */
-    public function parseBinding()
+    public function sqlPdoBindParamExpression()
     {
-        return $this->parseBinding;
+        return $this->sqlPdoBindParamExpression;
     }
 
     /**
-     * @param \Closure $parseBinding ParseBinding for PropertyField.
+     * @param \Closure $sqlPdoBindParamExpression A callback function to apply an SQL function to a named placeholder.
      * @return self
      */
-    public function setParseBinding($parseBinding)
+    public function setSqlPdoBindParamExpression($sqlPdoBindParamExpression)
     {
-        $this->parseBinding = $parseBinding;
+        $this->sqlPdoBindParamExpression = $sqlPdoBindParamExpression;
 
         return $this;
     }

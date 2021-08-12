@@ -164,7 +164,7 @@ trait StorablePropertyTrait
      * @param mixed  $fieldName The raw filed name.
      * @return mixed
      */
-    protected function fieldExpression($key, $fieldName)
+    protected function sqlSelectExpression($key, $fieldName)
     {
         unset($key);
 
@@ -258,12 +258,12 @@ trait StorablePropertyTrait
      *
      * This method returns a closure to be called during the processing of object
      * inserts and updates in {@see \Charcoal\Source\DatabaseSource}.
-     * 
+     *
      * @link https://www.php.net/manual/en/pdostatement.bindparam.php
      *
      * @return \Closure
      */
-    protected function getSqlPdoBindParamExpression()
+    protected function sqlPdoBindParamExpression()
     {
         /**
          * Format the PDO parameter name.
@@ -346,8 +346,8 @@ trait StorablePropertyTrait
                 'sqlEncoding'               => $this->sqlEncoding(),
                 'extra'                     => $this->sqlExtra(),
                 'val'                       => $this->fieldValue($fieldKey, $val),
-                'sqlSelectExpression'       => $this->getSqlSelectExpression($fieldKey, $fieldName),
-                'sqlPdoBindParamExpression' => $this->getSqlPdoBindParamExpression(),
+                'sqlSelectExpression'       => $this->sqlSelectExpression($fieldKey, $fieldName),
+                'sqlPdoBindParamExpression' => $this->sqlPdoBindParamExpression(),
                 'defaultVal'                => $this->sqlDefaultVal(),
                 'allowNull'                 => $this['allowNull'],
             ]);
