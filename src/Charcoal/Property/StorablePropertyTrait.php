@@ -94,13 +94,46 @@ trait StorablePropertyTrait
     /**
      * Retrieve the property's namespaced storage field names.
      *
-     * Examples:
-     * 1. `name`: `name_en`, `name_fr`, `name_de`
-     * 2. `obj`: `obj_id`, `obj_type`
-     * 3. `file`: `file`, `file_type`
-     * 4. `opt`: `opt_0`, `opt_1`, `opt_2`
+     * This method can be overridden for custom field names.
      *
-     * @return string[]
+     * Example #1 property `name`:
+     *
+     * ```
+     * {
+     *   "": "name_en"
+     * }
+     * ```
+     *
+     * Example #2 multilingual property `title`:
+     *
+     * ```
+     * {
+     *   "en": "title_en",
+     *   "fr": "title_fr",
+     *   "de": "title_de"
+     * }
+     * ```
+     *
+     * Example #3 custom property `obj`:
+     *
+     * ```
+     * {
+     *   "id": "obj_id",
+     *   "type": "obj_type"
+     * }
+     * ```
+     *
+     * Example #4 custom property `tuple`:
+     *
+     * ```
+     * {
+     *   "1": "tuple_1",
+     *   "2": "tuple_2",
+     *   "3": "tuple_3"
+     * }
+     * ```
+     *
+     * @return array<(string|int), string>
      */
     public function fieldNames()
     {
@@ -139,7 +172,10 @@ trait StorablePropertyTrait
     }
 
     /**
-     * Retrieve the property's value in a format suitable for the given field key.
+     * Format the property's value for the given field key suitable for storage.
+     *
+     * This method can be overridden for parsing custom field values.
+     * It is recommended to override {@see self::storageVal()} instead.
      *
      * @param  string $key The property field key.
      * @param  mixed  $val The value to set as field value.
