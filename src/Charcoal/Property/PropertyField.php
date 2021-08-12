@@ -96,8 +96,8 @@ class PropertyField
         if (isset($data['extra'])) {
             $this->setExtra($data['extra']);
         }
-        if (isset($data['selectExpressions'])) {
-            $this->setSelectExpressions($data['selectExpressions']);
+        if (isset($data['sqlSelectExpression'])) {
+            $this->setSqlSelectExpression($data['sqlSelectExpression']);
         }
         if (isset($data['val'])) {
             $this->setVal($data['val']);
@@ -264,20 +264,24 @@ class PropertyField
     }
 
     /**
-     * @return array
+     * Retrieve the SQL SELECT field expression.
+     *
+     * @return string
      */
-    public function selectExpressions()
+    public function sqlSelectExpression()
     {
-        return $this->selectExpressions;
+        return $this->sqlSelectExpression ?? $this->ident();
     }
 
     /**
-     * @param mixed $selectExpressions SqlSelectExpressions for PropertyField.
+     * Set the SQL SELECT field expression.
+     *
+     * @param  string $expression The field expression.
      * @return self
      */
-    public function setSelectExpressions($selectExpressions)
+    public function setSqlSelectExpression($expression)
     {
-        $this->selectExpressions = $selectExpressions;
+        $this->sqlSelectExpression = $expression;
 
         return $this;
     }

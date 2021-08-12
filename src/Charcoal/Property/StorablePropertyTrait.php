@@ -244,20 +244,35 @@ trait StorablePropertyTrait
     }
 
     /**
-     * Overridable by property controller to add a custom parsing for the binding identifier.
+     * Format the property's PDO binding parameter identifier.
      *
-     * This allows to add additional functions to an expression to generate a binding statement that looks like this :
-     *  'MySQL_FUNCTION(:bind)'
+     * This method can be overridden for custom named placeholder parsing.
+     *
+     * This method allows a property to apply an SQL function to a named placeholder:
+     *
+     * ```sql
+     * function ($param) {
+     *     return 'ST_GeomFromGeoJSON('.$param.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of object
+     * inserts and updates in {@see \Charcoal\Source\DatabaseSource}.
+     * 
+     * @link https://www.php.net/manual/en/pdostatement.bindparam.php
      *
      * @return \Closure
      */
-    protected function parseBinding()
+    protected function getSqlPdoBindParamExpression()
     {
         /**
-         * @param string $bind The PDO bind string.
+         * Format the PDO parameter name.
+         *
+         * @param  string $param A PDO parameter name in the form `:name`.
+         * @return string The formatted parameter name.
          */
-        return function ($bind) {
-            return $bind;
+        return function ($param) {
+            return $param;
         };
     }
 
@@ -325,16 +340,16 @@ trait StorablePropertyTrait
         $fieldNames = $this->fieldNames();
         foreach ($fieldNames as $fieldKey => $fieldName) {
             $field = $this->createPropertyField([
-                'ident'                => $fieldName,
-                'sqlType'              => $this->sqlType(),
-                'sqlPdoType'           => $this->sqlPdoType(),
-                'sqlEncoding'          => $this->sqlEncoding(),
-                'extra'                => $this->sqlExtra(),
-                'selectExpressions'    => $this->fieldExpression($fieldKey, $fieldName),
-                'val'                  => $this->fieldValue($fieldKey, $val),
-                'parseBinding'         => $this->parseBinding(),
-                'defaultVal'           => $this->sqlDefaultVal(),
-                'allowNull'            => $this['allowNull'],
+                'ident'                     => $fieldName,
+                'sqlType'                   => $this->sqlType(),
+                'sqlPdoType'                => $this->sqlPdoType(),
+                'sqlEncoding'               => $this->sqlEncoding(),
+                'extra'                     => $this->sqlExtra(),
+                'val'                       => $this->fieldValue($fieldKey, $val),
+                'sqlSelectExpression'       => $this->getSqlSelectExpression($fieldKey, $fieldName),
+                'sqlPdoBindParamExpression' => $this->getSqlPdoBindParamExpression(),
+                'defaultVal'                => $this->sqlDefaultVal(),
+                'allowNull'                 => $this['allowNull'],
             ]);
 
             $fields[$fieldKey] = $field;
