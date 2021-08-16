@@ -155,20 +155,28 @@ trait StorablePropertyTrait
     }
 
     /**
-     * Overridable to allow for custom Field Name parsing.
+     * Format the property's PDO select statement.
      *
-     * This allows to add additional functions to a select statement that looks like this :
-     *  'MySQL_FUNCTION(select)'
+     * This method can be overridden for custom select function parsing.
      *
-     * @param string $key       The property field key.
-     * @param mixed  $fieldName The raw filed name.
-     * @return mixed
+     * This method allows a property to apply an SQL function to a property select statement:
+     *
+     * ```sql
+     * function ($select) {
+     *   return 'ST_AsGeoJSON('.$select.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of fetching the object
+     * or collection in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @return \Closure
      */
-    protected function sqlSelectExpression($key, $fieldName)
+    protected function sqlSelectExpression()
     {
-        unset($key);
-
-        return $fieldName;
+        return function ($select) {
+            return $select;
+        };
     }
 
     /**
@@ -346,7 +354,7 @@ trait StorablePropertyTrait
                 'sqlEncoding'               => $this->sqlEncoding(),
                 'extra'                     => $this->sqlExtra(),
                 'val'                       => $this->fieldValue($fieldKey, $val),
-                'sqlSelectExpression'       => $this->sqlSelectExpression($fieldKey, $fieldName),
+                'sqlSelectExpression'       => $this->sqlSelectExpression(),
                 'sqlPdoBindParamExpression' => $this->sqlPdoBindParamExpression(),
                 'defaultVal'                => $this->sqlDefaultVal(),
                 'allowNull'                 => $this['allowNull'],

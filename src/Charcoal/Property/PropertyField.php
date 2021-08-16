@@ -41,7 +41,7 @@ class PropertyField
     private $extra;
 
     /**
-     * @var mixed
+     * @var \Closure
      */
     private $sqlSelectExpression;
 
@@ -264,19 +264,32 @@ class PropertyField
     }
 
     /**
-     * Retrieve the SQL SELECT field expression.
+     * Format the property's PDO select statement.
      *
-     * @return string
+     * This method can be overridden for custom select function parsing.
+     *
+     * This method allows a property to apply an SQL function to a property select statement:
+     *
+     * ```sql
+     * function ($select) {
+     *   return 'ST_AsGeoJSON('.$select.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of fetching the object
+     * or collection in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @return \Closure
      */
     public function sqlSelectExpression()
     {
-        return ($this->sqlSelectExpression ?? $this->ident());
+        return $this->sqlSelectExpression;
     }
 
     /**
      * Set the SQL SELECT field expression.
      *
-     * @param  string $expression The field expression.
+     * @param  \Closure $expression The field expression.
      * @return self
      */
     public function setSqlSelectExpression($expression)
