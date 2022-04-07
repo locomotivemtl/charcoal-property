@@ -2,6 +2,8 @@
 
 namespace Charcoal\Property;
 
+use Charcoal\ImageCompression\ImageCompressor;
+use Charcoal\ImageCompression\Service\ImageCompressionService;
 use InvalidArgumentException;
 use OutOfBoundsException;
 
@@ -14,6 +16,7 @@ use Charcoal\Translator\Translation;
 
 // From 'charcoal-property'
 use Charcoal\Property\FileProperty;
+use Pimple\Container;
 
 /**
  * Image Property.
@@ -56,6 +59,24 @@ class ImageProperty extends FileProperty
      * @var ImageFactory
      */
     private $imageFactory;
+
+    /**
+     * @var ImageCompressionService
+     */
+    private $imageCompression;
+
+    /**
+     * Inject dependencies from a DI Container.
+     *
+     * @param  Container $container A dependencies container instance.
+     * @return void
+     */
+    protected function setDependencies(Container $container)
+    {
+        parent::setDependencies($container);
+
+        $this->imageCompression = $container['image-compression'];
+    }
 
     /**
      * @return string
@@ -325,6 +346,10 @@ class ImageProperty extends FileProperty
             $val = $this->processEffects($val);
         }
 
+        if ($val) {
+            $this->imageCompression->compress($val);
+        }
+
         return $val;
     }
 
@@ -584,4 +609,6 @@ class ImageProperty extends FileProperty
 
         return $value;
     }
+
+
 }
