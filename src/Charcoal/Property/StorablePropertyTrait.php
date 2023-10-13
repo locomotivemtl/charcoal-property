@@ -94,13 +94,46 @@ trait StorablePropertyTrait
     /**
      * Retrieve the property's namespaced storage field names.
      *
-     * Examples:
-     * 1. `name`: `name_en`, `name_fr`, `name_de`
-     * 2. `obj`: `obj_id`, `obj_type`
-     * 3. `file`: `file`, `file_type`
-     * 4. `opt`: `opt_0`, `opt_1`, `opt_2`
+     * This method can be overridden for custom field names.
      *
-     * @return string[]
+     * Example #1 property `name`:
+     *
+     * ```
+     * {
+     *   "": "name_en"
+     * }
+     * ```
+     *
+     * Example #2 multilingual property `title`:
+     *
+     * ```
+     * {
+     *   "en": "title_en",
+     *   "fr": "title_fr",
+     *   "de": "title_de"
+     * }
+     * ```
+     *
+     * Example #3 custom property `obj`:
+     *
+     * ```
+     * {
+     *   "id": "obj_id",
+     *   "type": "obj_type"
+     * }
+     * ```
+     *
+     * Example #4 custom property `tuple`:
+     *
+     * ```
+     * {
+     *   "1": "tuple_1",
+     *   "2": "tuple_2",
+     *   "3": "tuple_3"
+     * }
+     * ```
+     *
+     * @return array<(string|int), string>
      */
     public function fieldNames()
     {
@@ -122,7 +155,35 @@ trait StorablePropertyTrait
     }
 
     /**
-     * Retrieve the property's value in a format suitable for the given field key.
+     * Format the property's PDO select statement.
+     *
+     * This method can be overridden for custom select function parsing.
+     *
+     * This method allows a property to apply an SQL function to a property select statement:
+     *
+     * ```sql
+     * function ($select) {
+     *   return 'ST_AsGeoJSON('.$select.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of fetching the object
+     * or collection in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @return \Closure
+     */
+    protected function sqlSelectExpression()
+    {
+        return function ($select) {
+            return $select;
+        };
+    }
+
+    /**
+     * Format the property's value for the given field key suitable for storage.
+     *
+     * This method can be overridden for parsing custom field values.
+     * It is recommended to override {@see self::storageVal()} instead.
      *
      * @param  string $key The property field key.
      * @param  mixed  $val The value to set as field value.
@@ -191,6 +252,39 @@ trait StorablePropertyTrait
     }
 
     /**
+     * Format the property's PDO binding parameter identifier.
+     *
+     * This method can be overridden for custom named placeholder parsing.
+     *
+     * This method allows a property to apply an SQL function to a named placeholder:
+     *
+     * ```sql
+     * function ($param) {
+     *     return 'ST_GeomFromGeoJSON('.$param.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of object
+     * inserts and updates in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @link https://www.php.net/manual/en/pdostatement.bindparam.php
+     *
+     * @return \Closure
+     */
+    protected function sqlPdoBindParamExpression()
+    {
+        /**
+         * Format the PDO parameter name.
+         *
+         * @param  string $param A PDO parameter name in the form `:name`.
+         * @return string The formatted parameter name.
+         */
+        return function ($param) {
+            return $param;
+        };
+    }
+
+    /**
      * Parse the property's value (from a flattened structure)
      * in a format suitable for models.
      *
@@ -254,14 +348,16 @@ trait StorablePropertyTrait
         $fieldNames = $this->fieldNames();
         foreach ($fieldNames as $fieldKey => $fieldName) {
             $field = $this->createPropertyField([
-                'ident'       => $fieldName,
-                'sqlType'     => $this->sqlType(),
-                'sqlPdoType'  => $this->sqlPdoType(),
-                'sqlEncoding' => $this->sqlEncoding(),
-                'extra'       => $this->sqlExtra(),
-                'val'         => $this->fieldValue($fieldKey, $val),
-                'defaultVal'  => $this->sqlDefaultVal(),
-                'allowNull'   => $this['allowNull'],
+                'ident'                     => $fieldName,
+                'sqlType'                   => $this->sqlType(),
+                'sqlPdoType'                => $this->sqlPdoType(),
+                'sqlEncoding'               => $this->sqlEncoding(),
+                'extra'                     => $this->sqlExtra(),
+                'val'                       => $this->fieldValue($fieldKey, $val),
+                'sqlSelectExpression'       => $this->sqlSelectExpression(),
+                'sqlPdoBindParamExpression' => $this->sqlPdoBindParamExpression(),
+                'defaultVal'                => $this->sqlDefaultVal(),
+                'allowNull'                 => $this['allowNull'],
             ]);
 
             $fields[$fieldKey] = $field;

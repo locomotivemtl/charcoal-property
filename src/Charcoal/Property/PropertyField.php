@@ -41,9 +41,19 @@ class PropertyField
     private $extra;
 
     /**
+     * @var \Closure
+     */
+    private $sqlSelectExpression;
+
+    /**
      * @var mixed
      */
     private $val;
+
+    /**
+     * @var \Closure
+     */
+    private $sqlPdoBindParamExpression;
 
     /**
      * @var mixed
@@ -86,8 +96,14 @@ class PropertyField
         if (isset($data['extra'])) {
             $this->setExtra($data['extra']);
         }
+        if (isset($data['sqlSelectExpression'])) {
+            $this->setSqlSelectExpression($data['sqlSelectExpression']);
+        }
         if (isset($data['val'])) {
             $this->setVal($data['val']);
+        }
+        if (isset($data['sqlPdoBindParamExpression'])) {
+            $this->setSqlPdoBindParamExpression($data['sqlPdoBindParamExpression']);
         }
         if (isset($data['defaultVal'])) {
             $this->setDefaultVal($data['defaultVal']);
@@ -248,6 +264,42 @@ class PropertyField
     }
 
     /**
+     * Format the property's PDO select statement.
+     *
+     * This method can be overridden for custom select function parsing.
+     *
+     * This method allows a property to apply an SQL function to a property select statement:
+     *
+     * ```sql
+     * function ($select) {
+     *   return 'ST_AsGeoJSON('.$select.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of fetching the object
+     * or collection in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @return \Closure
+     */
+    public function sqlSelectExpression()
+    {
+        return $this->sqlSelectExpression;
+    }
+
+    /**
+     * Set the SQL SELECT field expression.
+     *
+     * @param  \Closure $expression The field expression.
+     * @return self
+     */
+    public function setSqlSelectExpression($expression)
+    {
+        $this->sqlSelectExpression = $expression;
+
+        return $this;
+    }
+
+    /**
      * @param  mixed $val The field value.
      * @return PropertyField Chainable
      */
@@ -263,6 +315,40 @@ class PropertyField
     public function val()
     {
         return $this->val;
+    }
+
+    /**
+     * Format the property's PDO binding parameter identifier.
+     *
+     * This method allows a property to apply an SQL function to a named placeholder:
+     *
+     * ```sql
+     * function ($param) {
+     *     return 'ST_GeomFromGeoJSON('.$param.')';
+     * }
+     * ```
+     *
+     * This method returns a closure to be called during the processing of object
+     * inserts and updates in {@see \Charcoal\Source\DatabaseSource}.
+     *
+     * @link https://www.php.net/manual/en/pdostatement.bindparam.php
+     *
+     * @return \Closure
+     */
+    public function sqlPdoBindParamExpression()
+    {
+        return $this->sqlPdoBindParamExpression;
+    }
+
+    /**
+     * @param \Closure $sqlPdoBindParamExpression A callback function to apply an SQL function to a named placeholder.
+     * @return self
+     */
+    public function setSqlPdoBindParamExpression($sqlPdoBindParamExpression)
+    {
+        $this->sqlPdoBindParamExpression = $sqlPdoBindParamExpression;
+
+        return $this;
     }
 
     /**
